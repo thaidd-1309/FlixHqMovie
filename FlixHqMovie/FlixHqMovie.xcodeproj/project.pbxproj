@@ -1,0 +1,692 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C8D29B83F7C00239D70 /* AppDelegate.swift */; };
+		1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */; };
+		1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A780C9929B83F7D00239D70 /* Assets.xcassets */; };
+		1A780C9D29B83F7D00239D70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A780C9B29B83F7D00239D70 /* LaunchScreen.storyboard */; };
+		1A780CB129B8498D00239D70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CAF29B8498D00239D70 /* LoginViewController.swift */; };
+		1A780CB829B849C800239D70 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CB729B849C800239D70 /* LoginCoordinator.swift */; };
+		1A780CBB29B84A5300239D70 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CB929B84A5300239D70 /* MainTabBarViewController.swift */; };
+		1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CBA29B84A5300239D70 /* MainViewController.xib */; };
+		1A780CBE29B84AA700239D70 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CBD29B84AA700239D70 /* MainTabBarCoordinator.swift */; };
+		1A780CC129B84BB400239D70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CBF29B84BB400239D70 /* HomeViewController.swift */; };
+		1A780CC229B84BB400239D70 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CC029B84BB400239D70 /* HomeViewController.xib */; };
+		1A780CC429B84BCF00239D70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CC329B84BCF00239D70 /* HomeViewModel.swift */; };
+		1A780CC629B84BF700239D70 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CC529B84BF700239D70 /* HomeCoordinator.swift */; };
+		1A780CC929B84C4B00239D70 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CC729B84C4B00239D70 /* ExploreViewController.swift */; };
+		1A780CCA29B84C4B00239D70 /* ExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CC829B84C4B00239D70 /* ExploreViewController.xib */; };
+		1A780CCC29B84C6400239D70 /* ExploreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CCB29B84C6400239D70 /* ExploreCoordinator.swift */; };
+		1A780CCE29B84C8000239D70 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CCD29B84C8000239D70 /* ExploreViewModel.swift */; };
+		1A780CD029B84CBE00239D70 /* ExploreUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CCF29B84CBE00239D70 /* ExploreUseCase.swift */; };
+		1A780CD229B84CCD00239D70 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD129B84CCD00239D70 /* HomeUseCase.swift */; };
+		1A780CD429B84CE100239D70 /* MyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD329B84CE100239D70 /* MyListViewModel.swift */; };
+		1A780CD629B84CF600239D70 /* MyListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD529B84CF600239D70 /* MyListCoordinator.swift */; };
+		1A780CD829B84D0E00239D70 /* MyListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD729B84D0E00239D70 /* MyListUseCase.swift */; };
+		1A780CDB29B84D2000239D70 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD929B84D2000239D70 /* MyListViewController.swift */; };
+		1A780CDC29B84D2000239D70 /* MyListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CDA29B84D2000239D70 /* MyListViewController.xib */; };
+		1A780CDE29B84D4800239D70 /* DownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CDD29B84D4800239D70 /* DownloadViewModel.swift */; };
+		1A780CE029B84D6400239D70 /* DownloadCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CDF29B84D6400239D70 /* DownloadCoordinator.swift */; };
+		1A780CE229B84D7A00239D70 /* DownloadUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CE129B84D7A00239D70 /* DownloadUseCase.swift */; };
+		1A780CE529B84D9300239D70 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CE329B84D9300239D70 /* DownloadViewController.swift */; };
+		1A780CE629B84D9300239D70 /* DownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CE429B84D9300239D70 /* DownloadViewController.xib */; };
+		1A780CE829B84DA500239D70 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CE729B84DA500239D70 /* ProfileViewModel.swift */; };
+		1A780CEA29B84DB700239D70 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CE929B84DB700239D70 /* ProfileCoordinator.swift */; };
+		1A780CED29B84DCE00239D70 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CEB29B84DCE00239D70 /* ProfileViewController.swift */; };
+		1A780CEE29B84DCE00239D70 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CEC29B84DCE00239D70 /* ProfileViewController.xib */; };
+		1A780CF129B84E1100239D70 /* MediaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CF029B84E1100239D70 /* MediaRepository.swift */; };
+		1A780CF429B84E5200239D70 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CF329B84E5200239D70 /* ViewModelType.swift */; };
+		1A780CF629B84E6900239D70 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CF529B84E6900239D70 /* CoordinatorProtocol.swift */; };
+		1A780CF929B84EF300239D70 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CF829B84EF300239D70 /* APIService.swift */; };
+		1A780CFC29B84F7700239D70 /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CFB29B84F7700239D70 /* MediaModel.swift */; };
+		1A780D0029B860CF00239D70 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CFF29B860CF00239D70 /* LoginViewController.xib */; };
+		1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA016D829B87CA2003DB29A /* UIView+.swift */; };
+		1AA016E029B89476003DB29A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA016DF29B89476003DB29A /* ViewController.swift */; };
+		1AA016E229B8948B003DB29A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA016E129B8948B003DB29A /* Main.storyboard */; };
+		A680DC1ADFDE0C2958D7B841 /* Pods_FlixHqMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F2684EB8BBA812CD96A63 /* Pods_FlixHqMovie.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0784EE7B65040A7985B31AC9 /* Pods-FlixHqMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixHqMovie.release.xcconfig"; path = "Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie.release.xcconfig"; sourceTree = "<group>"; };
+		1A780C8A29B83F7C00239D70 /* FlixHqMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlixHqMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A780C8D29B83F7C00239D70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A780C9729B83F7C00239D70 /* FlixHqMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlixHqMovie.xcdatamodel; sourceTree = "<group>"; };
+		1A780C9929B83F7D00239D70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A780C9C29B83F7D00239D70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A780C9E29B83F7D00239D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A780CAF29B8498D00239D70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1A780CB729B849C800239D70 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		1A780CB929B84A5300239D70 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		1A780CBA29B84A5300239D70 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		1A780CBD29B84AA700239D70 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
+		1A780CBF29B84BB400239D70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1A780CC029B84BB400239D70 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		1A780CC329B84BCF00239D70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		1A780CC529B84BF700239D70 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		1A780CC729B84C4B00239D70 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		1A780CC829B84C4B00239D70 /* ExploreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreViewController.xib; sourceTree = "<group>"; };
+		1A780CCB29B84C6400239D70 /* ExploreCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCoordinator.swift; sourceTree = "<group>"; };
+		1A780CCD29B84C8000239D70 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		1A780CCF29B84CBE00239D70 /* ExploreUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUseCase.swift; sourceTree = "<group>"; };
+		1A780CD129B84CCD00239D70 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		1A780CD329B84CE100239D70 /* MyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewModel.swift; sourceTree = "<group>"; };
+		1A780CD529B84CF600239D70 /* MyListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCoordinator.swift; sourceTree = "<group>"; };
+		1A780CD729B84D0E00239D70 /* MyListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListUseCase.swift; sourceTree = "<group>"; };
+		1A780CD929B84D2000239D70 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		1A780CDA29B84D2000239D70 /* MyListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyListViewController.xib; sourceTree = "<group>"; };
+		1A780CDD29B84D4800239D70 /* DownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewModel.swift; sourceTree = "<group>"; };
+		1A780CDF29B84D6400239D70 /* DownloadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCoordinator.swift; sourceTree = "<group>"; };
+		1A780CE129B84D7A00239D70 /* DownloadUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUseCase.swift; sourceTree = "<group>"; };
+		1A780CE329B84D9300239D70 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
+		1A780CE429B84D9300239D70 /* DownloadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadViewController.xib; sourceTree = "<group>"; };
+		1A780CE729B84DA500239D70 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		1A780CE929B84DB700239D70 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		1A780CEB29B84DCE00239D70 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1A780CEC29B84DCE00239D70 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		1A780CF029B84E1100239D70 /* MediaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaRepository.swift; sourceTree = "<group>"; };
+		1A780CF329B84E5200239D70 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		1A780CF529B84E6900239D70 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		1A780CF829B84EF300239D70 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		1A780CFB29B84F7700239D70 /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
+		1A780CFF29B860CF00239D70 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		1AA016D829B87CA2003DB29A /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		1AA016DF29B89476003DB29A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1AA016E129B8948B003DB29A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		42C686F05902772F972AFAF4 /* Pods-FlixHqMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixHqMovie.debug.xcconfig"; path = "Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie.debug.xcconfig"; sourceTree = "<group>"; };
+		E90F2684EB8BBA812CD96A63 /* Pods_FlixHqMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixHqMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A780C8729B83F7C00239D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A680DC1ADFDE0C2958D7B841 /* Pods_FlixHqMovie.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02D70CCA9E4A0DE26F3FC075 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E90F2684EB8BBA812CD96A63 /* Pods_FlixHqMovie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A780C8129B83F7C00239D70 = {
+			isa = PBXGroup;
+			children = (
+				1A780C8C29B83F7C00239D70 /* FlixHqMovie */,
+				1A780C8B29B83F7C00239D70 /* Products */,
+				DCB651ADEBE17F8B2F3CDD5E /* Pods */,
+				02D70CCA9E4A0DE26F3FC075 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1A780C8B29B83F7C00239D70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A780C8A29B83F7C00239D70 /* FlixHqMovie.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A780C8C29B83F7C00239D70 /* FlixHqMovie */ = {
+			isa = PBXGroup;
+			children = (
+				1AA016D729B87C86003DB29A /* Extension */,
+				1A780CFA29B84F6300239D70 /* Model */,
+				1A780CF229B84E3D00239D70 /* Common */,
+				1A780CA729B848AF00239D70 /* App */,
+				1A780CA629B8482300239D70 /* Platforms */,
+				1A780CA529B847BF00239D70 /* Domain */,
+				1A780CA429B8411E00239D70 /* Sences */,
+				1A780C9929B83F7D00239D70 /* Assets.xcassets */,
+				1A780C9B29B83F7D00239D70 /* LaunchScreen.storyboard */,
+				1A780C9E29B83F7D00239D70 /* Info.plist */,
+				1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */,
+				1AA016DF29B89476003DB29A /* ViewController.swift */,
+				1AA016E129B8948B003DB29A /* Main.storyboard */,
+			);
+			path = FlixHqMovie;
+			sourceTree = "<group>";
+		};
+		1A780CA429B8411E00239D70 /* Sences */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CAE29B8493D00239D70 /* ProfileScreen */,
+				1A780CAD29B8492D00239D70 /* DownloadScreen */,
+				1A780CAC29B8491D00239D70 /* MyListScreen */,
+				1A780CAB29B8491100239D70 /* ExploreScreen */,
+				1A780CAA29B848FD00239D70 /* HomeScreen */,
+				1A780CA929B848EC00239D70 /* MainTabBarScreen */,
+				1A780CA829B848DC00239D70 /* LoginScreen */,
+			);
+			path = Sences;
+			sourceTree = "<group>";
+		};
+		1A780CA529B847BF00239D70 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CEF29B84DF700239D70 /* Repository */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		1A780CA629B8482300239D70 /* Platforms */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CF729B84EDC00239D70 /* APIService */,
+			);
+			path = Platforms;
+			sourceTree = "<group>";
+		};
+		1A780CA729B848AF00239D70 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1A780C8D29B83F7C00239D70 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1A780CA829B848DC00239D70 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CAF29B8498D00239D70 /* LoginViewController.swift */,
+				1A780CB729B849C800239D70 /* LoginCoordinator.swift */,
+				1A780CFF29B860CF00239D70 /* LoginViewController.xib */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		1A780CA929B848EC00239D70 /* MainTabBarScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CB929B84A5300239D70 /* MainTabBarViewController.swift */,
+				1A780CBA29B84A5300239D70 /* MainViewController.xib */,
+				1A780CBD29B84AA700239D70 /* MainTabBarCoordinator.swift */,
+			);
+			path = MainTabBarScreen;
+			sourceTree = "<group>";
+		};
+		1A780CAA29B848FD00239D70 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CBF29B84BB400239D70 /* HomeViewController.swift */,
+				1A780CC029B84BB400239D70 /* HomeViewController.xib */,
+				1A780CC329B84BCF00239D70 /* HomeViewModel.swift */,
+				1A780CC529B84BF700239D70 /* HomeCoordinator.swift */,
+				1A780CD129B84CCD00239D70 /* HomeUseCase.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		1A780CAB29B8491100239D70 /* ExploreScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CC729B84C4B00239D70 /* ExploreViewController.swift */,
+				1A780CC829B84C4B00239D70 /* ExploreViewController.xib */,
+				1A780CCB29B84C6400239D70 /* ExploreCoordinator.swift */,
+				1A780CCD29B84C8000239D70 /* ExploreViewModel.swift */,
+				1A780CCF29B84CBE00239D70 /* ExploreUseCase.swift */,
+			);
+			path = ExploreScreen;
+			sourceTree = "<group>";
+		};
+		1A780CAC29B8491D00239D70 /* MyListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CD329B84CE100239D70 /* MyListViewModel.swift */,
+				1A780CD529B84CF600239D70 /* MyListCoordinator.swift */,
+				1A780CD729B84D0E00239D70 /* MyListUseCase.swift */,
+				1A780CD929B84D2000239D70 /* MyListViewController.swift */,
+				1A780CDA29B84D2000239D70 /* MyListViewController.xib */,
+			);
+			path = MyListScreen;
+			sourceTree = "<group>";
+		};
+		1A780CAD29B8492D00239D70 /* DownloadScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CDD29B84D4800239D70 /* DownloadViewModel.swift */,
+				1A780CDF29B84D6400239D70 /* DownloadCoordinator.swift */,
+				1A780CE129B84D7A00239D70 /* DownloadUseCase.swift */,
+				1A780CE329B84D9300239D70 /* DownloadViewController.swift */,
+				1A780CE429B84D9300239D70 /* DownloadViewController.xib */,
+			);
+			path = DownloadScreen;
+			sourceTree = "<group>";
+		};
+		1A780CAE29B8493D00239D70 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CE729B84DA500239D70 /* ProfileViewModel.swift */,
+				1A780CE929B84DB700239D70 /* ProfileCoordinator.swift */,
+				1A780CEB29B84DCE00239D70 /* ProfileViewController.swift */,
+				1A780CEC29B84DCE00239D70 /* ProfileViewController.xib */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		1A780CEF29B84DF700239D70 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CF029B84E1100239D70 /* MediaRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1A780CF229B84E3D00239D70 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CF329B84E5200239D70 /* ViewModelType.swift */,
+				1A780CF529B84E6900239D70 /* CoordinatorProtocol.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1A780CF729B84EDC00239D70 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CF829B84EF300239D70 /* APIService.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		1A780CFA29B84F6300239D70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A780CFB29B84F7700239D70 /* MediaModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1AA016D729B87C86003DB29A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1AA016D829B87CA2003DB29A /* UIView+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DCB651ADEBE17F8B2F3CDD5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42C686F05902772F972AFAF4 /* Pods-FlixHqMovie.debug.xcconfig */,
+				0784EE7B65040A7985B31AC9 /* Pods-FlixHqMovie.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A780C8929B83F7C00239D70 /* FlixHqMovie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A780CA129B83F7D00239D70 /* Build configuration list for PBXNativeTarget "FlixHqMovie" */;
+			buildPhases = (
+				3DA7279F2CEDBE6DFED96717 /* [CP] Check Pods Manifest.lock */,
+				1A780C8629B83F7C00239D70 /* Sources */,
+				1A780C8729B83F7C00239D70 /* Frameworks */,
+				1A780C8829B83F7C00239D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlixHqMovie;
+			productName = FlixHqMovie;
+			productReference = 1A780C8A29B83F7C00239D70 /* FlixHqMovie.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A780C8229B83F7C00239D70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					1A780C8929B83F7C00239D70 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 1A780C8529B83F7C00239D70 /* Build configuration list for PBXProject "FlixHqMovie" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A780C8129B83F7C00239D70;
+			productRefGroup = 1A780C8B29B83F7C00239D70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A780C8929B83F7C00239D70 /* FlixHqMovie */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A780C8829B83F7C00239D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A780C9D29B83F7D00239D70 /* LaunchScreen.storyboard in Resources */,
+				1AA016E229B8948B003DB29A /* Main.storyboard in Resources */,
+				1A780CDC29B84D2000239D70 /* MyListViewController.xib in Resources */,
+				1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */,
+				1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */,
+				1A780CCA29B84C4B00239D70 /* ExploreViewController.xib in Resources */,
+				1A780CC229B84BB400239D70 /* HomeViewController.xib in Resources */,
+				1A780CEE29B84DCE00239D70 /* ProfileViewController.xib in Resources */,
+				1A780CE629B84D9300239D70 /* DownloadViewController.xib in Resources */,
+				1A780D0029B860CF00239D70 /* LoginViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3DA7279F2CEDBE6DFED96717 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlixHqMovie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A780C8629B83F7C00239D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A780CE029B84D6400239D70 /* DownloadCoordinator.swift in Sources */,
+				1A780CB829B849C800239D70 /* LoginCoordinator.swift in Sources */,
+				1A780CC429B84BCF00239D70 /* HomeViewModel.swift in Sources */,
+				1A780CEA29B84DB700239D70 /* ProfileCoordinator.swift in Sources */,
+				1A780CB129B8498D00239D70 /* LoginViewController.swift in Sources */,
+				1A780CD829B84D0E00239D70 /* MyListUseCase.swift in Sources */,
+				1A780CBE29B84AA700239D70 /* MainTabBarCoordinator.swift in Sources */,
+				1A780CF129B84E1100239D70 /* MediaRepository.swift in Sources */,
+				1A780CE829B84DA500239D70 /* ProfileViewModel.swift in Sources */,
+				1A780CD629B84CF600239D70 /* MyListCoordinator.swift in Sources */,
+				1A780CF629B84E6900239D70 /* CoordinatorProtocol.swift in Sources */,
+				1A780CC129B84BB400239D70 /* HomeViewController.swift in Sources */,
+				1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */,
+				1A780CED29B84DCE00239D70 /* ProfileViewController.swift in Sources */,
+				1AA016E029B89476003DB29A /* ViewController.swift in Sources */,
+				1A780CDB29B84D2000239D70 /* MyListViewController.swift in Sources */,
+				1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */,
+				1A780CBB29B84A5300239D70 /* MainTabBarViewController.swift in Sources */,
+				1A780CFC29B84F7700239D70 /* MediaModel.swift in Sources */,
+				1A780CF929B84EF300239D70 /* APIService.swift in Sources */,
+				1A780CE229B84D7A00239D70 /* DownloadUseCase.swift in Sources */,
+				1A780CC629B84BF700239D70 /* HomeCoordinator.swift in Sources */,
+				1A780CCE29B84C8000239D70 /* ExploreViewModel.swift in Sources */,
+				1A780CE529B84D9300239D70 /* DownloadViewController.swift in Sources */,
+				1A780CD229B84CCD00239D70 /* HomeUseCase.swift in Sources */,
+				1A780CF429B84E5200239D70 /* ViewModelType.swift in Sources */,
+				1A780CD029B84CBE00239D70 /* ExploreUseCase.swift in Sources */,
+				1A780CC929B84C4B00239D70 /* ExploreViewController.swift in Sources */,
+				1A780CCC29B84C6400239D70 /* ExploreCoordinator.swift in Sources */,
+				1A780CD429B84CE100239D70 /* MyListViewModel.swift in Sources */,
+				1A780CDE29B84D4800239D70 /* DownloadViewModel.swift in Sources */,
+				1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1A780C9B29B83F7D00239D70 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A780C9C29B83F7D00239D70 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A780C9F29B83F7D00239D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A780CA029B83F7D00239D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A780CA229B83F7D00239D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42C686F05902772F972AFAF4 /* Pods-FlixHqMovie.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BZD66Y59V5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlixHqMovie/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DuyThai.FlixHqMovie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A780CA329B83F7D00239D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0784EE7B65040A7985B31AC9 /* Pods-FlixHqMovie.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BZD66Y59V5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlixHqMovie/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DuyThai.FlixHqMovie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A780C8529B83F7C00239D70 /* Build configuration list for PBXProject "FlixHqMovie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A780C9F29B83F7D00239D70 /* Debug */,
+				1A780CA029B83F7D00239D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A780CA129B83F7D00239D70 /* Build configuration list for PBXNativeTarget "FlixHqMovie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A780CA229B83F7D00239D70 /* Debug */,
+				1A780CA329B83F7D00239D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1A780C9729B83F7C00239D70 /* FlixHqMovie.xcdatamodel */,
+			);
+			currentVersion = 1A780C9729B83F7C00239D70 /* FlixHqMovie.xcdatamodel */;
+			path = FlixHqMovie.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1A780C8229B83F7C00239D70 /* Project object */;
+}
