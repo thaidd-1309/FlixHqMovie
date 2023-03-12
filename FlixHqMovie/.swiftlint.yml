@@ -6,10 +6,24 @@ disabled_rules:
 opt_in_rules:
 - empty_count
 - empty_string
+- overridden_super_call
+- private_outlet
+- prohibited_super_call
+- first_where
+- closure_spacing
+- unneeded_parentheses_in_closure_argument
+- redundant_nil_coalescing
+- pattern_matching_keywords
+- explicit_init
+- contains_over_first_not_nil
 
 excluded:
 - Carthage
 - Pods
+- RxSwift
+- RxCocoa
+- RxTest
+- RxBlocking
 - SwiftLint/Common/3rdPartyLib
 
 line_length:
