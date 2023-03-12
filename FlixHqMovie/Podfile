@@ -4,9 +4,18 @@
 target 'FlixHqMovie' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-pod 'SwiftLint'
+  pod 'SwiftLint'
 
 
-  # Pods for FlixHqMovie
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
+  pod 'Alamofire'
+  pod 'RxDataSources', '~> 5.0'
+  pod 'SDWebImage', '~> 5.0'
+  pod 'GoogleSignIn'
+  pod 'FirebaseCore', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch => 'master'
+  pod 'FirebaseFirestore', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch =>'master'
+
+  pod 'FBSDKLoginKit'
 
 end
