@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+struct HomeCoordinator: CoordinatorType {
+    var navigationController: BaseNavigationController
+    
+    init(navigationController: BaseNavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func toHomeViewController() {
+        let viewController = HomeViewController()
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}

@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+struct ExploreCoordinator: CoordinatorType {
+    var navigationController: BaseNavigationController
+
+    init(navigationController: BaseNavigationController) {
+        self.navigationController = navigationController
+    }
+
+    func toExploreViewController() {
+        let viewController = ExploreViewController()
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}

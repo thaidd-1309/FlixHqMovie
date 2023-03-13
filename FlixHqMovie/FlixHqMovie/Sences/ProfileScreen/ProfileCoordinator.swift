@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+struct ProfileCoordinator: CoordinatorType {
+    var navigationController: BaseNavigationController
+    
+    init(navigationController: BaseNavigationController) {
+        self.navigationController = navigationController
+    }
+
+    func toProfileViewController() {
+        let viewController = ProfileViewController()
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}

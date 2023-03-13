@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import GoogleSignIn
 
 final class LoginViewController: UIViewController {
@@ -14,10 +15,19 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var loginWithGoogleButton: UIButton!
     @IBOutlet private weak var loginWithFacebookButton: UIButton!
     @IBOutlet private var loginButtons: [UIButton]!
-    var coordinator: CoordinatorProtocol!
+    var viewModel: LoginViewModel!
+    private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         configButton()
+    }
+
+    private func configLoginWithGoogleButton() {
+        loginWithGoogleButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                viewModel.goToMainTabar()
+            }).disposed(by: disposeBag)
+
     }
 
     private func configButton() {
@@ -26,6 +36,7 @@ final class LoginViewController: UIViewController {
             $0.layer.borderColor = UIColor.buttonBorderColor
             $0.layer.borderWidth = UIButton.numberBorderWidth
         }
+        configLoginWithGoogleButton()
     }
 
 }
