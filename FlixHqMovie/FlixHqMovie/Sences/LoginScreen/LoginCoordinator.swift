@@ -9,19 +9,19 @@ import Foundation
 import UIKit
 import GoogleSignIn
 
-struct LoginCoordinator: CoordinatorProtocol {
-    var childCoordinators = [CoordinatorProtocol]()
-
-    var navigationController: UINavigationController
+struct LoginCoordinator {
+    var navigationController: BaseNavigationController
 
     func start() {
         let viewController = LoginViewController()
-        viewController.coordinator = self
+        let viewModel = LoginViewModel(coordinator: self)
+        viewController.viewModel = viewModel
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func goToMainTabBar(googleUser: GIDGoogleUser) {
-        // TO DO: Update in Task #60483
+    func goToMainTabBar() {
+        let mainTabBarCooridnator = MainTabBarCoordinator(navigationController: navigationController)
+        mainTabBarCooridnator.toMainTabBar()
     }
 
 }

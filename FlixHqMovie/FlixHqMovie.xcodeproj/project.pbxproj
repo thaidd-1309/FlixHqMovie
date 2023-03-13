@@ -42,14 +42,18 @@
 		1A780CEE29B84DCE00239D70 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CEC29B84DCE00239D70 /* ProfileViewController.xib */; };
 		1A780CF129B84E1100239D70 /* MediaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CF029B84E1100239D70 /* MediaRepository.swift */; };
 		1A780CF429B84E5200239D70 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CF329B84E5200239D70 /* ViewModelType.swift */; };
-		1A780CF629B84E6900239D70 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CF529B84E6900239D70 /* CoordinatorProtocol.swift */; };
 		1A780CF929B84EF300239D70 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CF829B84EF300239D70 /* APIService.swift */; };
 		1A780CFC29B84F7700239D70 /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CFB29B84F7700239D70 /* MediaModel.swift */; };
 		1A780D0029B860CF00239D70 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CFF29B860CF00239D70 /* LoginViewController.xib */; };
 		1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA016D829B87CA2003DB29A /* UIView+.swift */; };
-		1AB0196829BE001A00A690D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AB0196729BE001A00A690D9 /* GoogleService-Info.plist */; };
 		1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0196B29BE037000A690D9 /* UIButton+.swift */; };
 		1AB0196E29BE03EA00A690D9 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0196D29BE03EA00A690D9 /* UIColor+.swift */; };
+		1AB0197229BEC51B00A690D9 /* Tabar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0197129BEC51B00A690D9 /* Tabar.swift */; };
+		1AB0197429BECE1E00A690D9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0197329BECE1E00A690D9 /* LoginViewModel.swift */; };
+		1AB0197E29BED74800A690D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AB0197D29BED74800A690D9 /* GoogleService-Info.plist */; };
+		1AB0198029BF036200A690D9 /* MoveToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0197F29BF036200A690D9 /* MoveToViewController.swift */; };
+		1AB0198229BF0A9400A690D9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0198129BF0A9400A690D9 /* CoordinatorProtocol.swift */; };
+		1AB0198D29BF207A00A690D9 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */; };
 		A680DC1ADFDE0C2958D7B841 /* Pods_FlixHqMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F2684EB8BBA812CD96A63 /* Pods_FlixHqMovie.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +64,6 @@
 		1A780C9729B83F7C00239D70 /* FlixHqMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlixHqMovie.xcdatamodel; sourceTree = "<group>"; };
 		1A780C9929B83F7D00239D70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A780C9C29B83F7D00239D70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1A780C9E29B83F7D00239D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A780CAF29B8498D00239D70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1A780CB729B849C800239D70 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		1A780CB929B84A5300239D70 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -92,14 +95,19 @@
 		1A780CEC29B84DCE00239D70 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		1A780CF029B84E1100239D70 /* MediaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaRepository.swift; sourceTree = "<group>"; };
 		1A780CF329B84E5200239D70 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
-		1A780CF529B84E6900239D70 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		1A780CF829B84EF300239D70 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1A780CFB29B84F7700239D70 /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		1A780CFF29B860CF00239D70 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		1AA016D829B87CA2003DB29A /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		1AB0196729BE001A00A690D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1AB0196B29BE037000A690D9 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		1AB0196D29BE03EA00A690D9 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		1AB0197129BEC51B00A690D9 /* Tabar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabar.swift; sourceTree = "<group>"; };
+		1AB0197329BECE1E00A690D9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		1AB0197B29BED73F00A690D9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AB0197D29BED74800A690D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1AB0197F29BF036200A690D9 /* MoveToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToViewController.swift; sourceTree = "<group>"; };
+		1AB0198129BF0A9400A690D9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		42C686F05902772F972AFAF4 /* Pods-FlixHqMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixHqMovie.debug.xcconfig"; path = "Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		E90F2684EB8BBA812CD96A63 /* Pods_FlixHqMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixHqMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -145,6 +153,7 @@
 		1A780C8C29B83F7C00239D70 /* FlixHqMovie */ = {
 			isa = PBXGroup;
 			children = (
+				1AB0197029BEC50200A690D9 /* Enum */,
 				1AA016D729B87C86003DB29A /* Extension */,
 				1A780CFA29B84F6300239D70 /* Model */,
 				1A780CF229B84E3D00239D70 /* Common */,
@@ -153,8 +162,8 @@
 				1A780CA429B8411E00239D70 /* Sences */,
 				1A780C9929B83F7D00239D70 /* Assets.xcassets */,
 				1A780C9B29B83F7D00239D70 /* LaunchScreen.storyboard */,
-				1A780C9E29B83F7D00239D70 /* Info.plist */,
-				1AB0196729BE001A00A690D9 /* GoogleService-Info.plist */,
+				1AB0197B29BED73F00A690D9 /* Info.plist */,
+				1AB0197D29BED74800A690D9 /* GoogleService-Info.plist */,
 				1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */,
 			);
 			path = FlixHqMovie;
@@ -205,6 +214,7 @@
 				1A780CAF29B8498D00239D70 /* LoginViewController.swift */,
 				1A780CB729B849C800239D70 /* LoginCoordinator.swift */,
 				1A780CFF29B860CF00239D70 /* LoginViewController.xib */,
+				1AB0197329BECE1E00A690D9 /* LoginViewModel.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -290,7 +300,9 @@
 			isa = PBXGroup;
 			children = (
 				1A780CF329B84E5200239D70 /* ViewModelType.swift */,
-				1A780CF529B84E6900239D70 /* CoordinatorProtocol.swift */,
+				1AB0197F29BF036200A690D9 /* MoveToViewController.swift */,
+				1AB0198129BF0A9400A690D9 /* CoordinatorProtocol.swift */,
+				1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -321,6 +333,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		1AB0197029BEC50200A690D9 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				1AB0197129BEC51B00A690D9 /* Tabar.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		DCB651ADEBE17F8B2F3CDD5E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,7 +362,7 @@
 				1A780C8729B83F7C00239D70 /* Frameworks */,
 				1A780C8829B83F7C00239D70 /* Resources */,
 				1A919D7F690A85E741118CF4 /* [CP] Embed Pods Frameworks */,
-				1AB0196F29BEB9D800A690D9 /* ShellScript */,
+				1AB0196F29BEB9D800A690D9 /* Run Script Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -398,8 +418,8 @@
 				1A780CCA29B84C4B00239D70 /* ExploreViewController.xib in Resources */,
 				1A780CC229B84BB400239D70 /* HomeViewController.xib in Resources */,
 				1A780CEE29B84DCE00239D70 /* ProfileViewController.xib in Resources */,
-				1AB0196829BE001A00A690D9 /* GoogleService-Info.plist in Resources */,
 				1A780CE629B84D9300239D70 /* DownloadViewController.xib in Resources */,
+				1AB0197E29BED74800A690D9 /* GoogleService-Info.plist in Resources */,
 				1A780D0029B860CF00239D70 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,7 +444,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1AB0196F29BEB9D800A690D9 /* ShellScript */ = {
+		1AB0196F29BEB9D800A690D9 /* Run Script Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -433,6 +453,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script Swiftlint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -480,10 +501,11 @@
 				1A780CF129B84E1100239D70 /* MediaRepository.swift in Sources */,
 				1A780CE829B84DA500239D70 /* ProfileViewModel.swift in Sources */,
 				1A780CD629B84CF600239D70 /* MyListCoordinator.swift in Sources */,
-				1A780CF629B84E6900239D70 /* CoordinatorProtocol.swift in Sources */,
 				1A780CC129B84BB400239D70 /* HomeViewController.swift in Sources */,
 				1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */,
+				1AB0197429BECE1E00A690D9 /* LoginViewModel.swift in Sources */,
 				1A780CED29B84DCE00239D70 /* ProfileViewController.swift in Sources */,
+				1AB0198229BF0A9400A690D9 /* CoordinatorProtocol.swift in Sources */,
 				1A780CDB29B84D2000239D70 /* MyListViewController.swift in Sources */,
 				1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */,
 				1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */,
@@ -491,9 +513,12 @@
 				1A780CFC29B84F7700239D70 /* MediaModel.swift in Sources */,
 				1A780CF929B84EF300239D70 /* APIService.swift in Sources */,
 				1A780CE229B84D7A00239D70 /* DownloadUseCase.swift in Sources */,
+				1AB0198D29BF207A00A690D9 /* BaseNavigationViewController.swift in Sources */,
 				1A780CC629B84BF700239D70 /* HomeCoordinator.swift in Sources */,
+				1AB0198029BF036200A690D9 /* MoveToViewController.swift in Sources */,
 				1A780CCE29B84C8000239D70 /* ExploreViewModel.swift in Sources */,
 				1A780CE529B84D9300239D70 /* DownloadViewController.swift in Sources */,
+				1AB0197229BEC51B00A690D9 /* Tabar.swift in Sources */,
 				1A780CD229B84CCD00239D70 /* HomeUseCase.swift in Sources */,
 				1A780CF429B84E5200239D70 /* ViewModelType.swift in Sources */,
 				1AB0196E29BE03EA00A690D9 /* UIColor+.swift in Sources */,

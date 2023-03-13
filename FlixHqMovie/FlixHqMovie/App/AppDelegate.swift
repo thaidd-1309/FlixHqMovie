@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController()
+        let navigationController = BaseNavigationController()
         loginCoordinator = LoginCoordinator(navigationController: navigationController)
         loginCoordinator?.start()
         navigationController.isNavigationBarHidden = true

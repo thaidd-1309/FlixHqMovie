@@ -11,8 +11,14 @@ final class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configTabBarItem()
+    }
 
-        // Do any additional setup after loading the view.
+    private func configTabBarItem() {
+        tabBar.itemWidth = 40
+        tabBar.backgroundColor = UIColor.tabBarBackgroundColor
+        tabBar.tintColor = UIColor.tabBarTintColor
+        tabBar.unselectedItemTintColor = UIColor.tabBarUnselectedItemTintColor
     }
 
 }
