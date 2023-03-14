@@ -18,11 +18,11 @@ struct MainTabBarCoordinator {
     func toMainTabBar() {
         let tabBarController = MainTabBarViewController()
         tabBarController.viewControllers = [
-            MoveToViewController().goToHomeScreenViewController(),
-            MoveToViewController().goToExploreScreenViewController(),
-            MoveToViewController().goToMyListScreenViewController(),
-            MoveToViewController().goToDownloadScreenViewController(),
-            MoveToViewController().goToProfileScreenViewController()
+            MoveToViewController().toHomeScreenViewController(),
+            MoveToViewController().toExploreScreenViewController(),
+            MoveToViewController().toMyListScreenViewController(),
+            MoveToViewController().toDownloadScreenViewController(),
+            MoveToViewController().toProfileScreenViewController()
         ]
         navigationController.pushViewController(tabBarController, animated: true)
     }

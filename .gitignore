@@ -34,7 +34,6 @@ DerivedData/
 timeline.xctimeline
 playground.xcworkspace
 
-*Info.plist
 *GoogleService-Info.plist
 
 # Swift Package Manager
