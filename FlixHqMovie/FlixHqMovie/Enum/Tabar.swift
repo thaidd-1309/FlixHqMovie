@@ -14,50 +14,29 @@ enum TabbarItem {
     case myList
     case download
     case profile
-    var title: String {
-        switch self {
-        case .home:
-            return "Home"
-        case .explore:
-            return "Explore"
-        case .myList:
-            return "My List"
-        case .download:
-            return "My Download"
-        case .profile:
-            return "Profile"
-            
-        }
-    }
-    
-    var image: UIImage? {
-        switch self {
-        case .home:
-            return UIImage(systemName: "house.fill")
-        case .explore:
-            return UIImage(systemName: "safari")
-        case .myList:
-            return UIImage(systemName: "list.and.film")
-        case .download:
-            return UIImage(systemName: "square.and.arrow.down")
-        case .profile:
-            return UIImage(systemName: "person.fill")
-        }
-    }
 
-    var tag:Int {
+    var item: UITabBarItem {
         switch self {
         case .home:
-            return 0
+            return UITabBarItem(title: "Home",
+                                image: UIImage(systemName: "house.fill"),
+                                tag: 0)
         case .explore:
-            return 1
+            return UITabBarItem(title: "Explore",
+                                image: UIImage(systemName: "safari"),
+                                tag: 1)
         case .myList:
-            return 2
+            return UITabBarItem(title: "My List",
+                                image: UIImage(systemName: "list.and.film"),
+                                tag: 2)
         case .download:
-            return 3
+            return UITabBarItem(title: "My Download",
+                                image: UIImage(systemName: "square.and.arrow.down"),
+                                tag: 3)
         case .profile:
-            return 4
-
+            return UITabBarItem(title: "Profile",
+                                image: UIImage(systemName: "person.fill"),
+                                tag: 4)
         }
     }
 

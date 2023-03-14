@@ -54,6 +54,8 @@
 		1AB0198029BF036200A690D9 /* MoveToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0197F29BF036200A690D9 /* MoveToViewController.swift */; };
 		1AB0198229BF0A9400A690D9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0198129BF0A9400A690D9 /* CoordinatorProtocol.swift */; };
 		1AB0198D29BF207A00A690D9 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */; };
+		1AB0198429BF194600A690D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0198329BF194600A690D9 /* Constants.swift */; };
+		1AB0198629BF1AA700A690D9 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0198529BF1AA700A690D9 /* MovieModel.swift */; };
 		A680DC1ADFDE0C2958D7B841 /* Pods_FlixHqMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F2684EB8BBA812CD96A63 /* Pods_FlixHqMovie.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,8 @@
 		1AB0197F29BF036200A690D9 /* MoveToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToViewController.swift; sourceTree = "<group>"; };
 		1AB0198129BF0A9400A690D9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		1AB0198329BF194600A690D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1AB0198529BF1AA700A690D9 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		42C686F05902772F972AFAF4 /* Pods-FlixHqMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixHqMovie.debug.xcconfig"; path = "Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		E90F2684EB8BBA812CD96A63 /* Pods_FlixHqMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixHqMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -319,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				1A780CFB29B84F7700239D70 /* MediaModel.swift */,
+				1AB0198529BF1AA700A690D9 /* MovieModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				1AB0197129BEC51B00A690D9 /* Tabar.swift */,
+				1AB0198329BF194600A690D9 /* Constants.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -499,6 +505,7 @@
 				1A780CD829B84D0E00239D70 /* MyListUseCase.swift in Sources */,
 				1A780CBE29B84AA700239D70 /* MainTabBarCoordinator.swift in Sources */,
 				1A780CF129B84E1100239D70 /* MediaRepository.swift in Sources */,
+				1AB0198629BF1AA700A690D9 /* MovieModel.swift in Sources */,
 				1A780CE829B84DA500239D70 /* ProfileViewModel.swift in Sources */,
 				1A780CD629B84CF600239D70 /* MyListCoordinator.swift in Sources */,
 				1A780CC129B84BB400239D70 /* HomeViewController.swift in Sources */,
@@ -527,6 +534,7 @@
 				1A780CCC29B84C6400239D70 /* ExploreCoordinator.swift in Sources */,
 				1A780CD429B84CE100239D70 /* MyListViewModel.swift in Sources */,
 				1A780CDE29B84D4800239D70 /* DownloadViewModel.swift in Sources */,
+				1AB0198429BF194600A690D9 /* Constants.swift in Sources */,
 				1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,7 +688,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.DuyThai.FlixHqMovie;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DuyThai.MVVM-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -709,7 +717,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.DuyThai.FlixHqMovie;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DuyThai.MVVM-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
