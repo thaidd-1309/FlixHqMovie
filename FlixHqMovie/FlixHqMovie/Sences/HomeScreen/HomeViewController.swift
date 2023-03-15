@@ -9,6 +9,7 @@ import UIKit
 import RxCocoa
 import RxDataSources
 import RxSwift
+import Then
 
 final class HomeViewController: UIViewController {
     @IBOutlet private weak var tableview: UITableView!
@@ -44,16 +45,19 @@ final class HomeViewController: UIViewController {
     }
 
     private func configTableView() {
-        tableview.rx.setDelegate(self)
-            .disposed(by: disposeBag)
+        tableview.then {
+            $0.rx.setDelegate(self)
+                .disposed(by: disposeBag)
+            $0.contentInset = UIEdgeInsets(top: -self.topbarHeight, left: 0, bottom: 0, right: 0)
+            $0.register(nibName: HomeTableViewCell.self)
+        }
         if let headerView = Bundle.main.loadNibNamed(HeaderTableView.defaultReuseIdentifier, owner: nil, options: nil)?.first as? HeaderTableView {
             let tableHeaderView = Observable<UIView?>.just(headerView)
             tableHeaderView
                 .bind(to: tableview.rx.tableHeaderView)
                 .disposed(by: disposeBag)
         }
-        tableview.contentInset = UIEdgeInsets(top: -self.topbarHeight, left: 0, bottom: 0, right: 0)
-        tableview.register(nibName: HomeTableViewCell.self)
+
     }
 }
 

@@ -45,15 +45,24 @@ enum LayoutOptions {
     case itemPoster
     case ibmPointLabel
     case addToMylistButton
+    case playMovieButton
+    case downloadMovieButton
+    case ageLabel
+    case nationalLabel
+    case subLabel
 
     var cornerRadious: CGFloat {
         switch self {
         case .itemPoster:
             return 8
-        case .ibmPointLabel:
+        case .ibmPointLabel, .ageLabel:
             return 4
         case .addToMylistButton:
             return 0
+        case .playMovieButton, .downloadMovieButton:
+            return 10
+        case .nationalLabel, .subLabel:
+            return 6
         }
     }
 
@@ -61,10 +70,23 @@ enum LayoutOptions {
         switch self {
         case .itemPoster:
             return 1.2
-        case .ibmPointLabel:
+        case .ibmPointLabel, .playMovieButton, .downloadMovieButton,
+                .ageLabel, .nationalLabel, .subLabel:
             return 0
         case .addToMylistButton:
             return 2
+
+        }
+    }
+}
+
+enum LayoutCell {
+    case padding
+
+    var value: CGFloat {
+        switch self {
+        case .padding:
+            return 10
         }
     }
 }

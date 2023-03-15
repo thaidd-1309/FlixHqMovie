@@ -50,5 +50,11 @@ final class HomeTableViewCell: UITableViewCell, ReuseCellType {
         }
         .bind(to: collectionView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
+        collectionView.rx.modelSelected(Int.self)
+            .subscribe(onNext: { [weak self] item in
+                guard let self = self else { return }
+                self.movieTapped?("\(item)")
+            })
+            .disposed(by: disposeBag)
     }
 }
