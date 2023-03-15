@@ -40,3 +40,31 @@ enum EndPoint {
         }
     }
 }
+
+enum LayoutOptions {
+    case itemPoster
+    case ibmPointLabel
+    case addToMylistButton
+
+    var cornerRadious: CGFloat {
+        switch self {
+        case .itemPoster:
+            return 8
+        case .ibmPointLabel:
+            return 4
+        case .addToMylistButton:
+            return 0
+        }
+    }
+
+    var borderWidth: CGFloat {
+        switch self {
+        case .itemPoster:
+            return 1.2
+        case .ibmPointLabel:
+            return 0
+        case .addToMylistButton:
+            return 2
+        }
+    }
+}

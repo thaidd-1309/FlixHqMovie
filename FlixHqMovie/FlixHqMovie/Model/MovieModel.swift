@@ -56,7 +56,6 @@ struct MovieSource: Mappable {
 struct MovieSubtitle: Mappable {
     var url: String?
     var language: String?
-
     init?(map: Map) {
     }
 
