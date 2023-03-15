@@ -17,7 +17,7 @@ struct CollectionViewSectionModel {
     let image: String
 }
 
-// TODO: Fake model, will update in task/60489
+//TODO: Fake model, will update in task/60489
 struct FakeSectionModel {
     let nameHeaderRow: String
     let filmsSectionModel: [Int]

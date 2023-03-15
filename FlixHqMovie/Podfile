@@ -17,5 +17,6 @@ target 'FlixHqMovie' do
   pod 'FirebaseFirestore', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :branch =>'master'
   pod 'ObjectMapper'
   pod 'FBSDKLoginKit'
+  pod 'Then'
 
 end

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3D4E9129C1BC5E005CA142 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */; };
+		1A3D4E9929C1C400005CA142 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9529C1C400005CA142 /* CastCollectionViewCell.swift */; };
+		1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9629C1C400005CA142 /* CastCollectionViewCell.xib */; };
+		1A3D4E9B29C1C400005CA142 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9729C1C400005CA142 /* MovieDetailViewController.swift */; };
+		1A3D4E9C29C1C400005CA142 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9829C1C400005CA142 /* MovieDetailViewController.xib */; };
 		1A42BC5029C17179003F3EB0 /* ReuseCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC4F29C17179003F3EB0 /* ReuseCellType.swift */; };
 		1A42BC5229C1719E003F3EB0 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC5129C1719E003F3EB0 /* UICollectionView+.swift */; };
 		1A42BC5D29C17622003F3EB0 /* HeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A42BC5429C17622003F3EB0 /* HeaderTableView.xib */; };
@@ -17,8 +22,8 @@
 		1A42BC6229C17622003F3EB0 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A42BC5C29C17622003F3EB0 /* HomeTableViewCell.xib */; };
 		1A42BC6429C17FC9003F3EB0 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6329C17FC9003F3EB0 /* SectionModel.swift */; };
 		1A42BC6629C189C4003F3EB0 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6529C189C4003F3EB0 /* UITableView+.swift */; };
-		1A42BC6829C19A0E003F3EB0 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6729C19A0E003F3EB0 /* UIScrollView.swift */; };
-		1A42BC6A29C19F13003F3EB0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6929C19F13003F3EB0 /* UIViewController.swift */; };
+		1A42BC6829C19A0E003F3EB0 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */; };
+		1A42BC6A29C19F13003F3EB0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */; };
 		1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C8D29B83F7C00239D70 /* AppDelegate.swift */; };
 		1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */; };
 		1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A780C9929B83F7D00239D70 /* Assets.xcassets */; };
@@ -73,6 +78,11 @@
 
 /* Begin PBXFileReference section */
 		0784EE7B65040A7985B31AC9 /* Pods-FlixHqMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixHqMovie.release.xcconfig"; path = "Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie.release.xcconfig"; sourceTree = "<group>"; };
+		1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		1A3D4E9529C1C400005CA142 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
+		1A3D4E9629C1C400005CA142 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
+		1A3D4E9729C1C400005CA142 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		1A3D4E9829C1C400005CA142 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		1A42BC4F29C17179003F3EB0 /* ReuseCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseCellType.swift; sourceTree = "<group>"; };
 		1A42BC5129C1719E003F3EB0 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		1A42BC5429C17622003F3EB0 /* HeaderTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTableView.xib; sourceTree = "<group>"; };
@@ -83,8 +93,8 @@
 		1A42BC5C29C17622003F3EB0 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		1A42BC6329C17FC9003F3EB0 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		1A42BC6529C189C4003F3EB0 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
-		1A42BC6729C19A0E003F3EB0 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
-		1A42BC6929C19F13003F3EB0 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
+		1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		1A780C8A29B83F7C00239D70 /* FlixHqMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlixHqMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A780C8D29B83F7C00239D70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A780C9729B83F7C00239D70 /* FlixHqMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlixHqMovie.xcdatamodel; sourceTree = "<group>"; };
@@ -158,6 +168,33 @@
 				E90F2684EB8BBA812CD96A63 /* Pods_FlixHqMovie.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A3D4E9229C1C3D0005CA142 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A3D4E9329C1C400005CA142 /* Cell */,
+				1A3D4E9729C1C400005CA142 /* MovieDetailViewController.swift */,
+				1A3D4E9829C1C400005CA142 /* MovieDetailViewController.xib */,
+			);
+			path = DetailScreen;
+			sourceTree = "<group>";
+		};
+		1A3D4E9329C1C400005CA142 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1A3D4E9429C1C400005CA142 /* CastCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1A3D4E9429C1C400005CA142 /* CastCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A3D4E9529C1C400005CA142 /* CastCollectionViewCell.swift */,
+				1A3D4E9629C1C400005CA142 /* CastCollectionViewCell.xib */,
+			);
+			path = CastCell;
 			sourceTree = "<group>";
 		};
 		1A42BC5329C17622003F3EB0 /* HeaderTableView */ = {
@@ -236,6 +273,7 @@
 		1A780CA429B8411E00239D70 /* Sences */ = {
 			isa = PBXGroup;
 			children = (
+				1A3D4E9229C1C3D0005CA142 /* DetailScreen */,
 				1A780CAE29B8493D00239D70 /* ProfileScreen */,
 				1A780CAD29B8492D00239D70 /* DownloadScreen */,
 				1A780CAC29B8491D00239D70 /* MyListScreen */,
@@ -400,8 +438,9 @@
 				1AB0196D29BE03EA00A690D9 /* UIColor+.swift */,
 				1A42BC5129C1719E003F3EB0 /* UICollectionView+.swift */,
 				1A42BC6529C189C4003F3EB0 /* UITableView+.swift */,
-				1A42BC6729C19A0E003F3EB0 /* UIScrollView.swift */,
-				1A42BC6929C19F13003F3EB0 /* UIViewController.swift */,
+				1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */,
+				1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */,
+				1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -485,11 +524,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3D4E9C29C1C400005CA142 /* MovieDetailViewController.xib in Resources */,
 				1A780C9D29B83F7D00239D70 /* LaunchScreen.storyboard in Resources */,
 				1A42BC5D29C17622003F3EB0 /* HeaderTableView.xib in Resources */,
 				1A42BC6029C17622003F3EB0 /* ImageFilmCollectionViewCell.xib in Resources */,
 				1A780CDC29B84D2000239D70 /* MyListViewController.xib in Resources */,
 				1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */,
+				1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */,
 				1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */,
 				1A780CCA29B84C4B00239D70 /* ExploreViewController.xib in Resources */,
 				1A780CC229B84BB400239D70 /* HomeViewController.xib in Resources */,
@@ -568,9 +609,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3D4E9129C1BC5E005CA142 /* UILabel+.swift in Sources */,
 				1A780CE029B84D6400239D70 /* DownloadCoordinator.swift in Sources */,
 				1A780CB829B849C800239D70 /* LoginCoordinator.swift in Sources */,
 				1A42BC5229C1719E003F3EB0 /* UICollectionView+.swift in Sources */,
+				1A3D4E9B29C1C400005CA142 /* MovieDetailViewController.swift in Sources */,
 				1A780CC429B84BCF00239D70 /* HomeViewModel.swift in Sources */,
 				1A42BC5E29C17622003F3EB0 /* HeaderTableView.swift in Sources */,
 				1A42BC5F29C17622003F3EB0 /* ImageFilmCollectionViewCell.swift in Sources */,
@@ -582,9 +625,10 @@
 				1A780CF129B84E1100239D70 /* MediaRepository.swift in Sources */,
 				1AB0198629BF1AA700A690D9 /* MovieModel.swift in Sources */,
 				1A780CE829B84DA500239D70 /* ProfileViewModel.swift in Sources */,
-				1A42BC6A29C19F13003F3EB0 /* UIViewController.swift in Sources */,
+				1A42BC6A29C19F13003F3EB0 /* UIViewController+.swift in Sources */,
 				1A780CD629B84CF600239D70 /* MyListCoordinator.swift in Sources */,
 				1A780CC129B84BB400239D70 /* HomeViewController.swift in Sources */,
+				1A3D4E9929C1C400005CA142 /* CastCollectionViewCell.swift in Sources */,
 				1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */,
 				1AB0197429BECE1E00A690D9 /* LoginViewModel.swift in Sources */,
 				1A780CED29B84DCE00239D70 /* ProfileViewController.swift in Sources */,
@@ -615,7 +659,7 @@
 				1AB0198429BF194600A690D9 /* Constants.swift in Sources */,
 				1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */,
 				1A42BC6629C189C4003F3EB0 /* UITableView+.swift in Sources */,
-				1A42BC6829C19A0E003F3EB0 /* UIScrollView.swift in Sources */,
+				1A42BC6829C19A0E003F3EB0 /* UIScrollView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
