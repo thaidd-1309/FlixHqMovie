@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderTableView" rowHeight="273" id="KGk-i7-Jjw" customClass="HeaderTableView" customModule="FlixHqMovie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="273"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="415" height="273"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterFilmDemo" translatesAutoresizingMaskIntoConstraints="NO" id="L4B-aA-20c">
+                        <rect key="frame" x="0.0" y="0.0" width="415" height="300"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbs-9E-WbJ">
+                        <rect key="frame" x="16" y="219" width="108" height="39"/>
+                        <color key="backgroundColor" red="0.83823899879999997" green="0.2172008658" blue="0.19876300769999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="108" id="bQK-i9-ZqD"/>
+                            <constraint firstAttribute="height" constant="39" id="k49-DB-5gG"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title=" Play">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageReference key="image" image="play.circle.fill" catalog="system" symbolScale="default"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlU-Sg-8TH">
+                        <rect key="frame" x="140" y="219" width="108" height="39"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="108" id="9d8-p3-LpH"/>
+                            <constraint firstAttribute="height" constant="39" id="JBt-X5-kch"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title=" My list">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageReference key="image" image="plus" catalog="system" symbolScale="default"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ant man" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdl-rb-BBj">
+                        <rect key="frame" x="16" y="152.33333333333334" width="230" height="28.666666666666657"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-rp-bzj">
+                        <rect key="frame" x="16" y="183" width="230" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="ibK-Js-xci"/>
+                            <constraint firstAttribute="width" constant="230" id="tWT-21-zit"/>
+                        </constraints>
+                        <string key="text">Super-Hero partners Scott Lang (Paul Rudd) and Hope van Dyne (Evangeline Lilly) return to continue their adventures as Ant-Man and the Wasp. Together, with Hope's parents Janet van Dyne (Michelle Pfeiffer) and Hank Pym (Michael Douglas), and Scott's daughter Cassie Lang (Kathryn Newton), the family finds themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought possible.</string>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="L4B-aA-20c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8VZ-AO-t0b"/>
+                    <constraint firstItem="HDX-rp-bzj" firstAttribute="trailing" secondItem="Jdl-rb-BBj" secondAttribute="trailing" id="BDa-Yy-VGA"/>
+                    <constraint firstAttribute="bottom" secondItem="L4B-aA-20c" secondAttribute="bottom" constant="-27" id="FEf-zu-qBn"/>
+                    <constraint firstItem="L4B-aA-20c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="H92-4H-FL8"/>
+                    <constraint firstItem="Jdl-rb-BBj" firstAttribute="centerX" secondItem="HDX-rp-bzj" secondAttribute="centerX" id="ISJ-SW-Wms"/>
+                    <constraint firstAttribute="trailing" secondItem="L4B-aA-20c" secondAttribute="trailing" id="KUF-vj-NJp"/>
+                    <constraint firstItem="Jdl-rb-BBj" firstAttribute="trailing" secondItem="HDX-rp-bzj" secondAttribute="trailing" id="Qgj-nD-IzX"/>
+                    <constraint firstItem="vlU-Sg-8TH" firstAttribute="leading" secondItem="Bbs-9E-WbJ" secondAttribute="trailing" constant="16" id="RWp-aA-JHS"/>
+                    <constraint firstAttribute="trailing" secondItem="L4B-aA-20c" secondAttribute="trailing" id="X1F-ec-9Ij"/>
+                    <constraint firstItem="vlU-Sg-8TH" firstAttribute="centerY" secondItem="Bbs-9E-WbJ" secondAttribute="centerY" id="YRE-HH-Kmj"/>
+                    <constraint firstItem="Bbs-9E-WbJ" firstAttribute="top" secondItem="HDX-rp-bzj" secondAttribute="bottom" constant="10" id="aRa-Pm-lSR"/>
+                    <constraint firstAttribute="bottom" secondItem="vlU-Sg-8TH" secondAttribute="bottom" constant="15" id="cvA-WL-bsn"/>
+                    <constraint firstItem="HDX-rp-bzj" firstAttribute="leading" secondItem="Bbs-9E-WbJ" secondAttribute="leading" id="dh8-IO-KCf"/>
+                    <constraint firstItem="Jdl-rb-BBj" firstAttribute="leading" secondItem="HDX-rp-bzj" secondAttribute="leading" id="eBN-8G-Enm"/>
+                    <constraint firstItem="HDX-rp-bzj" firstAttribute="leading" secondItem="Jdl-rb-BBj" secondAttribute="leading" id="gYc-Nn-Vsb"/>
+                    <constraint firstAttribute="bottom" secondItem="L4B-aA-20c" secondAttribute="bottom" constant="-27" id="iGO-Yk-mNb"/>
+                    <constraint firstItem="L4B-aA-20c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jH0-pt-h9X"/>
+                    <constraint firstItem="L4B-aA-20c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ppf-HB-QsJ"/>
+                    <constraint firstItem="Bbs-9E-WbJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="rP2-Mh-qju"/>
+                    <constraint firstAttribute="bottom" secondItem="Bbs-9E-WbJ" secondAttribute="bottom" constant="15" id="rtz-XD-vDB"/>
+                    <constraint firstItem="HDX-rp-bzj" firstAttribute="top" secondItem="Jdl-rb-BBj" secondAttribute="bottom" constant="2" id="x8g-W3-iyj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addMyListButton" destination="vlU-Sg-8TH" id="9DO-9y-qm5"/>
+                <outlet property="headerTableImageView" destination="L4B-aA-20c" id="veA-YD-eUS"/>
+                <outlet property="playButton" destination="Bbs-9E-WbJ" id="x4f-Xm-h7f"/>
+            </connections>
+            <point key="canvasLocation" x="25.190839694656489" y="3.1690140845070425"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="play.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="posterFilmDemo" width="3840" height="2880"/>
+    </resources>
+</document>
