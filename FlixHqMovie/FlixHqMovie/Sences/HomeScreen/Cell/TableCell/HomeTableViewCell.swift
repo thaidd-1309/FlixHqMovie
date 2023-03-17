@@ -21,7 +21,6 @@ final class HomeTableViewCell: UITableViewCell, ReuseCellType {
     override func awakeFromNib() {
         super.awakeFromNib()
         configCollectionView()
-        updateCollectionView()
     }
 
     public override func prepareForReuse() {
@@ -34,26 +33,32 @@ final class HomeTableViewCell: UITableViewCell, ReuseCellType {
         collectionView.register(nibName: ImageFilmCollectionViewCell.self)
     }
 
-    func updateCollectionView() {
-        // TODO: Fake data, will update in task/60489
-        let dataTest = Observable.of([1, 2, 3, 4, 5, 6, 7, 8, 9])
-        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Int>>(
+    func setcategoryFilmLabel(name: String) {
+        categoryFilmLabel.text = name
+    }
+
+    func updateCollectionView(data: [MediaResult]) {
+        let dataDrive = Driver.of(data)
+        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, MediaResult>>(
             configureCell: { dataSource, collectionView, indexPath, item in
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageFilmCollectionViewCell.defaultReuseIdentifier, for: indexPath) as? ImageFilmCollectionViewCell else {
                     return UICollectionViewCell()
                 }
+                let url = item.image ?? "" 
+                cell.bind(imageUrl: url)
                 return cell
             }
         )
-        dataTest.map {
+        dataDrive.map {
             [SectionModel(model: "", items: $0)]
         }
-        .bind(to: collectionView.rx.items(dataSource: dataSource))
+        .drive(collectionView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
-        collectionView.rx.modelSelected(Int.self)
+
+        collectionView.rx.modelSelected(MediaResult.self)
             .subscribe(onNext: { [weak self] item in
                 guard let self = self else { return }
-                self.movieTapped?("\(item)")
+                self.movieTapped?("\(item.id)")
             })
             .disposed(by: disposeBag)
     }

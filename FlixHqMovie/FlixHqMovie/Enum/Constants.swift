@@ -23,7 +23,7 @@ enum EndPoint {
     case getMediaDetail(mediaId: String)
 
     var url: String {
-        let baseUrl = BaseUrl.main.rawValue
+        let baseUrl = BaseUrl.deploy.rawValue
         switch self {
         case .getMovie(episodeId: let episodeId, mediaId: let mediaId):
             return "\(baseUrl)watch?episodeId=\(episodeId)&mediaId=\(mediaId)"
@@ -87,6 +87,20 @@ enum LayoutCell {
         switch self {
         case .padding:
             return 10
+        }
+    }
+}
+
+enum MediaType {
+    case movie
+    case tvSeries
+
+    var name: String {
+        switch self {
+        case .movie:
+            return "Movie"
+        case .tvSeries:
+            return "TV Series"
         }
     }
 }

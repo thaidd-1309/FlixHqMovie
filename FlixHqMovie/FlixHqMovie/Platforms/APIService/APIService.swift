@@ -16,7 +16,7 @@ struct APIService {
 
     func request<T: Mappable>(endPoint: EndPoint) -> Observable<T> {
         return Observable.create { observer in
-            AF.request(endPoint.url).responseJSON{ response in
+            AF.request(endPoint.url).responseJSON { response in
                 switch response.result {
                 case .success(let data):
                     if let jsonDict = data as? [String: Any], let model = Mapper<T>().map(JSON: jsonDict) {
@@ -33,10 +33,10 @@ struct APIService {
 
     func requestArray<T: Mappable>(endPoint: EndPoint) -> Observable<[T]> {
         return Observable.create { observer in
-            AF.request(endPoint.url).responseJSON{ response in
+            AF.request(endPoint.url).responseJSON { response in
                 switch response.result {
                 case .success(let data):
-                    guard let jsonArray = data as? [[String : Any]] else {return}
+                    guard let jsonArray = data as? [[String : Any]] else { return }
                     let model = Mapper<T>().mapArray(JSONObject: jsonArray)
                     observer.onNext(model ?? [])
                     observer.onCompleted()

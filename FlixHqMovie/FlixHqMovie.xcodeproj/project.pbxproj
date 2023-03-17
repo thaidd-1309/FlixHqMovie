@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A36415729C45AC1002A9B79 /* NameHeaderTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415629C45AC1002A9B79 /* NameHeaderTableRow.swift */; };
 		1A3D4E9129C1BC5E005CA142 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */; };
 		1A3D4E9929C1C400005CA142 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9529C1C400005CA142 /* CastCollectionViewCell.swift */; };
 		1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9629C1C400005CA142 /* CastCollectionViewCell.xib */; };
@@ -78,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		0784EE7B65040A7985B31AC9 /* Pods-FlixHqMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixHqMovie.release.xcconfig"; path = "Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie.release.xcconfig"; sourceTree = "<group>"; };
+		1A36415629C45AC1002A9B79 /* NameHeaderTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameHeaderTableRow.swift; sourceTree = "<group>"; };
 		1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		1A3D4E9529C1C400005CA142 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A3D4E9629C1C400005CA142 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 				1AB0198129BF0A9400A690D9 /* CoordinatorProtocol.swift */,
 				1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */,
 				1A42BC4F29C17179003F3EB0 /* ReuseCellType.swift */,
+				1A36415629C45AC1002A9B79 /* NameHeaderTableRow.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				1A780CB829B849C800239D70 /* LoginCoordinator.swift in Sources */,
 				1A42BC5229C1719E003F3EB0 /* UICollectionView+.swift in Sources */,
 				1A3D4E9B29C1C400005CA142 /* MovieDetailViewController.swift in Sources */,
+				1A36415729C45AC1002A9B79 /* NameHeaderTableRow.swift in Sources */,
 				1A780CC429B84BCF00239D70 /* HomeViewModel.swift in Sources */,
 				1A42BC5E29C17622003F3EB0 /* HeaderTableView.swift in Sources */,
 				1A42BC5F29C17622003F3EB0 /* ImageFilmCollectionViewCell.swift in Sources */,

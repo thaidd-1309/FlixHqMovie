@@ -34,8 +34,9 @@ final class ImageFilmCollectionViewCell: UICollectionViewCell, ReuseCellType {
         ibmPointLabel.layer.masksToBounds = true
     }
     
-    func bindUI(imageUrl: URL) {
-        imageFilmImageView.sd_setImage(with: imageUrl)
+    func bind(imageUrl: String) {
+        let url = URL(string: imageUrl)
+        imageFilmImageView.sd_setImage(with: url)
     }
     
 }

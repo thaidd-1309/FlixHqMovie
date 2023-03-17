@@ -6,3 +6,27 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol HomeUseCaseType {
+    func getListTrending() -> Observable<[MediaResult]>
+    func getListRecentShow() -> Observable<[MediaResult]>
+    func getListRecentMovie() -> Observable<[MediaResult]>
+}
+
+struct HomeUseCase: HomeUseCaseType {
+    let mediaRepository: MediaRepositoryType
+
+    func getListTrending() -> Observable<[MediaResult]> {
+        return mediaRepository.getListTrending()
+    }
+
+    func getListRecentShow() -> Observable<[MediaResult]> {
+        return mediaRepository.getListRecentShow()
+    }
+
+    func getListRecentMovie() -> Observable<[MediaResult]> {
+        return mediaRepository.getListRecentMovie()
+    }
+
+}
