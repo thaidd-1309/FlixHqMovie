@@ -13,10 +13,14 @@ import Then
 
 final class HomeViewController: UIViewController {
     @IBOutlet private weak var tableview: UITableView!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
 
     private let disposeBag = DisposeBag()
+    private var isLoading = false
+    var viewModel: HomeViewModel!
 
     private let playButtonInHeaderTrigger = PublishSubject<String>()
+    private let selectedMovieTrigger = PublishSubject<String>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,26 +28,46 @@ final class HomeViewController: UIViewController {
         configTableView()
     }
 
+    private func configHiddenView(isHiddenView: Bool) {
+        tableview.isHidden = !isHiddenView
+        loadingIndicator.isHidden = isHiddenView
+    }
+
     private func bindViewModel() {
-        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, FakeSectionModel>>(
-            configureCell: { dataSource, tableView, indexPath, item in
+        let loadTrigger = Driver.just(())
+        loadTrigger
+            .drive(onNext: { [unowned self]_ in
+                isLoading = true
+            })
+            .disposed(by: disposeBag)
+
+        let input = HomeViewModel.Input(loadTrigger: loadTrigger, slectedMovie: selectedMovieTrigger.asDriver(onErrorJustReturn: ""))
+
+        let output = viewModel.transform(input: input, disposeBag: disposeBag)
+
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, TableViewSectionModel>>(
+            configureCell: { _, tableView, indexPath, item in
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.defaultReuseIdentifier, for: indexPath) as? HomeTableViewCell
                 else {
                     return UITableViewCell()
                 }
+                cell.setcategoryFilmLabel(name: item.nameHeaderRow)
+                cell.updateCollectionView(data: item.filmsSectionModel)
                 return cell
             })
-        //TODO: Fake data, will update in task/60489
-        let dataTestSection = FakeSectionModel(
-            nameHeaderRow: "Popular",
-            filmsSectionModel: [1, 2, 3, 4, 5])
 
-        Driver.of(dataTestSection)
-            .map{ [SectionModel(model: "", items: [$0, $0, $0, $0])] }
+        output.medias
+            .map { [SectionModel(model: "", items: $0)] }
             .drive(tableview.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-    }
 
+        output.isLoading
+            .drive(onNext: { [unowned self] isLoading in
+                configHiddenView(isHiddenView: !isLoading)
+            })
+            .disposed(by: disposeBag)
+    }
+    
     private func configTableView() {
         tableview.then {
             $0.rx.setDelegate(self)
@@ -57,7 +81,6 @@ final class HomeViewController: UIViewController {
                 .bind(to: tableview.rx.tableHeaderView)
                 .disposed(by: disposeBag)
         }
-
     }
 }
 

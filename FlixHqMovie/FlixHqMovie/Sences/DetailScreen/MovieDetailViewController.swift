@@ -136,7 +136,7 @@ extension MovieDetailViewController {
     func bindingData() {
 
         let releatedMovieDataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Int>>(
-            configureCell: { dataSource, collectionView, indexPath, item in
+            configureCell: { _, collectionView, indexPath, item in
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageFilmCollectionViewCell.defaultReuseIdentifier, for: indexPath)
                         as? ImageFilmCollectionViewCell else {
                     return UICollectionViewCell()
