@@ -24,4 +24,7 @@ final class CastCollectionViewCell: UICollectionViewCell, ReuseCellType {
         actorNameLabel.text = nil
     }
 
+    func bind(actorName: String) {
+        actorNameLabel.text = actorName
+    }
 }

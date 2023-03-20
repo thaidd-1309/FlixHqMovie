@@ -24,6 +24,7 @@ struct HomeCoordinator: CoordinatorType {
     }
 
     func toDetailViewController(with id: String) {
-        //TODO: Will updare in task 60490
+        let detailCoordinator = DetailCoordinator(navigationController: navigationController, mediaId: id)
+        detailCoordinator.toMovieDetailViewController()
     }
 }
