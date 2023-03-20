@@ -44,17 +44,18 @@ final class MovieDetailViewController: UIViewController {
     private var currentTime: Float = 0.0
     private let layerPlayer = AVPlayerLayer()
     private var playerController = AVPlayerViewController()
-    private var movie: Movie?
     private var previousTimeWatch: Double = 0.0
     private var durationMovie: Int = 0
+    private var isLoading = false
     private let disposeBag = DisposeBag()
+    var viewModel: DetailViewModel!
 
     private let recommendCellSelectedTrigger = PublishSubject<String>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
-        configPlayVideo()
+        configPlayButton()
         bindingData()
         configReleatedMovieCollectionView()
         configCastCollectionView()
@@ -68,18 +69,8 @@ final class MovieDetailViewController: UIViewController {
         }
     }
 
-    private func configPlayVideo() {
-        let urlVideo = movie?.sources?[0].url ?? ""
-        let urlSub = movie?.subtitles?[0].url ?? ""
-        guard let urlForVideo = URL(string: urlVideo),
-              let urlForSub = URL(string: urlSub)else { return }
-        let asset = AVAsset(url: urlForVideo)
-        let subtitleAsset = AVAsset(url: urlForSub)
-
-        playerItem = AVPlayerItem(asset: asset)
-        player = AVPlayer(url: urlForVideo)
-        player?.replaceCurrentItem(with: playerItem)
-
+    private func configPlayButton() {
+        playMovieButton.layer.cornerRadius = playMovieButton.frame.height / 2
         playMovieButton.rx.tap.subscribe(onNext: { [unowned self] _ in
             playerController.then {
                 $0.player = player
@@ -92,8 +83,21 @@ final class MovieDetailViewController: UIViewController {
 
             self.present(playerController, animated: true)
         })
-        .disposed(by: disposeBag)
+        .disposed(by: disposeBag)    }
 
+    private func configPlayVideo(movie: Movie?) {
+        guard let urlVideo = movie?.sources?[0].url,
+              let urlSub = movie?.subtitles?[0].url
+        else { return }
+        guard let urlForVideo = URL(string: urlVideo),
+              let urlForSub = URL(string: urlSub)
+        else { return }
+        let asset = AVAsset(url: urlForVideo)
+        let subtitleAsset = AVAsset(url: urlForSub)
+
+        playerItem = AVPlayerItem(asset: asset)
+        player = AVPlayer(url: urlForVideo)
+        player?.replaceCurrentItem(with: playerItem)
     }
 
     private func configHiddenView(isHiddenView: Bool) {
@@ -101,9 +105,8 @@ final class MovieDetailViewController: UIViewController {
         loadingActivityIndicator.isHidden = isHiddenView
     }
 
-    private  func configView() {
+    private func configView() {
         configMoviePosterImage()
-        playMovieButton.layer.cornerRadius = playMovieButton.frame.height / 2
         downloadMovieButton.layer.cornerRadius = downloadMovieButton.frame.height / 2
         ageLabel.makeCornerRadius(radious: LayoutOptions.ageLabel.cornerRadious)
         nationalLabel.makeCornerRadius(radious: LayoutOptions.nationalLabel.cornerRadious)
@@ -127,31 +130,53 @@ final class MovieDetailViewController: UIViewController {
         castsCollecttionView.register(nibName: CastCollectionViewCell.self)
     }
 
-    func configReleatedMovieCollectionView() {
+    private func configReleatedMovieCollectionView() {
         relatedMovieCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         relatedMovieCollectionView.register(nibName: ImageFilmCollectionViewCell.self)
+        relatedMovieCollectionView.rx.modelSelected(Recommendation.self)
+            .subscribe(onNext: { [unowned self] item in
+                recommendCellSelectedTrigger.onNext("\(item.id ?? "")")
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func updateUI(item: MediaInformation) {
+        movieTitleLabel.text = item.title
+        ibmPointLabel.text = "\(item.rating ?? 0)"
+        yearLabel.text = getYear(str: item.releaseDate ?? "")
+        nationalLabel.text = item.country
+        let genres = item.genres?.joined(separator: ", ")
+        decriptionMovieTextView.text = "Genres: \(genres ?? "")\n\(item.description ?? "")"
+        let url = URL(string: item.cover ?? "")
+        moviePosterImageView.sd_setImage(with: url)
+        durationMovie = 60 * (Int(item.duration?.getNumberFromString() ?? "") ?? 0)
     }
 }
 extension MovieDetailViewController {
     func bindingData() {
+        let loadTrigger = Driver.just(())
+        loadTrigger
+            .drive(onNext: { [unowned self]_ in
+                isLoading = true
+            })
+            .disposed(by: disposeBag)
 
-        let releatedMovieDataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Int>>(
+        let input = DetailViewModel.Input(loadTrigger: loadTrigger, slectedMovie: recommendCellSelectedTrigger.asDriver(onErrorDriveWith: .empty()))
+        let output = viewModel.transform(input: input, disposeBag: disposeBag)
+        binder(output: output)
+    }
+
+    private func binder(output: DetailViewModel.Output) {
+        let releatedMovieDataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Recommendation>>(
             configureCell: { _, collectionView, indexPath, item in
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageFilmCollectionViewCell.defaultReuseIdentifier, for: indexPath)
                         as? ImageFilmCollectionViewCell else {
                     return UICollectionViewCell()
                 }
+                cell.bind(imageUrl: item.image ?? "")
                 return cell
             }
         )
-
-        //TODO: Fake data, will update in task/60489
-        let dataTest = Driver.of([1, 2, 3, 4, 5, 6, 7, 8, 9])
-        dataTest.map {
-            [SectionModel(model: "", items: $0)]
-        }
-        .drive(relatedMovieCollectionView.rx.items(dataSource: releatedMovieDataSource))
-        .disposed(by: disposeBag)
 
         let castDataSource =  RxCollectionViewSectionedReloadDataSource<SectionModel<String, String>>(
             configureCell: { dataSource, collectionView, indexPath, item in
@@ -159,16 +184,36 @@ extension MovieDetailViewController {
                         as? CastCollectionViewCell else {
                     return UICollectionViewCell()
                 }
+                cell.bind(actorName: item)
                 return cell
             }
         )
 
-        //TODO: Fake data, will update in task/60489
-        Driver.of(["a", "b", "c", "d"]).map {
-            [SectionModel(model: "", items: $0)]
-        }
-        .drive(castsCollecttionView.rx.items(dataSource: castDataSource))
+        output.information.drive(onNext: { [unowned self] item in
+            updateUI(item: item)
+            Driver.of(item.casts ?? []).map {
+                [SectionModel(model: "", items: $0)]
+            }
+            .drive(castsCollecttionView.rx.items(dataSource: castDataSource))
+            .disposed(by: disposeBag)
+        })
         .disposed(by: disposeBag)
+
+        output.recommandMovie
+            .map {
+                [SectionModel(model: "", items: $0)]
+            }
+            .drive(relatedMovieCollectionView.rx.items(dataSource: releatedMovieDataSource))
+            .disposed(by: disposeBag)
+
+        output.isLoading.drive(onNext: {[unowned self] isLoading in
+            configHiddenView(isHiddenView: !isLoading)
+        })
+        .disposed(by: disposeBag)
+
+        output.media.drive(onNext: {[unowned self] media in
+            configPlayVideo(movie: media)
+        }).disposed(by: disposeBag)
     }
 
 }

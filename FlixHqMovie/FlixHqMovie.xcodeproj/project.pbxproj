@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A36415729C45AC1002A9B79 /* NameHeaderTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415629C45AC1002A9B79 /* NameHeaderTableRow.swift */; };
+		1A36415129C44E3E002A9B79 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415029C44E3E002A9B79 /* DetailViewModel.swift */; };
+		1A36415329C44E8D002A9B79 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */; };
+		1A36415529C451CD002A9B79 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415429C451CD002A9B79 /* DetailUseCase.swift */; };
+		1A36415729C45AC1002A9B79 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		1A3D4E9129C1BC5E005CA142 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */; };
 		1A3D4E9929C1C400005CA142 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9529C1C400005CA142 /* CastCollectionViewCell.swift */; };
 		1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9629C1C400005CA142 /* CastCollectionViewCell.xib */; };
@@ -25,6 +28,7 @@
 		1A42BC6629C189C4003F3EB0 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6529C189C4003F3EB0 /* UITableView+.swift */; };
 		1A42BC6829C19A0E003F3EB0 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */; };
 		1A42BC6A29C19F13003F3EB0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */; };
+		1A55BEAF29C7EE8000E5C426 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55BEAE29C7EE8000E5C426 /* String+.swift */; };
 		1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C8D29B83F7C00239D70 /* AppDelegate.swift */; };
 		1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */; };
 		1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A780C9929B83F7D00239D70 /* Assets.xcassets */; };
@@ -79,7 +83,9 @@
 
 /* Begin PBXFileReference section */
 		0784EE7B65040A7985B31AC9 /* Pods-FlixHqMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixHqMovie.release.xcconfig"; path = "Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie.release.xcconfig"; sourceTree = "<group>"; };
-		1A36415629C45AC1002A9B79 /* NameHeaderTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameHeaderTableRow.swift; sourceTree = "<group>"; };
+		1A36415029C44E3E002A9B79 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		1A36415429C451CD002A9B79 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
 		1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		1A3D4E9529C1C400005CA142 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A3D4E9629C1C400005CA142 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 		1A42BC6529C189C4003F3EB0 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		1A55BEAE29C7EE8000E5C426 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1A780C8A29B83F7C00239D70 /* FlixHqMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlixHqMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A780C8D29B83F7C00239D70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A780C9729B83F7C00239D70 /* FlixHqMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlixHqMovie.xcdatamodel; sourceTree = "<group>"; };
@@ -176,8 +183,11 @@
 			isa = PBXGroup;
 			children = (
 				1A3D4E9329C1C400005CA142 /* Cell */,
+				1A36415029C44E3E002A9B79 /* DetailViewModel.swift */,
 				1A3D4E9729C1C400005CA142 /* MovieDetailViewController.swift */,
 				1A3D4E9829C1C400005CA142 /* MovieDetailViewController.xib */,
+				1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */,
+				1A36415429C451CD002A9B79 /* DetailUseCase.swift */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
@@ -410,7 +420,6 @@
 				1AB0198129BF0A9400A690D9 /* CoordinatorProtocol.swift */,
 				1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */,
 				1A42BC4F29C17179003F3EB0 /* ReuseCellType.swift */,
-				1A36415629C45AC1002A9B79 /* NameHeaderTableRow.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -444,6 +453,7 @@
 				1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */,
 				1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */,
 				1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */,
+				1A55BEAE29C7EE8000E5C426 /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -614,11 +624,13 @@
 			files = (
 				1A3D4E9129C1BC5E005CA142 /* UILabel+.swift in Sources */,
 				1A780CE029B84D6400239D70 /* DownloadCoordinator.swift in Sources */,
+				1A36415529C451CD002A9B79 /* DetailUseCase.swift in Sources */,
 				1A780CB829B849C800239D70 /* LoginCoordinator.swift in Sources */,
 				1A42BC5229C1719E003F3EB0 /* UICollectionView+.swift in Sources */,
 				1A3D4E9B29C1C400005CA142 /* MovieDetailViewController.swift in Sources */,
-				1A36415729C45AC1002A9B79 /* NameHeaderTableRow.swift in Sources */,
+				1A36415729C45AC1002A9B79 /* (null) in Sources */,
 				1A780CC429B84BCF00239D70 /* HomeViewModel.swift in Sources */,
+				1A55BEAF29C7EE8000E5C426 /* String+.swift in Sources */,
 				1A42BC5E29C17622003F3EB0 /* HeaderTableView.swift in Sources */,
 				1A42BC5F29C17622003F3EB0 /* ImageFilmCollectionViewCell.swift in Sources */,
 				1A780CEA29B84DB700239D70 /* ProfileCoordinator.swift in Sources */,
@@ -636,6 +648,7 @@
 				1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */,
 				1AB0197429BECE1E00A690D9 /* LoginViewModel.swift in Sources */,
 				1A780CED29B84DCE00239D70 /* ProfileViewController.swift in Sources */,
+				1A1051F629C8153D00196C2F /* NameTableRow.swift in Sources */,
 				1AB0198229BF0A9400A690D9 /* CoordinatorProtocol.swift in Sources */,
 				1A780CDB29B84D2000239D70 /* MyListViewController.swift in Sources */,
 				1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */,
@@ -648,6 +661,8 @@
 				1A780CC629B84BF700239D70 /* HomeCoordinator.swift in Sources */,
 				1AB0198029BF036200A690D9 /* MoveToViewController.swift in Sources */,
 				1A780CCE29B84C8000239D70 /* ExploreViewModel.swift in Sources */,
+				1A36415329C44E8D002A9B79 /* DetailCoordinator.swift in Sources */,
+				1A36415129C44E3E002A9B79 /* DetailViewModel.swift in Sources */,
 				1A780CE529B84D9300239D70 /* DownloadViewController.swift in Sources */,
 				1AB0197229BEC51B00A690D9 /* Tabar.swift in Sources */,
 				1A780CD229B84CCD00239D70 /* HomeUseCase.swift in Sources */,

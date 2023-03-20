@@ -99,8 +99,33 @@ enum MediaType {
         switch self {
         case .movie:
             return "Movie"
+
         case .tvSeries:
             return "TV Series"
+        }
+    }
+}
+
+enum NameTableHeaderRow {
+    case newMovie
+       case newShow
+       case trendingMovie
+       case trendingShow
+
+    var name: String {
+        switch self {
+
+        case .newMovie:
+            return "New movies"
+
+        case .newShow:
+            return "New shows"
+
+        case .trendingMovie:
+            return "Trending movies"
+
+        case .trendingShow:
+            return "Trending shows"
         }
     }
 }

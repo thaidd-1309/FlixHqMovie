@@ -58,7 +58,7 @@ final class HomeTableViewCell: UITableViewCell, ReuseCellType {
         collectionView.rx.modelSelected(MediaResult.self)
             .subscribe(onNext: { [weak self] item in
                 guard let self = self else { return }
-                self.movieTapped?("\(item.id)")
+                self.movieTapped?("\(item.id ?? "")")
             })
             .disposed(by: disposeBag)
     }

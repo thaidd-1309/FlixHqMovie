@@ -46,13 +46,16 @@ final class HomeViewController: UIViewController {
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
 
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, TableViewSectionModel>>(
-            configureCell: { _, tableView, indexPath, item in
+            configureCell: { [unowned self] _, tableView, indexPath, item in
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.defaultReuseIdentifier, for: indexPath) as? HomeTableViewCell
                 else {
                     return UITableViewCell()
                 }
                 cell.setcategoryFilmLabel(name: item.nameHeaderRow)
                 cell.updateCollectionView(data: item.filmsSectionModel)
+                cell.movieTapped = { idMovie in
+                    selectedMovieTrigger.onNext(idMovie)
+                }
                 return cell
             })
 
