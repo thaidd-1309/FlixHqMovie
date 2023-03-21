@@ -108,9 +108,9 @@ final class MovieDetailViewController: UIViewController {
     private func configView() {
         configMoviePosterImage()
         downloadMovieButton.layer.cornerRadius = downloadMovieButton.frame.height / 2
-        ageLabel.makeCornerRadius(radious: LayoutOptions.ageLabel.cornerRadious)
-        nationalLabel.makeCornerRadius(radious: LayoutOptions.nationalLabel.cornerRadious)
-        subLabel.makeCornerRadius(radious: LayoutOptions.subLabel.cornerRadious)
+        ageLabel.makeCornerRadius(radious: LayoutOptions.tagLabel.cornerRadious)
+        nationalLabel.makeCornerRadius(radious: LayoutOptions.tagLabel.cornerRadious)
+        subLabel.makeCornerRadius(radious: LayoutOptions.tagLabel.cornerRadious)
     }
 
     private func configMoviePosterImage() {
@@ -131,7 +131,8 @@ final class MovieDetailViewController: UIViewController {
     }
 
     private func configReleatedMovieCollectionView() {
-        relatedMovieCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        relatedMovieCollectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
         relatedMovieCollectionView.register(nibName: ImageFilmCollectionViewCell.self)
         relatedMovieCollectionView.rx.modelSelected(Recommendation.self)
             .subscribe(onNext: { [unowned self] item in
@@ -221,9 +222,13 @@ extension MovieDetailViewController {
 extension MovieDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == castsCollecttionView {
-            return CGSize(width: castsCollecttionView.frame.size.width / 2.2, height: castsCollecttionView.frame.size.height)
+            return CGSize(
+                width: castsCollecttionView.frame.size.width / 2.2,
+                height: castsCollecttionView.frame.size.height)
         } else {
-            return CGSize(width: relatedMovieCollectionView.frame.size.width / 2 - LayoutCell.padding.value, height: relatedMovieCollectionView.frame.size.height / 1.8)
+            return CGSize(
+                width: relatedMovieCollectionView.frame.size.width / 2 - LayoutCell.paddingWidth.value,
+                height: relatedMovieCollectionView.frame.size.height / 1.8)
         }
     }
 

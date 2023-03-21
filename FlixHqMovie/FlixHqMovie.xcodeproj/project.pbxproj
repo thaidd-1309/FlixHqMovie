@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1051FD29C8191700196C2F /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1051F929C8191700196C2F /* FilterCollectionViewCell.swift */; };
+		1A1051FE29C8191700196C2F /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1051FA29C8191700196C2F /* FilterCollectionViewCell.xib */; };
+		1A1051FF29C8191700196C2F /* FilterScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1051FB29C8191700196C2F /* FilterScreenViewController.xib */; };
+		1A10520029C8191700196C2F /* FilterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1051FC29C8191700196C2F /* FilterScreenViewController.swift */; };
 		1A36415129C44E3E002A9B79 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415029C44E3E002A9B79 /* DetailViewModel.swift */; };
 		1A36415329C44E8D002A9B79 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */; };
 		1A36415529C451CD002A9B79 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415429C451CD002A9B79 /* DetailUseCase.swift */; };
@@ -67,6 +71,8 @@
 		1A780CF929B84EF300239D70 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CF829B84EF300239D70 /* APIService.swift */; };
 		1A780CFC29B84F7700239D70 /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CFB29B84F7700239D70 /* MediaModel.swift */; };
 		1A780D0029B860CF00239D70 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CFF29B860CF00239D70 /* LoginViewController.xib */; };
+		1A7B69F229C8A2CF0021344C /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7B69F029C8A2CF0021344C /* CategoryTableViewCell.swift */; };
+		1A7B69F329C8A2CF0021344C /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B69F129C8A2CF0021344C /* CategoryTableViewCell.xib */; };
 		1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA016D829B87CA2003DB29A /* UIView+.swift */; };
 		1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0196B29BE037000A690D9 /* UIButton+.swift */; };
 		1AB0196E29BE03EA00A690D9 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0196D29BE03EA00A690D9 /* UIColor+.swift */; };
@@ -83,6 +89,10 @@
 
 /* Begin PBXFileReference section */
 		0784EE7B65040A7985B31AC9 /* Pods-FlixHqMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixHqMovie.release.xcconfig"; path = "Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie.release.xcconfig"; sourceTree = "<group>"; };
+		1A1051F929C8191700196C2F /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		1A1051FA29C8191700196C2F /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
+		1A1051FB29C8191700196C2F /* FilterScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterScreenViewController.xib; sourceTree = "<group>"; };
+		1A1051FC29C8191700196C2F /* FilterScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterScreenViewController.swift; sourceTree = "<group>"; };
 		1A36415029C44E3E002A9B79 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		1A36415429C451CD002A9B79 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
@@ -143,6 +153,8 @@
 		1A780CF829B84EF300239D70 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1A780CFB29B84F7700239D70 /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		1A780CFF29B860CF00239D70 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		1A7B69F029C8A2CF0021344C /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		1A7B69F129C8A2CF0021344C /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		1AA016D829B87CA2003DB29A /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		1AB0196B29BE037000A690D9 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		1AB0196D29BE03EA00A690D9 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -177,6 +189,24 @@
 				E90F2684EB8BBA812CD96A63 /* Pods_FlixHqMovie.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A1051F729C8191700196C2F /* FilterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A1051FB29C8191700196C2F /* FilterScreenViewController.xib */,
+				1A1051FC29C8191700196C2F /* FilterScreenViewController.swift */,
+			);
+			path = FilterScreen;
+			sourceTree = "<group>";
+		};
+		1A1051F829C8191700196C2F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1A7B69F429C8A2DC0021344C /* CategoryCollectionViewCell */,
+				1A7B69EF29C8A2A50021344C /* CategoryTableviewCell */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		1A3D4E9229C1C3D0005CA142 /* DetailScreen */ = {
@@ -360,6 +390,8 @@
 		1A780CAB29B8491100239D70 /* ExploreScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1A1051F829C8191700196C2F /* Cell */,
+				1A1051F729C8191700196C2F /* FilterScreen */,
 				1A780CC729B84C4B00239D70 /* ExploreViewController.swift */,
 				1A780CC829B84C4B00239D70 /* ExploreViewController.xib */,
 				1A780CCB29B84C6400239D70 /* ExploreCoordinator.swift */,
@@ -440,6 +472,24 @@
 				1A42BC6329C17FC9003F3EB0 /* SectionModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1A7B69EF29C8A2A50021344C /* CategoryTableviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A7B69F029C8A2CF0021344C /* CategoryTableViewCell.swift */,
+				1A7B69F129C8A2CF0021344C /* CategoryTableViewCell.xib */,
+			);
+			path = CategoryTableviewCell;
+			sourceTree = "<group>";
+		};
+		1A7B69F429C8A2DC0021344C /* CategoryCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A1051F929C8191700196C2F /* FilterCollectionViewCell.swift */,
+				1A1051FA29C8191700196C2F /* FilterCollectionViewCell.xib */,
+			);
+			path = CategoryCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		1AA016D729B87C86003DB29A /* Extension */ = {
@@ -540,13 +590,16 @@
 				1A3D4E9C29C1C400005CA142 /* MovieDetailViewController.xib in Resources */,
 				1A780C9D29B83F7D00239D70 /* LaunchScreen.storyboard in Resources */,
 				1A42BC5D29C17622003F3EB0 /* HeaderTableView.xib in Resources */,
+				1A7B69F329C8A2CF0021344C /* CategoryTableViewCell.xib in Resources */,
 				1A42BC6029C17622003F3EB0 /* ImageFilmCollectionViewCell.xib in Resources */,
 				1A780CDC29B84D2000239D70 /* MyListViewController.xib in Resources */,
+				1A1051FF29C8191700196C2F /* FilterScreenViewController.xib in Resources */,
 				1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */,
 				1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */,
 				1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */,
 				1A780CCA29B84C4B00239D70 /* ExploreViewController.xib in Resources */,
 				1A780CC229B84BB400239D70 /* HomeViewController.xib in Resources */,
+				1A1051FE29C8191700196C2F /* FilterCollectionViewCell.xib in Resources */,
 				1A42BC6229C17622003F3EB0 /* HomeTableViewCell.xib in Resources */,
 				1A780CEE29B84DCE00239D70 /* ProfileViewController.xib in Resources */,
 				1A780CE629B84D9300239D70 /* DownloadViewController.xib in Resources */,
@@ -642,13 +695,13 @@
 				1AB0198629BF1AA700A690D9 /* MovieModel.swift in Sources */,
 				1A780CE829B84DA500239D70 /* ProfileViewModel.swift in Sources */,
 				1A42BC6A29C19F13003F3EB0 /* UIViewController+.swift in Sources */,
+				1A7B69F229C8A2CF0021344C /* CategoryTableViewCell.swift in Sources */,
 				1A780CD629B84CF600239D70 /* MyListCoordinator.swift in Sources */,
 				1A780CC129B84BB400239D70 /* HomeViewController.swift in Sources */,
 				1A3D4E9929C1C400005CA142 /* CastCollectionViewCell.swift in Sources */,
 				1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */,
 				1AB0197429BECE1E00A690D9 /* LoginViewModel.swift in Sources */,
 				1A780CED29B84DCE00239D70 /* ProfileViewController.swift in Sources */,
-				1A1051F629C8153D00196C2F /* NameTableRow.swift in Sources */,
 				1AB0198229BF0A9400A690D9 /* CoordinatorProtocol.swift in Sources */,
 				1A780CDB29B84D2000239D70 /* MyListViewController.swift in Sources */,
 				1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */,
@@ -676,6 +729,8 @@
 				1A780CD429B84CE100239D70 /* MyListViewModel.swift in Sources */,
 				1A780CDE29B84D4800239D70 /* DownloadViewModel.swift in Sources */,
 				1AB0198429BF194600A690D9 /* Constants.swift in Sources */,
+				1A1051FD29C8191700196C2F /* FilterCollectionViewCell.swift in Sources */,
+				1A10520029C8191700196C2F /* FilterScreenViewController.swift in Sources */,
 				1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */,
 				1A42BC6629C189C4003F3EB0 /* UITableView+.swift in Sources */,
 				1A42BC6829C19A0E003F3EB0 /* UIScrollView+.swift in Sources */,

@@ -21,7 +21,7 @@ enum EndPoint {
     case getListRecentShow
     case getListRecentMovie
     case getMediaDetail(mediaId: String)
-
+    
     var url: String {
         let baseUrl = BaseUrl.deploy.rawValue
         switch self {
@@ -43,50 +43,55 @@ enum EndPoint {
 
 enum LayoutOptions {
     case itemPoster
-    case ibmPointLabel
     case addToMylistButton
-    case playMovieButton
-    case downloadMovieButton
-    case ageLabel
-    case nationalLabel
-    case subLabel
-
+    case tagLabel
+    case filterCell
+    case buttonInFilterScreen
+    case filterButtton
+    case containerView
+    
     var cornerRadious: CGFloat {
         switch self {
         case .itemPoster:
             return 8
-        case .ibmPointLabel, .ageLabel:
+        case .tagLabel:
             return 4
-        case .addToMylistButton:
+        case .addToMylistButton, .filterCell:
             return 0
-        case .playMovieButton, .downloadMovieButton:
+        case  .filterButtton:
             return 10
-        case .nationalLabel, .subLabel:
-            return 6
+        case .buttonInFilterScreen:
+            return 12
+        case .containerView:
+            return 16
         }
     }
-
+    
     var borderWidth: CGFloat {
         switch self {
         case .itemPoster:
             return 1.2
-        case .ibmPointLabel, .playMovieButton, .downloadMovieButton,
-                .ageLabel, .nationalLabel, .subLabel:
+        case  .filterButtton, .tagLabel, .buttonInFilterScreen:
             return 0
         case .addToMylistButton:
             return 2
-
+        case .filterCell, .containerView:
+            return 1
         }
     }
 }
-
 enum LayoutCell {
-    case padding
-
+    case paddingWidth
+    case paddingHeight
+    case heightRatio
     var value: CGFloat {
         switch self {
-        case .padding:
+        case .paddingWidth:
             return 10
+        case.paddingHeight:
+            return 4
+        case.heightRatio:
+            return 1.8
         }
     }
 }
@@ -94,12 +99,11 @@ enum LayoutCell {
 enum MediaType {
     case movie
     case tvSeries
-
+    
     var name: String {
         switch self {
         case .movie:
             return "Movie"
-
         case .tvSeries:
             return "TV Series"
         }
@@ -108,24 +112,87 @@ enum MediaType {
 
 enum NameTableHeaderRow {
     case newMovie
-       case newShow
-       case trendingMovie
-       case trendingShow
+    case newShow
+    case trendingMovie
+    case trendingShow
+    
+    var name: String {
+        switch self {
+        case .newMovie:
+            return "New movies"
+        case .newShow:
+            return "New shows"
+        case .trendingMovie:
+            return "Trending movies"
+        case .trendingShow:
+            return "Trending shows"
+        }
+    }
+}
+
+enum FilterCategory {
+    case categories
+    case regions
+    case genres
+    case periods
+    case sortOptions
+    
+    var value: FilterSectionModel {
+        switch self {
+        case .categories:
+            return FilterSectionModel(
+                name: "Categories",
+                data: ["Movie", "Tv - Show", "K-Drama", "Anime", "Wars"])
+        case .regions:
+            return FilterSectionModel(
+                name: "Regions",
+                data: ["All Regions", "US", "Korean", "Viet nam", "China"])
+        case .genres:
+            return FilterSectionModel(
+                name: "Genres",
+                data: ["Action", "Comedy", "Romance", "Thriller", "Family"])
+        case .periods:
+            return FilterSectionModel(
+                name: "Time/Periods",
+                data: ["All periods", "2023", "2022", "2021", "2020", "2019"])
+        case .sortOptions:
+            return FilterSectionModel(
+                name: "Sorts",
+                data: ["Popularity", "Lastest Release", "A->Z", "Z->A"])
+        }
+    }
+}
+
+enum SearchNotice {
+    case startLabel
+    case startNotice
+    case notFoundLabel
+    case notFoundNotice
+    
+    var text: String {
+        switch self {
+        case .startLabel:
+            return "Let search"
+        case .startNotice:
+            return "Find your movie or show you like"
+        case .notFoundLabel:
+            return "Not found"
+        case .notFoundNotice:
+            return "Sorry, the keyword you entered could not be found. Try to check again or search with other keywords."
+        }
+    }
+}
+
+enum CustomImageName {
+    case noResult
+    case search
 
     var name: String {
         switch self {
-
-        case .newMovie:
-            return "New movies"
-
-        case .newShow:
-            return "New shows"
-
-        case .trendingMovie:
-            return "Trending movies"
-
-        case .trendingShow:
-            return "Trending shows"
+        case .noResult:
+            return "no-results"
+        case .search:
+            return "search (1)"
         }
     }
 }
