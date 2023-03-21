@@ -150,7 +150,7 @@ enum FilterCategory {
         case .genres:
             return FilterSectionModel(
                 name: "Genres",
-                data: ["Action", "Comedy", "Romance", "Thriller", "Family"])
+                data: ["Action", "Comedy", "Romance", "Thriller", "Documentary"])
         case .periods:
             return FilterSectionModel(
                 name: "Time/Periods",
