@@ -19,4 +19,13 @@ struct ExploreCoordinator: CoordinatorType {
         let viewController = ExploreViewController()
         navigationController.pushViewController(viewController, animated: true)
     }
+
+    func toMovieDetail(with id: String) {
+        let detailCoordinator = DetailCoordinator(navigationController: navigationController, mediaId: id)
+        detailCoordinator.toMovieDetailViewController()
+    }
+
+    func toFilterViewController() {
+        //TODO: Update in task 60493
+    }
 }

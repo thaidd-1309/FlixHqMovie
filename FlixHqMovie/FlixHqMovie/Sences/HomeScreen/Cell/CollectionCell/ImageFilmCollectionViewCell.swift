@@ -30,7 +30,7 @@ final class ImageFilmCollectionViewCell: UICollectionViewCell, ReuseCellType {
         layer.cornerRadius = LayoutOptions.itemPoster.cornerRadious
         layer.borderWidth = LayoutOptions.itemPoster.borderWidth
         layer.borderColor = UIColor.gray.cgColor
-        ibmPointLabel.layer.cornerRadius = LayoutOptions.ibmPointLabel.cornerRadious
+        ibmPointLabel.layer.cornerRadius = LayoutOptions.tagLabel.cornerRadious
         ibmPointLabel.layer.masksToBounds = true
     }
     

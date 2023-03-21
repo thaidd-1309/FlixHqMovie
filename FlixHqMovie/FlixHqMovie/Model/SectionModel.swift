@@ -16,3 +16,8 @@ struct CollectionViewSectionModel {
     let ibmPoint: String
     let image: String
 }
+
+struct FilterSectionModel {
+    let name: String
+    let data: [String]
+}
