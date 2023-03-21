@@ -10,6 +10,7 @@ import UIKit
 
 struct ExploreCoordinator: CoordinatorType {
     var navigationController: BaseNavigationController
+    let useCase = ExploreUseCase(mediaRepository: MediaRepository())
 
     init(navigationController: BaseNavigationController) {
         self.navigationController = navigationController
@@ -17,6 +18,8 @@ struct ExploreCoordinator: CoordinatorType {
 
     func toExploreViewController() {
         let viewController = ExploreViewController()
+        let viewModel = ExploreViewModel(coordinator: self, useCase: useCase)
+        viewController.viewModel = viewModel
         navigationController.pushViewController(viewController, animated: true)
     }
 
