@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,11 +23,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="gQe-bi-Toj">
-                    <rect key="frame" x="12" y="62" width="323" height="56"/>
+                    <rect key="frame" x="12" y="62" width="327" height="56"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits"/>
@@ -36,7 +37,7 @@
                     </scopeButtonTitles>
                 </searchBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rfc-7Q-A9K">
-                    <rect key="frame" x="12" y="125" width="369" height="727"/>
+                    <rect key="frame" x="12" y="125" width="366" height="719"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z6e-1f-JvV">
                         <size key="itemSize" width="128" height="128"/>
@@ -86,7 +87,7 @@
                     </constraints>
                 </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="zwu-fj-jOg">
-                    <rect key="frame" x="171.66666666666666" y="201" width="50" height="50"/>
+                    <rect key="frame" x="170" y="201" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="7m7-8r-Ra1"/>
                         <constraint firstAttribute="width" constant="50" id="Ahq-cX-h2c"/>
@@ -94,7 +95,7 @@
                     <color key="color" red="1" green="0.28745943060000001" blue="0.22786689490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </activityIndicatorView>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7qG-JN-ZoS">
-                    <rect key="frame" x="335" y="69" width="42" height="42"/>
+                    <rect key="frame" x="339" y="69" width="42" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.14901961389999999" green="0.1019607931" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <color key="tintColor" red="1" green="0.28745943060000001" blue="0.22786689490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -110,12 +111,12 @@
                 <constraint firstAttribute="bottom" secondItem="rfc-7Q-A9K" secondAttribute="bottom" id="7BK-85-UhH"/>
                 <constraint firstItem="rfc-7Q-A9K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="OtG-mW-BnS"/>
                 <constraint firstItem="rfc-7Q-A9K" firstAttribute="top" secondItem="gQe-bi-Toj" secondAttribute="bottom" constant="7" id="S1o-AL-MLU"/>
+                <constraint firstItem="7qG-JN-ZoS" firstAttribute="leading" secondItem="gQe-bi-Toj" secondAttribute="trailing" id="Yq1-ev-bKi"/>
                 <constraint firstItem="gQe-bi-Toj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="cZL-Id-kLX"/>
                 <constraint firstItem="zwu-fj-jOg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eHh-q1-iqS"/>
                 <constraint firstItem="uRQ-np-X8j" firstAttribute="top" secondItem="zwu-fj-jOg" secondAttribute="bottom" id="fbR-oa-1uP"/>
                 <constraint firstItem="gQe-bi-Toj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="gIe-BS-tIN"/>
                 <constraint firstAttribute="trailing" secondItem="rfc-7Q-A9K" secondAttribute="trailing" constant="12" id="hW5-Hr-c02"/>
-                <constraint firstItem="7qG-JN-ZoS" firstAttribute="leading" secondItem="gQe-bi-Toj" secondAttribute="trailing" id="yar-bs-3aV"/>
             </constraints>
             <point key="canvasLocation" x="-28.244274809160306" y="-174.64788732394368"/>
         </view>

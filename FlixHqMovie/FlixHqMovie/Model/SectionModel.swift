@@ -19,5 +19,5 @@ struct CollectionViewSectionModel {
 
 struct FilterSectionModel {
     let name: String
-    let data: [String]
+    var data: [String]
 }

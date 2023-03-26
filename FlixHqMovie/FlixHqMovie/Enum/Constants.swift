@@ -80,6 +80,7 @@ enum LayoutOptions {
         }
     }
 }
+
 enum LayoutCell {
     case paddingWidth
     case paddingHeight
@@ -126,39 +127,6 @@ enum NameTableHeaderRow {
             return "Trending movies"
         case .trendingShow:
             return "Trending shows"
-        }
-    }
-}
-
-enum FilterCategory {
-    case categories
-    case regions
-    case genres
-    case periods
-    case sortOptions
-    
-    var value: FilterSectionModel {
-        switch self {
-        case .categories:
-            return FilterSectionModel(
-                name: "Categories",
-                data: ["Movie", "Tv - Show", "K-Drama", "Anime", "Wars"])
-        case .regions:
-            return FilterSectionModel(
-                name: "Regions",
-                data: ["All Regions", "US", "Korean", "Viet nam", "China"])
-        case .genres:
-            return FilterSectionModel(
-                name: "Genres",
-                data: ["Action", "Comedy", "Romance", "Thriller", "Documentary"])
-        case .periods:
-            return FilterSectionModel(
-                name: "Time/Periods",
-                data: ["All periods", "2023", "2022", "2021", "2020", "2019"])
-        case .sortOptions:
-            return FilterSectionModel(
-                name: "Sorts",
-                data: ["Popularity", "Lastest Release", "A->Z", "Z->A"])
         }
     }
 }
