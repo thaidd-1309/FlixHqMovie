@@ -14,8 +14,8 @@ import SDWebImage
 final class HomeTableViewCell: UITableViewCell, ReuseCellType {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var categoryFilmLabel: UILabel!
+    
     var movieTapped: ((String) -> Void)?
-
     private var disposeBag = DisposeBag()
 
     override func awakeFromNib() {

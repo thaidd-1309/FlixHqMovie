@@ -298,11 +298,15 @@
                         </stackView>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ulW-tM-yvC" secondAttribute="trailing" id="7Tx-0v-gIp"/>
                         <constraint firstAttribute="bottom" secondItem="ulW-tM-yvC" secondAttribute="bottom" id="PhF-Et-9Oi"/>
                         <constraint firstItem="ulW-tM-yvC" firstAttribute="leading" secondItem="8yA-3r-XLq" secondAttribute="leading" id="TAd-35-36F"/>
                         <constraint firstItem="ulW-tM-yvC" firstAttribute="top" secondItem="8yA-3r-XLq" secondAttribute="top" id="V6d-TE-Ca0"/>
+                        <constraint firstItem="ulW-tM-yvC" firstAttribute="leading" secondItem="8yA-3r-XLq" secondAttribute="leading" id="pKw-kY-FBo"/>
                         <constraint firstAttribute="trailing" secondItem="ulW-tM-yvC" secondAttribute="trailing" id="sds-Ei-DvI"/>
                     </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="1cZ-fw-V6x"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="vQ5-Aj-oG2"/>
                 </scrollView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="Gw0-gV-0iv">
                     <rect key="frame" x="176" y="403" width="37" height="37"/>
@@ -312,10 +316,14 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="8yA-3r-XLq" secondAttribute="trailing" id="3Ne-Uh-xwd"/>
                 <constraint firstItem="8yA-3r-XLq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BUr-RA-eg5"/>
                 <constraint firstAttribute="trailing" secondItem="8yA-3r-XLq" secondAttribute="trailing" id="N28-Tb-GJd"/>
                 <constraint firstAttribute="bottom" secondItem="8yA-3r-XLq" secondAttribute="bottom" id="UOK-vZ-B7l"/>
+                <constraint firstItem="8yA-3r-XLq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VuC-dd-gSV"/>
+                <constraint firstAttribute="trailing" secondItem="ulW-tM-yvC" secondAttribute="trailing" id="fJw-U1-CeI"/>
                 <constraint firstItem="8yA-3r-XLq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="h7p-t8-Xy5"/>
+                <constraint firstItem="ulW-tM-yvC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="i5u-DW-KHC"/>
             </constraints>
             <point key="canvasLocation" x="-155.38461538461539" y="-668.24644549763025"/>
         </view>

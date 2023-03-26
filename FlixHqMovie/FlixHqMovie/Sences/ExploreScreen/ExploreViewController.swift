@@ -23,18 +23,19 @@ final class ExploreViewController: UIViewController {
     private var disposeBag = DisposeBag()
     var viewModel: ExploreViewModel!
 
-    private var filterTrigger = BehaviorRelay<[FilterSectionModel]>(value: [])
+    private var mediasTrigger = BehaviorSubject<[MediaResult]>(value: [])
+    private var filterTrigger = BehaviorSubject<[FilterSectionModel]>(value: [])
     private let searchTextTrigger = PublishSubject<String>()
     private let selectedMovieTrigger = PublishSubject<String>()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        filterButtton.layer.cornerRadius = LayoutOptions.filterButtton.cornerRadious
+        configButtonfilter()
         configNotFound(isFound: true)
         configSearchBar()
         configCollectionView()
         bindViewModel()
+
     }
 
     private func customImage(imageName: CustomImageName) -> UIImage {
@@ -73,6 +74,7 @@ final class ExploreViewController: UIViewController {
 
     private func bindViewModel() {
         let input = ExploreViewModel.Input(
+            allFilter: filterTrigger.asDriver(onErrorJustReturn: []),
             textInput: searchTextTrigger.asDriver(onErrorJustReturn: ""),
             slectedMovie: selectedMovieTrigger.asDriver(onErrorJustReturn: ""))
 
@@ -95,8 +97,8 @@ final class ExploreViewController: UIViewController {
             }
             .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-
         output.medias.drive(onNext: { [unowned self] medias in
+            mediasTrigger.onNext(medias)
             if medias.isEmpty {
                 configNotFound(isFound: false)
             } else {
@@ -120,6 +122,13 @@ final class ExploreViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
+
+    private func configButtonfilter() {
+        filterButtton.layer.cornerRadius = LayoutOptions.filterButtton.cornerRadious
+        filterButtton.rx.tap.subscribe(onNext: {[unowned self] in
+            viewModel.coordinator.toFilterViewController(filterTrigger: filterTrigger)
+        }).disposed(by: disposeBag)
+    }
 }
 
 extension ExploreViewController {
@@ -133,7 +142,7 @@ extension ExploreViewController {
             if searchBar.text == "" {
                 configNotFound(isFound: true)
             } else {
-                searchTextTrigger.onNext(searchBar.text ?? "")
+                searchTextTrigger.onNext(searchBar.text?.lowercased() ?? "")
             }
         })
         .disposed(by: disposeBag)

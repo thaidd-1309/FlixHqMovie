@@ -32,6 +32,10 @@
 		1A42BC6629C189C4003F3EB0 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6529C189C4003F3EB0 /* UITableView+.swift */; };
 		1A42BC6829C19A0E003F3EB0 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */; };
 		1A42BC6A29C19F13003F3EB0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */; };
+		1A431F0229D0118C0093A5AC /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A431F0129D0118C0093A5AC /* Filters.swift */; };
+		1A4DA5AB29C991A300314CB2 /* FilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AA29C991A300314CB2 /* FilterCoordinator.swift */; };
+		1A4DA5AD29C9926D00314CB2 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AC29C9926D00314CB2 /* FilterViewModel.swift */; };
+		1A4DA5AF29CAA6B900314CB2 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AE29CAA6B900314CB2 /* UserDefault.swift */; };
 		1A55BEAF29C7EE8000E5C426 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55BEAE29C7EE8000E5C426 /* String+.swift */; };
 		1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C8D29B83F7C00239D70 /* AppDelegate.swift */; };
 		1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */; };
@@ -113,6 +117,10 @@
 		1A42BC6529C189C4003F3EB0 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		1A431F0129D0118C0093A5AC /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		1A4DA5AA29C991A300314CB2 /* FilterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCoordinator.swift; sourceTree = "<group>"; };
+		1A4DA5AC29C9926D00314CB2 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		1A4DA5AE29CAA6B900314CB2 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		1A55BEAE29C7EE8000E5C426 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1A780C8A29B83F7C00239D70 /* FlixHqMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlixHqMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A780C8D29B83F7C00239D70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +204,8 @@
 			children = (
 				1A1051FB29C8191700196C2F /* FilterScreenViewController.xib */,
 				1A1051FC29C8191700196C2F /* FilterScreenViewController.swift */,
+				1A4DA5AA29C991A300314CB2 /* FilterCoordinator.swift */,
+				1A4DA5AC29C9926D00314CB2 /* FilterViewModel.swift */,
 			);
 			path = FilterScreen;
 			sourceTree = "<group>";
@@ -452,6 +462,7 @@
 				1AB0198129BF0A9400A690D9 /* CoordinatorProtocol.swift */,
 				1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */,
 				1A42BC4F29C17179003F3EB0 /* ReuseCellType.swift */,
+				1A4DA5AE29CAA6B900314CB2 /* UserDefault.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -513,6 +524,7 @@
 			children = (
 				1AB0197129BEC51B00A690D9 /* Tabar.swift */,
 				1AB0198329BF194600A690D9 /* Constants.swift */,
+				1A431F0129D0118C0093A5AC /* Filters.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -693,9 +705,11 @@
 				1A780CBE29B84AA700239D70 /* MainTabBarCoordinator.swift in Sources */,
 				1A780CF129B84E1100239D70 /* MediaRepository.swift in Sources */,
 				1AB0198629BF1AA700A690D9 /* MovieModel.swift in Sources */,
+				1A4DA5AB29C991A300314CB2 /* FilterCoordinator.swift in Sources */,
 				1A780CE829B84DA500239D70 /* ProfileViewModel.swift in Sources */,
 				1A42BC6A29C19F13003F3EB0 /* UIViewController+.swift in Sources */,
 				1A7B69F229C8A2CF0021344C /* CategoryTableViewCell.swift in Sources */,
+				1A4DA5AD29C9926D00314CB2 /* FilterViewModel.swift in Sources */,
 				1A780CD629B84CF600239D70 /* MyListCoordinator.swift in Sources */,
 				1A780CC129B84BB400239D70 /* HomeViewController.swift in Sources */,
 				1A3D4E9929C1C400005CA142 /* CastCollectionViewCell.swift in Sources */,
@@ -715,6 +729,8 @@
 				1AB0198029BF036200A690D9 /* MoveToViewController.swift in Sources */,
 				1A780CCE29B84C8000239D70 /* ExploreViewModel.swift in Sources */,
 				1A36415329C44E8D002A9B79 /* DetailCoordinator.swift in Sources */,
+				1A431F0229D0118C0093A5AC /* Filters.swift in Sources */,
+				1A4DA5AF29CAA6B900314CB2 /* UserDefault.swift in Sources */,
 				1A36415129C44E3E002A9B79 /* DetailViewModel.swift in Sources */,
 				1A780CE529B84D9300239D70 /* DownloadViewController.swift in Sources */,
 				1AB0197229BEC51B00A690D9 /* Tabar.swift in Sources */,

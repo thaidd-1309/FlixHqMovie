@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import RxCocoa
+import RxSwift
 
 struct ExploreCoordinator: CoordinatorType {
     var navigationController: BaseNavigationController
@@ -28,7 +30,8 @@ struct ExploreCoordinator: CoordinatorType {
         detailCoordinator.toMovieDetailViewController()
     }
 
-    func toFilterViewController() {
-        //TODO: Update in task 60493
+    func toFilterViewController(filterTrigger: BehaviorSubject<[FilterSectionModel]>) {
+        let filterCoordinator = FilterCoordinator(navigationController: navigationController)
+        filterCoordinator.toFilterViewController(filterTrigger: filterTrigger)
     }
 }

@@ -12,6 +12,11 @@ final class FilterCollectionViewCell: UICollectionViewCell, ReuseCellType {
     @IBOutlet private weak var nameFilterLabel: UILabel!
 
     private var disposeBag = DisposeBag()
+    override var isSelected: Bool {
+        didSet {
+            configSelected(selected: isSelected)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,5 +44,10 @@ final class FilterCollectionViewCell: UICollectionViewCell, ReuseCellType {
 
     func setTextInLabel(name: String) {
         nameFilterLabel.text = name
+    }
+
+    func configSelected(selected: Bool) {
+        contentView.backgroundColor = selected ? UIColor.filterCellSelectedBackGroundColor : UIColor.filterCellDeselectedBackgroundColor
+        nameFilterLabel.textColor = selected ? .white : .red
     }
 }
