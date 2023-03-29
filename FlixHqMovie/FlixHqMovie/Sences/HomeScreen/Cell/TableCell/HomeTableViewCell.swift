@@ -40,7 +40,7 @@ final class HomeTableViewCell: UITableViewCell, ReuseCellType {
     func updateCollectionView(data: [MediaResult]) {
         let dataDrive = Driver.of(data)
         let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, MediaResult>>(
-            configureCell: { dataSource, collectionView, indexPath, item in
+            configureCell: { _, collectionView, indexPath, item in
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageFilmCollectionViewCell.defaultReuseIdentifier, for: indexPath) as? ImageFilmCollectionViewCell else {
                     return UICollectionViewCell()
                 }

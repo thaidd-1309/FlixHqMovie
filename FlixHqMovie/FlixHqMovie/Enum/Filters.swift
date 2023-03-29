@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RxSwift
 
-enum CategoryTitle {
+enum CategoryType {
     case category
     case region
     case genre
@@ -25,7 +26,7 @@ enum CategoryTitle {
         case .periods:
             return "Time/Periods"
         case .sortOption:
-            return "Sort"
+            return "Sorts"
         }
     }
 
@@ -43,6 +44,7 @@ enum CategoryTitle {
             return "indexSortOptionsTrigger"
         }
     }
+
     var keyForString: String {
         switch self {
         case .category:
@@ -57,37 +59,59 @@ enum CategoryTitle {
             return "stringSortOptionsTrigger"
         }
     }
+
+    var categories: [String] {
+        switch self {
+        case .category:
+            return ["Movie", "TV Series", "K-Drama", "Anime", "Wars"]
+        case .region:
+            return  ["All Regions", "US", "Korean", "Viet nam", "China"]
+        case .genre:
+            return ["Action", "Comedy", "Romance", "Thriller", "Documentary"]
+        case .periods:
+            return ["All periods", "2023", "2022", "2021", "2020", "2019", "2016", "2015", "2014"]
+        case .sortOption:
+            return ["Popularity", "Lastest Release", "A->Z", "Z->A"]
+        }
+    }
+
+    var index: Int {
+        switch self {
+        case .category:
+            return 0
+        case .region:
+            return 1
+        case .genre:
+            return 2
+        case .periods:
+            return 3
+        case .sortOption:
+            return 4
+        }
+    }
 }
 
-enum FilterCategoryModel {
-    case categories
-    case regions
-    case genres
-    case periods
-    case sortOptions
+enum CategoryTriggerType {
+    case category(cellSelected: CellSelectedModel, type: CategoryType)
+    case region(cellSelected: CellSelectedModel, type: CategoryType)
+    case genre(cellSelected: CellSelectedModel, type: CategoryType)
+    case periods(cellSelected: CellSelectedModel, type: CategoryType)
+    case sortOption(cellSelected: CellSelectedModel, type: CategoryType)
 
-    var value: FilterSectionModel {
+    var cellSelectedModel: [CellSelectedModel?] {
+        let shareTrigger = CommonTrigger.share
         switch self {
-        case .categories:
-            return FilterSectionModel(
-                name: "Categories",
-                data: ["Movie", "TV Series", "K-Drama", "Anime", "Wars"])
-        case .regions:
-            return FilterSectionModel(
-                name: "Regions",
-                data: ["All Regions", "US", "Korean", "Viet nam", "China"])
-        case .genres:
-            return FilterSectionModel(
-                name: "Genres",
-                data: ["Action", "Comedy", "Romance", "Thriller", "Documentary"])
-        case .periods:
-            return FilterSectionModel(
-                name: "Time/Periods",
-                data: ["All periods", "2023", "2022", "2021", "2020", "2019"])
-        case .sortOptions:
-            return FilterSectionModel(
-                name: "Sorts",
-                data: ["Popularity", "Lastest Release", "A->Z", "Z->A"])
+        case .category(let cellSelected, let type):
+            shareTrigger.filters[type.index] = cellSelected
+        case .region(let cellSelected, let type):
+            shareTrigger.filters[type.index] = cellSelected
+        case .genre(let cellSelected, let type):
+            shareTrigger.filters[type.index] = cellSelected
+        case .periods(let cellSelected, let type):
+            shareTrigger.filters[type.index] = cellSelected
+        case .sortOption(let cellSelected, let type):
+            shareTrigger.filters[type.index] = cellSelected
         }
+        return shareTrigger.filters
     }
 }

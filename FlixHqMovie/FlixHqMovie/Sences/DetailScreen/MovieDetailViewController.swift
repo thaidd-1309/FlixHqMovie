@@ -28,6 +28,7 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var decriptionMovieTextView: UITextView!
     @IBOutlet private weak var downloadMovieButton: UIButton!
     @IBOutlet private weak var playMovieButton: UIButton!
+    @IBOutlet private weak var addToMyListButton: UIButton!
     @IBOutlet private weak var subLabel: UILabel!
     @IBOutlet private weak var nationalLabel: UILabel!
     @IBOutlet private weak var ageLabel: UILabel!
@@ -47,10 +48,14 @@ final class MovieDetailViewController: UIViewController {
     private var previousTimeWatch: Double = 0.0
     private var durationMovie: Int = 0
     private var isLoading = false
+    private var isAddMyList = false
     private let disposeBag = DisposeBag()
     var viewModel: DetailViewModel!
 
     private let recommendCellSelectedTrigger = PublishSubject<String>()
+    private let previousTimeWatchTrigger = BehaviorSubject<Double>(value: 0.0)
+    private let addMyListTrigger = BehaviorSubject<Bool>(value: false)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +88,13 @@ final class MovieDetailViewController: UIViewController {
 
             self.present(playerController, animated: true)
         })
-        .disposed(by: disposeBag)    }
+        .disposed(by: disposeBag)
+
+        addToMyListButton.rx.tap.subscribe(onNext: { [unowned self] in
+            isAddMyList = !isAddMyList
+            addMyListTrigger.onNext(isAddMyList)
+        }).disposed(by: disposeBag)
+    }
 
     private func configPlayVideo(movie: Movie?) {
         guard let urlVideo = movie?.sources?[0].url,
@@ -162,7 +173,10 @@ extension MovieDetailViewController {
             })
             .disposed(by: disposeBag)
 
-        let input = DetailViewModel.Input(loadTrigger: loadTrigger, slectedMovie: recommendCellSelectedTrigger.asDriver(onErrorDriveWith: .empty()))
+        let input = DetailViewModel.Input(loadTrigger: loadTrigger,
+                                          slectedMovie: recommendCellSelectedTrigger.asDriver(onErrorDriveWith: .empty()),
+                                          previousTimeWatch: previousTimeWatchTrigger.asDriver(onErrorDriveWith: .empty()),
+                                          addMyListTrigger: addMyListTrigger.asDriver(onErrorDriveWith: .empty()))
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
         binder(output: output)
     }
@@ -180,7 +194,7 @@ extension MovieDetailViewController {
         )
 
         let castDataSource =  RxCollectionViewSectionedReloadDataSource<SectionModel<String, String>>(
-            configureCell: { dataSource, collectionView, indexPath, item in
+            configureCell: { _, collectionView, indexPath, item in
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.defaultReuseIdentifier, for: indexPath)
                         as? CastCollectionViewCell else {
                     return UICollectionViewCell()

@@ -12,11 +12,11 @@ import RxSwift
 struct ExploreViewModel {
     var coordinator: ExploreCoordinator
     var useCase: ExploreUseCaseType
+    let commonTrigger = CommonTrigger.share
 }
 
 extension ExploreViewModel: ViewModelType {
     struct Input {
-        let allFilter: Driver<[FilterSectionModel]>
         var textInput: Driver<String>
         let slectedMovie: Driver<String>
     }
@@ -28,8 +28,6 @@ extension ExploreViewModel: ViewModelType {
 
     func transform(input: Input, disposeBag: DisposeBag) -> Output {
         let isLoading = BehaviorRelay<Bool>(value: false)
-        Defaults.initUserDefault(isIndex: true)
-        Defaults.initUserDefault(isIndex: false)
 
         input.slectedMovie
             .drive(onNext: { idMedia in
@@ -42,27 +40,20 @@ extension ExploreViewModel: ViewModelType {
             return useCase.getListMediaByName(query: text)
                 .asDriver(onErrorJustReturn: [])
         }
-        let categoryFilters = input.allFilter
-        let medias = Driver.combineLatest( output, categoryFilters
-                                           , resultSelector: { output, categoryFilters -> [MediaResult] in
+
+        let medias = Driver.combineLatest( output, commonTrigger.allFilterTrigger.asDriver(onErrorJustReturn: [])
+                                           , resultSelector: { output, allFilter -> [MediaResult] in
             isLoading.accept(true)
-            let categories = categoryFilters.filter { $0.name == CategoryTitle.category.name}
-                .first?.data
-            let regions = categoryFilters.filter { $0.name == CategoryTitle.region.name }
-                .first?.data
-            let genres = categoryFilters.filter { $0.name == CategoryTitle.genre.name }
-                .first?.data
-            let periods = categoryFilters.filter { $0.name == CategoryTitle.periods.name }
-                .first?.data
-            let sortOptions = categoryFilters.filter { $0.name == CategoryTitle.sortOption.name }
-                .first?.data
+            let categories = filterCategoryCellSelectedModel(categoryType: .category, allFilter: allFilter)
+            let regions = filterCategoryCellSelectedModel(categoryType: .region, allFilter: allFilter)
+            let genres = filterCategoryCellSelectedModel(categoryType: .genre, allFilter: allFilter)
+            let periods = filterCategoryCellSelectedModel(categoryType: .periods, allFilter: allFilter)
+            let sortOptions = filterCategoryCellSelectedModel(categoryType: .sortOption, allFilter: allFilter)
+
             let result = output.filter {
-                return  checkFilter( movie: $0, categories: categories, category: .categories)
-
-            }
-                .filter {
-                    return  checkFilter( movie: $0, categories: periods, category: .periods)
-
+                return checkFilter( movie: $0, categories: categories, type: .category)
+            }.filter {
+                return checkFilter( movie: $0, categories: periods, type: .periods)
                 }
             return result
         }).do { _ in
@@ -72,28 +63,34 @@ extension ExploreViewModel: ViewModelType {
         return Output(medias: medias, isLoading: isLoading.asDriver())
     }
 
-    private func checkFilter(movie: MediaResult, categories: [String]?, category: FilterCategoryModel) -> Bool {
+    private func filterCategoryCellSelectedModel(categoryType: CategoryType, allFilter: [CellSelectedModel?]) -> [String] {
+        guard let cellSelectedModel = allFilter.filter { $0?.name == categoryType.name }.first else {
+            return []
+        }
+        return cellSelectedModel?.categories ?? []
+
+    }
+
+    private func checkFilter(movie: MediaResult, categories: [String]?, type: CategoryType) -> Bool {
         var filterString = ""
-        switch category {
-        case .categories:
+
+        switch type {
+        case .category:
             filterString = movie.type ?? ""
-        case .regions:
-            // TODO: Update after
+        case .region:
             filterString = ""
-        case .genres:
-            // TODO: Update after
+        case .genre:
             filterString = ""
         case .periods:
             filterString = movie.releaseDate ?? ""
-        case . sortOptions:
-            // TODO: Update after
+        case .sortOption:
             filterString = ""
         }
+
         guard let categories = categories else { return true}
         if categories.isEmpty {
             return true
         }
-
         return categories.contains(filterString)
     }
 }

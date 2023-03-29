@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailViewController" customModule="FlixHqMovie" customModuleProvider="target">
             <connections>
                 <outlet property="actorsCollectionView" destination="OHm-nt-hcR" id="7UF-mm-xKG"/>
+                <outlet property="addToMyListButton" destination="lyu-Im-A4y" id="00E-hd-rfu"/>
                 <outlet property="ageLabel" destination="bJt-UO-akQ" id="yuF-xx-AdF"/>
                 <outlet property="castsCollecttionView" destination="OHm-nt-hcR" id="OXv-eY-I4w"/>
                 <outlet property="commentButton" destination="lMr-09-LwQ" id="vE1-Yf-RgR"/>

@@ -17,11 +17,10 @@ struct FilterCoordinator: CoordinatorType {
         self.navigationController = navigationController
     }
 
-    func toFilterViewController(filterTrigger: BehaviorSubject<[FilterSectionModel]>) {
+    func toFilterViewController() {
         let viewController = FilterScreenViewController()
         let viewModel = FilterViewModel(coordinator: self)
         viewController.viewModel = viewModel
-        viewController.filterTrigger = filterTrigger
         navigationController.present(viewController, animated: true)
     }
 
