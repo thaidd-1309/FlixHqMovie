@@ -10,6 +10,7 @@ import UIKit
 
 struct MyListCoordinator: CoordinatorType {
     var navigationController: BaseNavigationController
+    let useCase = MyListUseCase(mediaRepository: MediaRepository())
     
     init(navigationController: BaseNavigationController) {
         self.navigationController = navigationController
@@ -18,5 +19,10 @@ struct MyListCoordinator: CoordinatorType {
     func toMyListViewController() {
         let viewController = MyListViewController()
         navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func toMovieDetail(with id: String) {
+        let detailCoordinator = DetailCoordinator(navigationController: navigationController, mediaId: id)
+        detailCoordinator.toMovieDetailViewController()
     }
 }

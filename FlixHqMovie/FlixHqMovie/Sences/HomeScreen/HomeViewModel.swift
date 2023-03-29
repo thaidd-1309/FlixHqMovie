@@ -29,7 +29,7 @@ extension HomeViewModel: ViewModelType {
     func transform(input: Input, disposeBag: RxSwift.DisposeBag) -> Output {
         let isLoading = BehaviorRelay<Bool>(value: false)
 
-        let selectedMovieId = input.slectedMovie.drive(onNext: { idMedia in
+        input.slectedMovie.drive(onNext: { idMedia in
             coordinator.toDetailViewController(with: idMedia)
         }).disposed(by: disposeBag)
 
@@ -46,8 +46,8 @@ extension HomeViewModel: ViewModelType {
             return useCase.getListRecentMovie().asDriver(onErrorJustReturn: [])
         }
 
-        let output = Driver.combineLatest(mediaTrending, recentShow, recentMovie, resultSelector: {
-            mediaTrending, recentShow, recentMovie -> [TableViewSectionModel] in
+        let output = Driver.combineLatest(mediaTrending, recentShow, recentMovie,
+                                          resultSelector: { mediaTrending, recentShow, recentMovie -> [TableViewSectionModel] in
             isLoading.accept(true)
             return [
                 TableViewSectionModel(nameHeaderRow: NameTableHeaderRow.newMovie.name, filmsSectionModel: recentMovie),
