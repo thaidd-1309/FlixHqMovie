@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
+
+struct MyListViewModel {
+    var coordinator: MyListCoordinator
+    var useCase: MyListUseCaseType
+}
