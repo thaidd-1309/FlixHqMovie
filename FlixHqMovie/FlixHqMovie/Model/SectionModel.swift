@@ -19,5 +19,11 @@ struct CollectionViewSectionModel {
 
 struct FilterSectionModel {
     let name: String
-    var data: [String]
+    var categories: [String]
+}
+
+struct CellSelectedModel {
+    let name: String
+    let indexs: [Int]
+    let categories: [String]
 }

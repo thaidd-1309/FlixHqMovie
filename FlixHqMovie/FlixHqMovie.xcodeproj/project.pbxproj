@@ -33,9 +33,13 @@
 		1A42BC6829C19A0E003F3EB0 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */; };
 		1A42BC6A29C19F13003F3EB0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */; };
 		1A431F0229D0118C0093A5AC /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A431F0129D0118C0093A5AC /* Filters.swift */; };
+		1A48D5CB29D3CBDB00D10039 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A48D5C629D3CBDB00D10039 /* MyListViewController.swift */; };
+		1A48D5CC29D3CBDB00D10039 /* MyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A48D5C729D3CBDB00D10039 /* MyListViewModel.swift */; };
+		1A48D5CD29D3CBDB00D10039 /* MyListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A48D5C829D3CBDB00D10039 /* MyListUseCase.swift */; };
+		1A48D5CE29D3CBDB00D10039 /* MyListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A48D5C929D3CBDB00D10039 /* MyListCoordinator.swift */; };
+		1A48D5CF29D3CBDB00D10039 /* MyListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A48D5CA29D3CBDB00D10039 /* MyListViewController.xib */; };
 		1A4DA5AB29C991A300314CB2 /* FilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AA29C991A300314CB2 /* FilterCoordinator.swift */; };
 		1A4DA5AD29C9926D00314CB2 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AC29C9926D00314CB2 /* FilterViewModel.swift */; };
-		1A4DA5AF29CAA6B900314CB2 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AE29CAA6B900314CB2 /* UserDefault.swift */; };
 		1A55BEAF29C7EE8000E5C426 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55BEAE29C7EE8000E5C426 /* String+.swift */; };
 		1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C8D29B83F7C00239D70 /* AppDelegate.swift */; };
 		1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */; };
@@ -56,11 +60,6 @@
 		1A780CCE29B84C8000239D70 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CCD29B84C8000239D70 /* ExploreViewModel.swift */; };
 		1A780CD029B84CBE00239D70 /* ExploreUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CCF29B84CBE00239D70 /* ExploreUseCase.swift */; };
 		1A780CD229B84CCD00239D70 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD129B84CCD00239D70 /* HomeUseCase.swift */; };
-		1A780CD429B84CE100239D70 /* MyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD329B84CE100239D70 /* MyListViewModel.swift */; };
-		1A780CD629B84CF600239D70 /* MyListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD529B84CF600239D70 /* MyListCoordinator.swift */; };
-		1A780CD829B84D0E00239D70 /* MyListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD729B84D0E00239D70 /* MyListUseCase.swift */; };
-		1A780CDB29B84D2000239D70 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CD929B84D2000239D70 /* MyListViewController.swift */; };
-		1A780CDC29B84D2000239D70 /* MyListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CDA29B84D2000239D70 /* MyListViewController.xib */; };
 		1A780CDE29B84D4800239D70 /* DownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CDD29B84D4800239D70 /* DownloadViewModel.swift */; };
 		1A780CE029B84D6400239D70 /* DownloadCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CDF29B84D6400239D70 /* DownloadCoordinator.swift */; };
 		1A780CE229B84D7A00239D70 /* DownloadUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780CE129B84D7A00239D70 /* DownloadUseCase.swift */; };
@@ -77,6 +76,9 @@
 		1A780D0029B860CF00239D70 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A780CFF29B860CF00239D70 /* LoginViewController.xib */; };
 		1A7B69F229C8A2CF0021344C /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7B69F029C8A2CF0021344C /* CategoryTableViewCell.swift */; };
 		1A7B69F329C8A2CF0021344C /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7B69F129C8A2CF0021344C /* CategoryTableViewCell.xib */; };
+		1A937D1E29D1421400442569 /* MyListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A937D1D29D1421400442569 /* MyListEntity.swift */; };
+		1A937D2029D14EB700442569 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A937D1F29D14EB700442569 /* Errors.swift */; };
+		1A937D2429D194E000442569 /* CommonTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A937D2329D194E000442569 /* CommonTrigger.swift */; };
 		1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA016D829B87CA2003DB29A /* UIView+.swift */; };
 		1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0196B29BE037000A690D9 /* UIButton+.swift */; };
 		1AB0196E29BE03EA00A690D9 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0196D29BE03EA00A690D9 /* UIColor+.swift */; };
@@ -118,9 +120,13 @@
 		1A42BC6729C19A0E003F3EB0 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		1A431F0129D0118C0093A5AC /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		1A48D5C629D3CBDB00D10039 /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		1A48D5C729D3CBDB00D10039 /* MyListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewModel.swift; sourceTree = "<group>"; };
+		1A48D5C829D3CBDB00D10039 /* MyListUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListUseCase.swift; sourceTree = "<group>"; };
+		1A48D5C929D3CBDB00D10039 /* MyListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListCoordinator.swift; sourceTree = "<group>"; };
+		1A48D5CA29D3CBDB00D10039 /* MyListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyListViewController.xib; sourceTree = "<group>"; };
 		1A4DA5AA29C991A300314CB2 /* FilterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCoordinator.swift; sourceTree = "<group>"; };
 		1A4DA5AC29C9926D00314CB2 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
-		1A4DA5AE29CAA6B900314CB2 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		1A55BEAE29C7EE8000E5C426 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1A780C8A29B83F7C00239D70 /* FlixHqMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlixHqMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A780C8D29B83F7C00239D70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,11 +148,6 @@
 		1A780CCD29B84C8000239D70 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		1A780CCF29B84CBE00239D70 /* ExploreUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUseCase.swift; sourceTree = "<group>"; };
 		1A780CD129B84CCD00239D70 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
-		1A780CD329B84CE100239D70 /* MyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewModel.swift; sourceTree = "<group>"; };
-		1A780CD529B84CF600239D70 /* MyListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCoordinator.swift; sourceTree = "<group>"; };
-		1A780CD729B84D0E00239D70 /* MyListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListUseCase.swift; sourceTree = "<group>"; };
-		1A780CD929B84D2000239D70 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
-		1A780CDA29B84D2000239D70 /* MyListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyListViewController.xib; sourceTree = "<group>"; };
 		1A780CDD29B84D4800239D70 /* DownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewModel.swift; sourceTree = "<group>"; };
 		1A780CDF29B84D6400239D70 /* DownloadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCoordinator.swift; sourceTree = "<group>"; };
 		1A780CE129B84D7A00239D70 /* DownloadUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadUseCase.swift; sourceTree = "<group>"; };
@@ -163,6 +164,9 @@
 		1A780CFF29B860CF00239D70 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		1A7B69F029C8A2CF0021344C /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		1A7B69F129C8A2CF0021344C /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		1A937D1D29D1421400442569 /* MyListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListEntity.swift; sourceTree = "<group>"; };
+		1A937D1F29D14EB700442569 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		1A937D2329D194E000442569 /* CommonTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTrigger.swift; sourceTree = "<group>"; };
 		1AA016D829B87CA2003DB29A /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		1AB0196B29BE037000A690D9 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		1AB0196D29BE03EA00A690D9 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -285,6 +289,18 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		1A48D5C529D3CBDB00D10039 /* MyListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A48D5C629D3CBDB00D10039 /* MyListViewController.swift */,
+				1A48D5C729D3CBDB00D10039 /* MyListViewModel.swift */,
+				1A48D5C829D3CBDB00D10039 /* MyListUseCase.swift */,
+				1A48D5C929D3CBDB00D10039 /* MyListCoordinator.swift */,
+				1A48D5CA29D3CBDB00D10039 /* MyListViewController.xib */,
+			);
+			path = MyListScreen;
+			sourceTree = "<group>";
+		};
 		1A780C8129B83F7C00239D70 = {
 			isa = PBXGroup;
 			children = (
@@ -325,10 +341,10 @@
 		1A780CA429B8411E00239D70 /* Sences */ = {
 			isa = PBXGroup;
 			children = (
+				1A48D5C529D3CBDB00D10039 /* MyListScreen */,
 				1A3D4E9229C1C3D0005CA142 /* DetailScreen */,
 				1A780CAE29B8493D00239D70 /* ProfileScreen */,
 				1A780CAD29B8492D00239D70 /* DownloadScreen */,
-				1A780CAC29B8491D00239D70 /* MyListScreen */,
 				1A780CAB29B8491100239D70 /* ExploreScreen */,
 				1A780CAA29B848FD00239D70 /* HomeScreen */,
 				1A780CA929B848EC00239D70 /* MainTabBarScreen */,
@@ -411,18 +427,6 @@
 			path = ExploreScreen;
 			sourceTree = "<group>";
 		};
-		1A780CAC29B8491D00239D70 /* MyListScreen */ = {
-			isa = PBXGroup;
-			children = (
-				1A780CD329B84CE100239D70 /* MyListViewModel.swift */,
-				1A780CD529B84CF600239D70 /* MyListCoordinator.swift */,
-				1A780CD729B84D0E00239D70 /* MyListUseCase.swift */,
-				1A780CD929B84D2000239D70 /* MyListViewController.swift */,
-				1A780CDA29B84D2000239D70 /* MyListViewController.xib */,
-			);
-			path = MyListScreen;
-			sourceTree = "<group>";
-		};
 		1A780CAD29B8492D00239D70 /* DownloadScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,7 +466,7 @@
 				1AB0198129BF0A9400A690D9 /* CoordinatorProtocol.swift */,
 				1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */,
 				1A42BC4F29C17179003F3EB0 /* ReuseCellType.swift */,
-				1A4DA5AE29CAA6B900314CB2 /* UserDefault.swift */,
+				1A937D2329D194E000442569 /* CommonTrigger.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -478,6 +482,7 @@
 		1A780CFA29B84F6300239D70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1A937D1D29D1421400442569 /* MyListEntity.swift */,
 				1A780CFB29B84F7700239D70 /* MediaModel.swift */,
 				1AB0198529BF1AA700A690D9 /* MovieModel.swift */,
 				1A42BC6329C17FC9003F3EB0 /* SectionModel.swift */,
@@ -525,6 +530,7 @@
 				1AB0197129BEC51B00A690D9 /* Tabar.swift */,
 				1AB0198329BF194600A690D9 /* Constants.swift */,
 				1A431F0129D0118C0093A5AC /* Filters.swift */,
+				1A937D1F29D14EB700442569 /* Errors.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -604,7 +610,6 @@
 				1A42BC5D29C17622003F3EB0 /* HeaderTableView.xib in Resources */,
 				1A7B69F329C8A2CF0021344C /* CategoryTableViewCell.xib in Resources */,
 				1A42BC6029C17622003F3EB0 /* ImageFilmCollectionViewCell.xib in Resources */,
-				1A780CDC29B84D2000239D70 /* MyListViewController.xib in Resources */,
 				1A1051FF29C8191700196C2F /* FilterScreenViewController.xib in Resources */,
 				1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */,
 				1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */,
@@ -612,6 +617,7 @@
 				1A780CCA29B84C4B00239D70 /* ExploreViewController.xib in Resources */,
 				1A780CC229B84BB400239D70 /* HomeViewController.xib in Resources */,
 				1A1051FE29C8191700196C2F /* FilterCollectionViewCell.xib in Resources */,
+				1A48D5CF29D3CBDB00D10039 /* MyListViewController.xib in Resources */,
 				1A42BC6229C17622003F3EB0 /* HomeTableViewCell.xib in Resources */,
 				1A780CEE29B84DCE00239D70 /* ProfileViewController.xib in Resources */,
 				1A780CE629B84D9300239D70 /* DownloadViewController.xib in Resources */,
@@ -695,13 +701,13 @@
 				1A3D4E9B29C1C400005CA142 /* MovieDetailViewController.swift in Sources */,
 				1A36415729C45AC1002A9B79 /* (null) in Sources */,
 				1A780CC429B84BCF00239D70 /* HomeViewModel.swift in Sources */,
+				1A48D5CB29D3CBDB00D10039 /* MyListViewController.swift in Sources */,
 				1A55BEAF29C7EE8000E5C426 /* String+.swift in Sources */,
 				1A42BC5E29C17622003F3EB0 /* HeaderTableView.swift in Sources */,
 				1A42BC5F29C17622003F3EB0 /* ImageFilmCollectionViewCell.swift in Sources */,
 				1A780CEA29B84DB700239D70 /* ProfileCoordinator.swift in Sources */,
 				1A42BC5029C17179003F3EB0 /* ReuseCellType.swift in Sources */,
 				1A780CB129B8498D00239D70 /* LoginViewController.swift in Sources */,
-				1A780CD829B84D0E00239D70 /* MyListUseCase.swift in Sources */,
 				1A780CBE29B84AA700239D70 /* MainTabBarCoordinator.swift in Sources */,
 				1A780CF129B84E1100239D70 /* MediaRepository.swift in Sources */,
 				1AB0198629BF1AA700A690D9 /* MovieModel.swift in Sources */,
@@ -710,14 +716,15 @@
 				1A42BC6A29C19F13003F3EB0 /* UIViewController+.swift in Sources */,
 				1A7B69F229C8A2CF0021344C /* CategoryTableViewCell.swift in Sources */,
 				1A4DA5AD29C9926D00314CB2 /* FilterViewModel.swift in Sources */,
-				1A780CD629B84CF600239D70 /* MyListCoordinator.swift in Sources */,
 				1A780CC129B84BB400239D70 /* HomeViewController.swift in Sources */,
 				1A3D4E9929C1C400005CA142 /* CastCollectionViewCell.swift in Sources */,
 				1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */,
+				1A937D1E29D1421400442569 /* MyListEntity.swift in Sources */,
+				1A48D5CE29D3CBDB00D10039 /* MyListCoordinator.swift in Sources */,
 				1AB0197429BECE1E00A690D9 /* LoginViewModel.swift in Sources */,
 				1A780CED29B84DCE00239D70 /* ProfileViewController.swift in Sources */,
+				1A48D5CC29D3CBDB00D10039 /* MyListViewModel.swift in Sources */,
 				1AB0198229BF0A9400A690D9 /* CoordinatorProtocol.swift in Sources */,
-				1A780CDB29B84D2000239D70 /* MyListViewController.swift in Sources */,
 				1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */,
 				1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */,
 				1A780CBB29B84A5300239D70 /* MainTabBarViewController.swift in Sources */,
@@ -725,12 +732,14 @@
 				1A780CF929B84EF300239D70 /* APIService.swift in Sources */,
 				1A780CE229B84D7A00239D70 /* DownloadUseCase.swift in Sources */,
 				1AB0198D29BF207A00A690D9 /* BaseNavigationViewController.swift in Sources */,
+				1A48D5CD29D3CBDB00D10039 /* MyListUseCase.swift in Sources */,
+				1A937D2029D14EB700442569 /* Errors.swift in Sources */,
 				1A780CC629B84BF700239D70 /* HomeCoordinator.swift in Sources */,
 				1AB0198029BF036200A690D9 /* MoveToViewController.swift in Sources */,
 				1A780CCE29B84C8000239D70 /* ExploreViewModel.swift in Sources */,
 				1A36415329C44E8D002A9B79 /* DetailCoordinator.swift in Sources */,
 				1A431F0229D0118C0093A5AC /* Filters.swift in Sources */,
-				1A4DA5AF29CAA6B900314CB2 /* UserDefault.swift in Sources */,
+				1A937D2429D194E000442569 /* CommonTrigger.swift in Sources */,
 				1A36415129C44E3E002A9B79 /* DetailViewModel.swift in Sources */,
 				1A780CE529B84D9300239D70 /* DownloadViewController.swift in Sources */,
 				1AB0197229BEC51B00A690D9 /* Tabar.swift in Sources */,
@@ -742,7 +751,6 @@
 				1A42BC6429C17FC9003F3EB0 /* SectionModel.swift in Sources */,
 				1A42BC6129C17622003F3EB0 /* HomeTableViewCell.swift in Sources */,
 				1A780CCC29B84C6400239D70 /* ExploreCoordinator.swift in Sources */,
-				1A780CD429B84CE100239D70 /* MyListViewModel.swift in Sources */,
 				1A780CDE29B84D4800239D70 /* DownloadViewModel.swift in Sources */,
 				1AB0198429BF194600A690D9 /* Constants.swift in Sources */,
 				1A1051FD29C8191700196C2F /* FilterCollectionViewCell.swift in Sources */,

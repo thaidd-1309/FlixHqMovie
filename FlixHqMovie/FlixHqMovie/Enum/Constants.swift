@@ -76,7 +76,7 @@ enum LayoutOptions {
         case .addToMylistButton:
             return 2
         case .filterCell, .containerView:
-            return 1
+            return 2
         }
     }
 }
@@ -154,13 +154,16 @@ enum SearchNotice {
 enum CustomImageName {
     case noResult
     case search
+    case emptyList
 
     var name: String {
         switch self {
         case .noResult:
             return "no-results"
         case .search:
-            return "search (1)"
+            return "search"
+        case .emptyList:
+            return "emptyList"
         }
     }
 }

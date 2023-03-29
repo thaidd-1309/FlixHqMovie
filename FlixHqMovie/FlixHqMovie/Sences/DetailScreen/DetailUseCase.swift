@@ -19,7 +19,7 @@ struct DetailUseCase: DetailUseCaseType {
     func getMediaDetail(mediaId: String) -> Observable<MediaInformation> {
         return mediaRepository.getMediaDetail(mediaId: mediaId)
     }
-
+    
     func getMovie(episodeId: String, mediaId: String) -> Observable<Movie> {
         return mediaRepository.getMovie(episodeId: episodeId, mediaId: mediaId)
     }

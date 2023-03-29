@@ -18,13 +18,9 @@ final class CategoryTableViewCell: UITableViewCell, ReuseCellType {
     private var categories = [String]()
     private var indexCellsSelected = [Int]()
     private var categoriesSeclected = [String]()
+    private var filterTrigger = CommonTrigger.share
+    var categoryType: CategoryType?
     
-    var categoriesTrigger = BehaviorSubject<[String]>(value: [])
-    var indexCategoriesTrigger = BehaviorSubject<[Int]>(value: [])
-    var indexRegionsTrigger = BehaviorSubject<[Int]>(value: [])
-    var indexGenresTrigger = BehaviorSubject<[Int]>(value: [])
-    var indexPeriodsTrigger = BehaviorSubject<[Int]>(value: [])
-    var indexSortOptionsTrigger = BehaviorSubject<[Int]>(value: [])
     var resetTrigger = BehaviorSubject<Bool>(value: false)
     
     override func awakeFromNib() {
@@ -50,6 +46,7 @@ final class CategoryTableViewCell: UITableViewCell, ReuseCellType {
         setTitleCategory(name: title)
         categoriesSeclected = previousCategories
         indexCellsSelected = indexs
+
         let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, String>>(
             configureCell: {[unowned self] _, collectionView, indexPath, item in
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.defaultReuseIdentifier,
@@ -69,27 +66,17 @@ final class CategoryTableViewCell: UITableViewCell, ReuseCellType {
         .drive(collectionView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
         configSelectedCell()
-        categoriesTrigger.onNext(previousCategories)
-        updatePreviousIndex(indexs: indexs)
+        updateAllFilterTrigger()
         resetTrigger.subscribe(onNext: {[unowned self] isReseted in
             if isReseted {
                 indexCellsSelected = []
                 categoriesSeclected = []
-                categoriesTrigger.onNext(categoriesSeclected)
-                updatePreviousIndex(indexs: [])
+                updateAllFilterTrigger()
                 collectionView.reloadData()
             }
         }).disposed(by: disposeBag)
     }
 
-    private func updatePreviousIndex(indexs: [Int]) {
-        indexCategoriesTrigger.onNext(indexs)
-        indexRegionsTrigger.onNext(indexs)
-        indexGenresTrigger.onNext(indexs)
-        indexPeriodsTrigger.onNext(indexs)
-        indexSortOptionsTrigger.onNext(indexs)
-    }
-    
     private func setTitleCategory(name: String) {
         categoryNameLabel.text = name
     }
@@ -97,49 +84,24 @@ final class CategoryTableViewCell: UITableViewCell, ReuseCellType {
     private func configSelectedCell() {
         
         collectionView.rx.itemSelected.subscribe(onNext: { [unowned self] indexPath in
-            getNameCellsSelected(selected: true, indexDeSelected: indexPath)
-            getIndexCellsSelected(selected: true)
+            getInforCellsSelected(selected: true, indexDeSelected: indexPath)
         })
         .disposed(by: disposeBag)
         
         collectionView.rx.itemDeselected.subscribe(onNext: { [unowned self] indexPath in
-            getNameCellsSelected(selected: false, indexDeSelected: indexPath)
             indexCellsSelected = indexCellsSelected.filter { $0 != indexPath.row }
-            getIndexCellsSelected(selected: false)
+            getInforCellsSelected(selected: false, indexDeSelected: indexPath)
         })
         .disposed(by: disposeBag)
     }
-    
-    func getIndexCellsSelected(selected: Bool) {
-        collectionView.indexPathsForSelectedItems?.forEach { indexPath in
-            if selected {
-                indexCellsSelected.append(indexPath.row)
-            }
-        }
 
-        switch categoryNameLabel.text {
-        case CategoryTitle.category.name:
-            indexCategoriesTrigger.onNext(indexCellsSelected)
-        case CategoryTitle.region.name:
-            indexRegionsTrigger.onNext(indexCellsSelected)
-        case CategoryTitle.genre.name:
-            indexGenresTrigger.onNext(indexCellsSelected)
-        case CategoryTitle.periods.name:
-            indexPeriodsTrigger.onNext(indexCellsSelected)
-        case CategoryTitle.sortOption.name:
-            indexSortOptionsTrigger.onNext(indexCellsSelected)
-        default:
-            break
-        }
-
-    }
-    
-    private func getNameCellsSelected(selected: Bool, indexDeSelected: IndexPath) {
+    private func getInforCellsSelected(selected: Bool, indexDeSelected: IndexPath) {
         collectionView.indexPathsForSelectedItems?.forEach { indexPath in
 
             guard let cell = collectionView.cellForItem(at: indexPath ) as? FilterCollectionViewCell
             else { return }
             if selected {
+                indexCellsSelected.append(indexPath.row)
                 categoriesSeclected.append(cell.getTextInLabel())
                 cell.configSelected(selected: true)
             }
@@ -150,9 +112,32 @@ final class CategoryTableViewCell: UITableViewCell, ReuseCellType {
             cell.configSelected(selected: false)
             categoriesSeclected = categoriesSeclected.filter { $0 != cell.getTextInLabel() }
         }
-        categoriesTrigger.onNext(categoriesSeclected)
+        updateAllFilterTrigger()
     }
-    
+
+    private func updateFilterTrigger(categoryTrigger: CategoryTriggerType) {
+        filterTrigger.allFilterTrigger.onNext(categoryTrigger.cellSelectedModel)
+    }
+
+    private func updateAllFilterTrigger() {
+        let cellSelectedModel = CellSelectedModel(name: categoryNameLabel.text ?? "",
+                                                  indexs: indexCellsSelected,
+                                                  categories: categoriesSeclected)
+        switch categoryType {
+        case .category:
+            updateFilterTrigger(categoryTrigger: .category(cellSelected: cellSelectedModel, type: .category))
+        case .region:
+            updateFilterTrigger(categoryTrigger: .region(cellSelected: cellSelectedModel, type: .region))
+        case .genre:
+            updateFilterTrigger(categoryTrigger: .genre(cellSelected: cellSelectedModel, type: .genre))
+        case .periods:
+            updateFilterTrigger(categoryTrigger: .periods(cellSelected: cellSelectedModel, type: .periods))
+        case .sortOption:
+            updateFilterTrigger(categoryTrigger: .sortOption(cellSelected: cellSelectedModel, type: .sortOption))
+        default:
+            break
+        }
+    }
 }
 
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout {

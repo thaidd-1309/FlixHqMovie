@@ -19,6 +19,8 @@ extension DetailViewModel: ViewModelType {
     struct Input {
         let loadTrigger: Driver<Void>
         let slectedMovie: Driver<String>
+        let previousTimeWatch: Driver<Double>
+        let addMyListTrigger: Driver<Bool>
     }
 
     struct Output {
@@ -26,10 +28,11 @@ extension DetailViewModel: ViewModelType {
         var information: Driver<MediaInformation>
         var isLoading: Driver<Bool>
         var recommandMovie: Driver<[Recommendation]>
-
     }
     func transform(input: Input, disposeBag: DisposeBag) -> Output {
+        let addToMyListTrigger = BehaviorSubject<Bool>(value: false)
         let isLoading = BehaviorRelay<Bool>(value: false)
+
         let information = input.loadTrigger.flatMapLatest { _ in
             isLoading.accept(true)
             return useCase.getMediaDetail(mediaId: mediaId).asDriver(onErrorDriveWith: .empty())
@@ -42,7 +45,7 @@ extension DetailViewModel: ViewModelType {
             return useCase.getMovie(episodeId: media.episodes?.first?.id ?? "", mediaId: mediaId)
                 .asDriver(onErrorDriveWith: .empty())
         }
-        let selectedMovie = input.slectedMovie.drive(onNext: { idMedia in
+        input.slectedMovie.drive(onNext: { idMedia in
             coordinator.toOtherDetailViewController(with: idMedia)
         })
             .disposed(by: disposeBag)

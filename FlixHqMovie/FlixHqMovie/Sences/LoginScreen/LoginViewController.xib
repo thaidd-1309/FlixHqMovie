@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Untitled-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kqc-mP-rpo">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Kqc-mP-rpo">
                     <rect key="frame" x="95.666666666666686" y="115" width="199" height="179"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="199" id="E13-aM-xWI"/>
@@ -55,7 +55,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-WJ-SKW">
                     <rect key="frame" x="62" y="418" width="36" height="36"/>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="20M-eR-QIR">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="20M-eR-QIR">
                     <rect key="frame" x="62" y="337" width="36" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="0UD-Iu-lBN"/>
@@ -88,8 +88,8 @@
         </view>
     </objects>
     <resources>
-        <image name="Untitled-1" width="633" height="629"/>
+        <image name="Logo" width="633" height="629"/>
         <image name="facebook" width="512" height="512"/>
-        <image name="search" width="512" height="512"/>
+        <image name="google" width="512" height="512"/>
     </resources>
 </document>

@@ -19,20 +19,10 @@ final class FilterScreenViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private var allCategories = [FilterSectionModel]()
+    private let shareTrigger = CommonTrigger.share
     var viewModel: FilterViewModel!
     
-    var filterTrigger = BehaviorSubject<[FilterSectionModel]>(value: [])
     var resetTrigger = BehaviorSubject<Bool>(value: false)
-    private var categoriesTrigger =  BehaviorSubject<[String]>(value: [])
-    private var regionsTrigger = BehaviorSubject<[String]>(value: [])
-    private var generesTrigger = BehaviorSubject<[String]>(value: [])
-    private var periodsTrigger = BehaviorSubject<[String]>(value: [])
-    private var sortOptionsTriger = BehaviorSubject<[String]>(value: [])
-    private var indexCategoriesTrigger = BehaviorSubject<[Int]>(value: [])
-    private var indexRegionsTrigger = BehaviorSubject<[Int]>(value: [])
-    private var indexGenresTrigger = BehaviorSubject<[Int]>(value: [])
-    private var indexPeriodsTrigger = BehaviorSubject<[Int]>(value: [])
-    private var indexSortOptionsTrigger = BehaviorSubject<[Int]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +34,11 @@ final class FilterScreenViewController: UIViewController {
     
     private func configFilterDataSectionModel() {
         allCategories = [
-            FilterCategoryModel.categories.value,
-            FilterCategoryModel.regions.value,
-            FilterCategoryModel.genres.value,
-            FilterCategoryModel.periods.value,
-            FilterCategoryModel.sortOptions.value
+            FilterSectionModel(name: CategoryType.category.name, categories: CategoryType.category.categories),
+            FilterSectionModel(name: CategoryType.region.name, categories: CategoryType.region.categories),
+            FilterSectionModel(name: CategoryType.genre.name, categories: CategoryType.genre.categories),
+            FilterSectionModel(name: CategoryType.periods.name, categories: CategoryType.periods.categories),
+            FilterSectionModel(name: CategoryType.sortOption.name, categories: CategoryType.sortOption.categories)
         ]
     }
     
@@ -64,28 +54,37 @@ final class FilterScreenViewController: UIViewController {
                 .disposed(by: disposeBag)
             $0.register(nibName: CategoryTableViewCell.self)
         }
-
+        
         bindDataToTableView()
     }
-
-    private func setupCell(cell: CategoryTableViewCell, item: FilterSectionModel, stringTrigger: BehaviorSubject<[String]>, categoryFilter: CategoryTitle) {
-        cell.categoriesTrigger = stringTrigger
+    
+    private func setupCell(cell: CategoryTableViewCell, item: FilterSectionModel, type: CategoryType) {
         cell.resetTrigger = resetTrigger
-        switch categoryFilter {
-        case .category:
-            cell.indexCategoriesTrigger = indexCategoriesTrigger
-        case .region:
-            cell.indexRegionsTrigger = indexRegionsTrigger
-        case .genre:
-            cell.indexGenresTrigger = indexGenresTrigger
-        case .periods:
-            cell.indexPeriodsTrigger = indexPeriodsTrigger
-        case .sortOption:
-            cell.indexSortOptionsTrigger = indexSortOptionsTrigger
-        }
-        let indexs =  UserDefaults.standard.value(forKey: categoryFilter.keyForIndex) as? [Int] ?? []
-        let categories =  UserDefaults.standard.value(forKey: categoryFilter.keyForString) as? [String] ?? []
-        cell.bind(categories: item.data, title: item.name, indexs: indexs, previousCategories: categories)
+        var indexs = [Int]()
+        var categories = [String]()
+
+        shareTrigger.allFilterTrigger.subscribe(onNext: { cellsSelected in
+            switch type {
+            case .category:
+                indexs = cellsSelected[type.index]?.indexs ?? []
+                categories = cellsSelected[type.index]?.categories ?? []
+            case .region:
+                indexs = cellsSelected[type.index]?.indexs ?? []
+                categories = cellsSelected[type.index]?.categories ?? []
+            case .genre:
+                indexs = cellsSelected[type.index]?.indexs ?? []
+                categories = cellsSelected[type.index]?.categories ?? []
+            case .periods:
+                indexs = cellsSelected[type.index]?.indexs ?? []
+                categories = cellsSelected[type.index]?.categories ?? []
+            case .sortOption:
+                indexs = cellsSelected[type.index]?.indexs ?? []
+                categories = cellsSelected[type.index]?.categories ?? []
+            }
+        })
+        .disposed(by: disposeBag)
+        cell.categoryType = type
+        cell.bind(categories: item.categories, title: item.name, indexs: indexs, previousCategories: categories)
     }
     
     private func bindDataToTableView() {
@@ -98,15 +97,15 @@ final class FilterScreenViewController: UIViewController {
                 }
                 switch indexPath.row {
                 case 0:
-                    setupCell(cell: cell, item: item, stringTrigger: categoriesTrigger, categoryFilter: .category)
+                    setupCell(cell: cell, item: item, type: .category)
                 case 1:
-                    setupCell(cell: cell, item: item, stringTrigger: regionsTrigger, categoryFilter: .region)
+                    setupCell(cell: cell, item: item, type: .region)
                 case 2:
-                    setupCell(cell: cell, item: item, stringTrigger: generesTrigger, categoryFilter: .genre)
+                    setupCell(cell: cell, item: item, type: .genre)
                 case 3:
-                    setupCell(cell: cell, item: item, stringTrigger: periodsTrigger, categoryFilter: .periods)
+                    setupCell(cell: cell, item: item, type: .periods)
                 case 4:
-                    setupCell(cell: cell, item: item, stringTrigger: sortOptionsTriger, categoryFilter: .sortOption)
+                    setupCell(cell: cell, item: item, type: .sortOption)
                 default:
                     break
                 }
@@ -123,50 +122,21 @@ final class FilterScreenViewController: UIViewController {
 
 extension FilterScreenViewController {
     private func bindViewModel() {
-        let input = FilterViewModel.Input(
-            categoriesTrigger: categoriesTrigger.asDriver(onErrorJustReturn: []),
-            regionsTrigger: regionsTrigger.asDriver(onErrorJustReturn: []),
-            generesTrigger: generesTrigger.asDriver(onErrorJustReturn: []),
-            periodsTrigger: periodsTrigger.asDriver(onErrorJustReturn: []),
-            sortOptionsTriger: sortOptionsTriger.asDriver(onErrorJustReturn: [])
-        )
-        let output = viewModel.transform(input: input, disposeBag: disposeBag)
-        configApplyButton(output: output)
-        configResetButton(output: output)
+        configApplyButton()
+        configResetButton()
     }
-
-    private func configApplyButton(output: FilterViewModel.Output) {
+    
+    private func configApplyButton() {
         applyButton.rx.tap.subscribe(onNext: { [unowned self] in
-            viewModel.saveToUserDefault(disposeBag: disposeBag,
-                                        categoriesTrigger: indexCategoriesTrigger.asDriver(onErrorJustReturn: []),
-                                        regionsTrigger: indexRegionsTrigger.asDriver(onErrorJustReturn: []),
-                                        genresTrigger: indexGenresTrigger.asDriver(onErrorJustReturn: []),
-                                        periodsTrigger: indexPeriodsTrigger.asDriver(onErrorJustReturn: []),
-                                        sortOptionsTrigger: indexSortOptionsTrigger.asDriver(onErrorJustReturn: []), isIndex: true)
-            viewModel.saveToUserDefault(
-                disposeBag: disposeBag,
-                categoriesTrigger: categoriesTrigger.asDriver(onErrorJustReturn: []),
-                regionsTrigger: regionsTrigger.asDriver(onErrorJustReturn: []),
-                genresTrigger: generesTrigger.asDriver(onErrorJustReturn: []),
-                periodsTrigger: periodsTrigger.asDriver(onErrorJustReturn: []),
-                sortOptionsTrigger: sortOptionsTriger.asDriver(onErrorJustReturn: []),
-                isIndex: false)
-            output.categoriesIsSelected.drive(onNext: { [unowned self] value in
-                filterTrigger.onNext(value)
-            })
-            .disposed(by: disposeBag)
             self.dismiss(animated: true)
         })
         .disposed(by: disposeBag)
     }
-
-    private func configResetButton(output: FilterViewModel.Output) {
+    
+    private func configResetButton() {
         resetButton.rx.tap.subscribe(onNext: { [unowned self] in
-            Defaults.initUserDefault(isIndex: true)
-            Defaults.initUserDefault(isIndex: false)
             resetTrigger.onNext(true)
         }).disposed(by: disposeBag)
-
     }
 }
 

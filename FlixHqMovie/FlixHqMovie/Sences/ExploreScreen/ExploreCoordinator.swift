@@ -30,8 +30,8 @@ struct ExploreCoordinator: CoordinatorType {
         detailCoordinator.toMovieDetailViewController()
     }
 
-    func toFilterViewController(filterTrigger: BehaviorSubject<[FilterSectionModel]>) {
+    func toFilterViewController() {
         let filterCoordinator = FilterCoordinator(navigationController: navigationController)
-        filterCoordinator.toFilterViewController(filterTrigger: filterTrigger)
+        filterCoordinator.toFilterViewController()
     }
 }

@@ -35,7 +35,6 @@ final class ExploreViewController: UIViewController {
         configSearchBar()
         configCollectionView()
         bindViewModel()
-
     }
 
     private func customImage(imageName: CustomImageName) -> UIImage {
@@ -74,10 +73,8 @@ final class ExploreViewController: UIViewController {
 
     private func bindViewModel() {
         let input = ExploreViewModel.Input(
-            allFilter: filterTrigger.asDriver(onErrorJustReturn: []),
             textInput: searchTextTrigger.asDriver(onErrorJustReturn: ""),
             slectedMovie: selectedMovieTrigger.asDriver(onErrorJustReturn: ""))
-
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
 
         let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, MediaResult>>(
@@ -97,6 +94,7 @@ final class ExploreViewController: UIViewController {
             }
             .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+
         output.medias.drive(onNext: { [unowned self] medias in
             mediasTrigger.onNext(medias)
             if medias.isEmpty {
@@ -126,8 +124,9 @@ final class ExploreViewController: UIViewController {
     private func configButtonfilter() {
         filterButtton.layer.cornerRadius = LayoutOptions.filterButtton.cornerRadious
         filterButtton.rx.tap.subscribe(onNext: {[unowned self] in
-            viewModel.coordinator.toFilterViewController(filterTrigger: filterTrigger)
-        }).disposed(by: disposeBag)
+            viewModel.coordinator.toFilterViewController()
+        })
+        .disposed(by: disposeBag)
     }
 }
 
