@@ -51,11 +51,16 @@ final class MovieDetailViewController: UIViewController {
     private var isAddMyList = false
     private let disposeBag = DisposeBag()
     private let databaseManager = DatabaseManager.shared
+    private var m3u8Url = ""
+    private var movieName = ""
+    private var streamMovie: Movie?
     var viewModel: DetailViewModel!
 
     private let recommendCellSelectedTrigger = PublishSubject<String>()
     private let previousTimeWatchTrigger = BehaviorSubject<Double>(value: 0.0)
-    private let addMyListTrigger = BehaviorSubject<Bool>(value: false)
+    private let addMyListTrigger = PublishSubject<Bool>()
+    private let downloadMovieTrigger = PublishSubject<(String, String)>()
+    private let showNoticeTrigger = PublishSubject<MovieStreamError>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +70,7 @@ final class MovieDetailViewController: UIViewController {
         configReleatedMovieCollectionView()
         configCastCollectionView()
         configAddMyListButton()
+        configDownloadMovieButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +85,7 @@ final class MovieDetailViewController: UIViewController {
     private func configPlayButton() {
         playMovieButton.layer.cornerRadius = playMovieButton.frame.height / 2
         playMovieButton.rx.tap.subscribe(onNext: { [unowned self] _ in
+            configPlayVideo()
             playerController.then {
                 $0.player = player
                 $0.showsTimecodes = true
@@ -102,10 +109,14 @@ final class MovieDetailViewController: UIViewController {
         .disposed(by: disposeBag)
     }
 
-    private func configPlayVideo(movie: Movie?) {
-        guard let urlVideo = movie?.sources?[0].url,
-              let urlSub = movie?.subtitles?[0].url
-        else { return }
+    private func configPlayVideo() {
+        guard let urlVideo = streamMovie?.sources?[0].url,
+              let urlSub = streamMovie?.sources?[0].url
+        else {
+            showNoticeTrigger.onNext(MovieStreamError.notFoundUrl)
+            return
+        }
+        m3u8Url = urlVideo
         guard let urlForVideo = URL(string: urlVideo),
               let urlForSub = URL(string: urlSub)
         else { return }
@@ -120,6 +131,12 @@ final class MovieDetailViewController: UIViewController {
     private func configHiddenView(isHiddenView: Bool) {
         scrollView.isHidden = !isHiddenView
         loadingActivityIndicator.isHidden = isHiddenView
+    }
+
+    private func configDownloadMovieButton() {
+        downloadMovieButton.rx.tap.subscribe(onNext: { [unowned self] in
+            downloadMovieTrigger.onNext((movieName, m3u8Url))
+        }).disposed(by: disposeBag)
     }
 
     private func configView() {
@@ -169,6 +186,7 @@ final class MovieDetailViewController: UIViewController {
         let url = URL(string: item.cover ?? "")
         moviePosterImageView.sd_setImage(with: url)
         durationMovie = 60 * (Int(item.duration?.getNumberFromString() ?? "") ?? 0)
+        movieName = item.title?.replacingOccurrences(of: " ", with: "") ?? ""
     }
 }
 extension MovieDetailViewController {
@@ -193,7 +211,9 @@ extension MovieDetailViewController {
         let input = DetailViewModel.Input(loadTrigger: loadTrigger,
                                           slectedMovie: recommendCellSelectedTrigger.asDriver(onErrorDriveWith: .empty()),
                                           previousTimeWatch: previousTimeWatchTrigger.asDriver(onErrorDriveWith: .empty()),
-                                          addMyList: addMyListTrigger.asDriver(onErrorDriveWith: .empty()))
+                                          addMyList: addMyListTrigger.asDriver(onErrorDriveWith: .empty()),
+                                          downloadMovie: downloadMovieTrigger.asDriver(onErrorDriveWith: .empty()),
+                                          showNotice: showNoticeTrigger.asDriver(onErrorDriveWith: .empty()))
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
         binder(output: output)
     }
@@ -244,7 +264,7 @@ extension MovieDetailViewController {
         .disposed(by: disposeBag)
 
         output.media.drive(onNext: {[unowned self] media in
-            configPlayVideo(movie: media)
+            streamMovie = media
         })
         .disposed(by: disposeBag)
 

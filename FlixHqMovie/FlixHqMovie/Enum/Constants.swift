@@ -155,6 +155,7 @@ enum CustomImageName {
     case noResult
     case search
     case emptyList
+    case emptyDownload
 
     var name: String {
         switch self {
@@ -164,6 +165,8 @@ enum CustomImageName {
             return "search"
         case .emptyList:
             return "emptyList"
+        case .emptyDownload:
+            return "movieDownload"
         }
     }
 }

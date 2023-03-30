@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -11,21 +11,123 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DownloadViewController" customModule="FlixHqMovie" customModuleProvider="target">
             <connections>
+                <outlet property="emptyImageView" destination="yNd-1G-ECT" id="eLB-Tm-Uce"/>
+                <outlet property="iconSearchButton" destination="hh6-4D-XHE" id="sc4-In-nHk"/>
+                <outlet property="movieTableView" destination="Wro-Rp-QWA" id="DBo-FY-IFn"/>
+                <outlet property="noticeEmptyListContainerView" destination="adv-X1-XCZ" id="3ON-so-SMz"/>
+                <outlet property="searchBar" destination="GgL-VA-cai" id="rg6-B8-Rmu"/>
+                <outlet property="titleLabel" destination="up0-W6-hd3" id="Y4U-dF-Nie"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="up0-W6-hd3">
+                    <rect key="frame" x="16" y="59" width="113" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="HBh-iJ-Osu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hh6-4D-XHE">
+                    <rect key="frame" x="327" y="59" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="WER-Zh-NdI"/>
+                        <constraint firstAttribute="width" constant="50" id="eUC-DT-MUo"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="magnifyingglass" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                        </preferredSymbolConfiguration>
+                    </state>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wro-Rp-QWA">
+                    <rect key="frame" x="16" y="129" width="361" height="689"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adv-X1-XCZ">
+                    <rect key="frame" x="0.0" y="296" width="393" height="260"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movieDownload" translatesAutoresizingMaskIntoConstraints="NO" id="yNd-1G-ECT">
+                            <rect key="frame" x="146.66666666666666" y="0.0" width="100" height="100"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="WfX-5h-DrL"/>
+                                <constraint firstAttribute="height" constant="100" id="vo3-fp-SFM"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Found " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ng6-z9-JeG">
+                            <rect key="frame" x="12" y="112" width="369" height="26.333333333333343"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                            <color key="textColor" red="1" green="0.28745943060000001" blue="0.22786689490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It seem that you haven't any movies is downloaded" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5u-CQ-GXK">
+                            <rect key="frame" x="30" y="158.33333333333331" width="333" height="38.333333333333343"/>
+                            <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="2BP-3F-2Yt"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="c5u-CQ-GXK" secondAttribute="trailing" constant="30" id="68j-QE-2vh"/>
+                        <constraint firstItem="c5u-CQ-GXK" firstAttribute="top" secondItem="ng6-z9-JeG" secondAttribute="bottom" constant="20" id="6mG-ny-Ume"/>
+                        <constraint firstItem="ng6-z9-JeG" firstAttribute="leading" secondItem="adv-X1-XCZ" secondAttribute="leading" constant="12" id="Atf-DO-Lz4"/>
+                        <constraint firstAttribute="height" constant="260" id="Mat-Dv-onF"/>
+                        <constraint firstItem="c5u-CQ-GXK" firstAttribute="centerX" secondItem="adv-X1-XCZ" secondAttribute="centerX" id="Rv7-5s-pvg"/>
+                        <constraint firstItem="yNd-1G-ECT" firstAttribute="top" secondItem="adv-X1-XCZ" secondAttribute="top" id="dtF-FA-UWC"/>
+                        <constraint firstItem="ng6-z9-JeG" firstAttribute="centerX" secondItem="adv-X1-XCZ" secondAttribute="centerX" id="dyT-Ld-GA3"/>
+                        <constraint firstItem="yNd-1G-ECT" firstAttribute="centerX" secondItem="adv-X1-XCZ" secondAttribute="centerX" id="fFS-45-5zI"/>
+                        <constraint firstItem="c5u-CQ-GXK" firstAttribute="leading" secondItem="adv-X1-XCZ" secondAttribute="leading" constant="30" id="g6A-ka-Sux"/>
+                        <constraint firstItem="ng6-z9-JeG" firstAttribute="top" secondItem="yNd-1G-ECT" secondAttribute="bottom" constant="12" id="m5P-ZC-S5V"/>
+                        <constraint firstAttribute="trailing" secondItem="ng6-z9-JeG" secondAttribute="trailing" constant="12" id="tZe-yF-gru"/>
+                    </constraints>
+                </view>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgL-VA-cai">
+                    <rect key="frame" x="16" y="59" width="361" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="HVi-3z-A9Y"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="bPI-kO-kWT"/>
+                    </connections>
+                </searchBar>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="up0-W6-hd3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Dyi-2k-b9L"/>
+                <constraint firstItem="adv-X1-XCZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EbG-ln-BZM"/>
+                <constraint firstItem="GgL-VA-cai" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="OGb-7k-JG3"/>
+                <constraint firstItem="GgL-VA-cai" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="QuP-HU-egT"/>
+                <constraint firstItem="hh6-4D-XHE" firstAttribute="centerY" secondItem="up0-W6-hd3" secondAttribute="centerY" id="TVO-3H-p11"/>
+                <constraint firstAttribute="trailing" secondItem="GgL-VA-cai" secondAttribute="trailing" constant="16" id="a2R-jf-Lqw"/>
+                <constraint firstItem="adv-X1-XCZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aDi-3s-2MJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Wro-Rp-QWA" secondAttribute="bottom" id="c1g-aY-zhq"/>
+                <constraint firstItem="Wro-Rp-QWA" firstAttribute="top" secondItem="up0-W6-hd3" secondAttribute="bottom" constant="20" id="dbR-YX-nSb"/>
+                <constraint firstItem="Wro-Rp-QWA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="kYn-eS-1YU"/>
+                <constraint firstItem="up0-W6-hd3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ljJ-SL-LDp"/>
+                <constraint firstItem="adv-X1-XCZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="oWi-50-7dI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Wro-Rp-QWA" secondAttribute="trailing" constant="16" id="uHU-ot-hLr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hh6-4D-XHE" secondAttribute="trailing" constant="16" id="xVy-M9-wMs"/>
+                <constraint firstAttribute="trailing" secondItem="adv-X1-XCZ" secondAttribute="trailing" id="z7P-6P-kkD"/>
+            </constraints>
             <point key="canvasLocation" x="132" y="-11"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="movieDownload" width="512" height="512"/>
     </resources>
 </document>
