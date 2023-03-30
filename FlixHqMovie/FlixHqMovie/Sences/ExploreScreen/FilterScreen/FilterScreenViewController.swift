@@ -19,7 +19,7 @@ final class FilterScreenViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private var allCategories = [FilterSectionModel]()
-    private let shareTrigger = CommonTrigger.share
+    private let shareTrigger = CommonTrigger.shared
     var viewModel: FilterViewModel!
     
     var resetTrigger = BehaviorSubject<Bool>(value: false)
@@ -58,7 +58,7 @@ final class FilterScreenViewController: UIViewController {
         bindDataToTableView()
     }
     
-    private func setupCell(cell: CategoryTableViewCell, item: FilterSectionModel, type: CategoryType) {
+   private func setupCell(cell: CategoryTableViewCell, item: FilterSectionModel, type: CategoryType) {
         cell.resetTrigger = resetTrigger
         var indexs = [Int]()
         var categories = [String]()
@@ -136,7 +136,8 @@ extension FilterScreenViewController {
     private func configResetButton() {
         resetButton.rx.tap.subscribe(onNext: { [unowned self] in
             resetTrigger.onNext(true)
-        }).disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
     }
 }
 

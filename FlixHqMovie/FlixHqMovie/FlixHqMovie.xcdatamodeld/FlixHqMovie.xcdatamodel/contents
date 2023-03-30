@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="GenreEntity" representedClassName="GenreEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String"/>
-    </entity>
     <entity name="MyListEntity" representedClassName="MyListEntity" syncable="YES" codeGenerationType="class">
         <attribute name="genres" optional="YES" attributeType="Transformable"/>
         <attribute name="id" attributeType="String"/>

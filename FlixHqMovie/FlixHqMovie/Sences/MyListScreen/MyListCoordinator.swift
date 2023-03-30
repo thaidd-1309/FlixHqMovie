@@ -18,11 +18,19 @@ struct MyListCoordinator: CoordinatorType {
 
     func toMyListViewController() {
         let viewController = MyListViewController()
+        let viewModel = MyListViewModel(coordinator: self, useCase: useCase)
+        viewController.viewModel = viewModel
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func toMovieDetail(with id: String) {
-        let detailCoordinator = DetailCoordinator(navigationController: navigationController, mediaId: id)
+    func toMovieDetail(with id: String, previousTime: Double) {
+        let detailCoordinator = DetailCoordinator(navigationController: navigationController, mediaId: id, previousTimeWatch: previousTime)
         detailCoordinator.toMovieDetailViewController()
+    }
+
+    func toNoticeViewController(notice: String) {
+        let popUpViewController = PopUpViewController()
+        popUpViewController.bind(notice: notice)
+        navigationController.pushViewController(popUpViewController, animated: true)
     }
 }

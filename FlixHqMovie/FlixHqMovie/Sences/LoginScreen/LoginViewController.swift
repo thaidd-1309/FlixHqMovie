@@ -26,8 +26,8 @@ final class LoginViewController: UIViewController {
         loginWithGoogleButton.rx.tap
             .subscribe(onNext: { [unowned self] in
                 viewModel.goToMainTabar()
-            }).disposed(by: disposeBag)
-
+            })
+            .disposed(by: disposeBag)
     }
 
     private func configButton() {
