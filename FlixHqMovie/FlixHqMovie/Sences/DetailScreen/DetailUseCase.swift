@@ -14,6 +14,7 @@ protocol DetailUseCaseType {
     func addToMyListDatabase(myListModel: MyList) -> Observable<Result<ResultMyList, DatabaseError>>
     func checkExistInMyListEntity(id: String) -> Observable<Result<Bool, DatabaseError>>
     func deleteItemInMyListEntity(mediaId: String) -> Observable<Result<ResultMyList, DatabaseError>>
+    func downloadM3U8Video(url: String, name: String) -> Observable<URL>
 }
 
 struct DetailUseCase: DetailUseCaseType {
@@ -38,5 +39,9 @@ struct DetailUseCase: DetailUseCaseType {
 
     func deleteItemInMyListEntity(mediaId: String) -> Observable<Result<ResultMyList, DatabaseError>> {
         return dataBaseManager.deleteItemInMyListEntity(mediaId: mediaId)
+    }
+
+    func downloadM3U8Video(url: String, name: String) -> Observable<URL> {
+        return mediaRepository.downloadM3U8Video(url: url, name: name)
     }
 }

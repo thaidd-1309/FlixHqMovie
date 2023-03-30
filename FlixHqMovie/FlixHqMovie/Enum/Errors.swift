@@ -13,3 +13,7 @@ enum DatabaseError: Error {
     case checkExistFailed
     case getAllMediaFailed
 }
+
+enum MovieStreamError: Error {
+    case notFoundUrl
+}

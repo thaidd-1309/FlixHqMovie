@@ -23,6 +23,8 @@ extension DetailViewModel: ViewModelType {
         let slectedMovie: Driver<String>
         let previousTimeWatch: Driver<Double>
         let addMyList: Driver<Bool>
+        let downloadMovie: Driver<(String, String)>
+        let showNotice: Driver<MovieStreamError>
     }
 
     struct Output {
@@ -81,7 +83,6 @@ extension DetailViewModel: ViewModelType {
             .disposed(by: disposeBag)
         })
         .disposed(by: disposeBag)
-
         commonTrigger.myListTrigger.subscribe(onNext:  { result in
             switch result {
             case .success(_):
@@ -92,6 +93,10 @@ extension DetailViewModel: ViewModelType {
         })
         .disposed(by: disposeBag)
 
+        input.downloadMovie.drive(onNext: { m3u8Url, nameMovie in
+            useCase.downloadM3U8Video(url: m3u8Url, name: nameMovie)
+        })
+        .disposed(by: disposeBag)
         return Output(media: mediaOuput,
                       information: information,
                       isLoading: isLoading.asDriver(),

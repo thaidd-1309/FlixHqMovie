@@ -15,6 +15,7 @@ protocol MediaRepositoryType {
     func getListRecentMovie() -> Observable<[MediaResult]>
     func getMediaDetail(mediaId: String) -> Observable<MediaInformation>
     func getMovie(episodeId: String, mediaId: String) -> Observable<Movie>
+    func downloadM3U8Video(url: String, name: String) -> Observable<URL>
 }
 
 struct MediaRepository: MediaRepositoryType {
@@ -27,12 +28,12 @@ struct MediaRepository: MediaRepositoryType {
 
     func getListMediaByName(query: String) -> Observable<[MediaResult]> {
         let request: Observable<MediaSearch> = APIService.shared.request(endPoint: .getListMediaByName(query: query))
-        return request.map{ $0.results ?? [] }
+        return request.map { $0.results ?? [] }
     }
 
     func getListTrending() -> Observable<[MediaResult]> {
         let request: Observable<TrendingMedia> = APIService.shared.request(endPoint: .getListTrending)
-        return request.map{ $0.results ?? [] }
+        return request.map { $0.results ?? [] }
     }
 
     func getListRecentShow() -> Observable<[MediaResult]> {
@@ -47,4 +48,7 @@ struct MediaRepository: MediaRepositoryType {
         return APIService.shared.request(endPoint: .getMediaDetail(mediaId: mediaId))
     }
 
+    func downloadM3U8Video(url: String, name: String) -> Observable<URL> {
+        return APIService.shared.downloadM3U8Video(url: url, name: name)
+    }
 }

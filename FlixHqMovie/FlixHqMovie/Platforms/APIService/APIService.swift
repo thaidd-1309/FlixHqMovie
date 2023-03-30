@@ -48,4 +48,28 @@ struct APIService {
         }
     }
 
+    func downloadM3U8Video(url: String, name: String) -> Observable<URL> {
+        /// This func will not active, because do not have Apple Developer Enterprise account, so can not use `File and Folder Access` in Capabilities
+        ///  So we can create file to save on disk of device
+        return Observable.create { observer in
+            guard let m3u8URL = URL(string: url) else { return Disposables.create() }
+            URLSession.shared.dataTask(with: m3u8URL) { data, response, error in
+                guard let data = data else {
+                    observer.onError(error ?? NSError(domain: "Error", code: -1, userInfo: nil))
+                    return
+                }
+
+                do {
+                    let fileUrl = URL(fileURLWithPath: "/path/to/\(name).m3u8")
+                    try data.write(to: fileUrl, options: .atomic)
+                    observer.onNext(fileUrl)
+                    observer.onCompleted()
+                } catch (let error) {
+                    observer.onError(error)
+                }
+            }.resume()
+
+            return Disposables.create()
+        }
+    }
 }
