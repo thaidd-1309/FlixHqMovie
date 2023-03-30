@@ -12,27 +12,26 @@ import RxSwift
 struct MyListViewModel {
     var coordinator: MyListCoordinator
     var useCase: MyListUseCaseType
-    let commonTrigger = CommonTrigger.shared
+    let commonTrigger = CommonTrigger.share
 }
 extension MyListViewModel: ViewModelType {
     struct Input {
-        let slectedMovie: Driver<MyList>
+        let slectedMovie: Driver<MyListModel>
         let updateMyList: Driver<Bool>
         let selectedGenre: Driver<String>
     }
 
     struct Output {
-        var myListModels: Driver<[MyList]>
+        var myListModels: Driver<[MyListModel]>
         var genres: Driver<[String]>
     }
 
     func transform(input: Input, disposeBag: DisposeBag) -> Output {
         let genresTrigger = BehaviorSubject<[String]>(value: [])
-        let myListTrigger = BehaviorSubject<[MyList]>(value: [])
+        let myListTrigger = BehaviorSubject<[MyListModel]>(value: [])
         input.slectedMovie.drive(onNext: { model in
             coordinator.toMovieDetail(with: model.id, previousTime: model.timeRecentWatch)
-        })
-        .disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
 
         commonTrigger.myListTrigger.subscribe(onNext: { result in
             switch result {
@@ -42,10 +41,9 @@ extension MyListViewModel: ViewModelType {
             case .failure(let error):
                 coordinator.toNoticeViewController(notice: "\(error)")
             }
-        })
-        .disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
 
-      let myListFilter = Driver.combineLatest(input.selectedGenre, myListTrigger.asDriver(onErrorJustReturn: []), resultSelector: {genreSelected, myList -> [MyList] in
+      let myListFilter = Driver.combineLatest(input.selectedGenre, myListTrigger.asDriver(onErrorJustReturn: []), resultSelector: {genreSelected, myList -> [MyListModel] in
             let myListAfterFilter = myList.filter { $0.genres.contains(genreSelected)}
             return genreSelected == "All" ? myList : myListAfterFilter
       }).asDriver(onErrorJustReturn: [])

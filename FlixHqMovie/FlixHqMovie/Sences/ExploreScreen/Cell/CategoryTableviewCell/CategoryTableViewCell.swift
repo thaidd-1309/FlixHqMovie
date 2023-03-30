@@ -18,7 +18,7 @@ final class CategoryTableViewCell: UITableViewCell, ReuseCellType {
     private var categories = [String]()
     private var indexCellsSelected = [Int]()
     private var categoriesSeclected = [String]()
-    private var filterTrigger = CommonTrigger.share
+    private var filterTrigger = CommonTrigger.shared
     var categoryType: CategoryType?
     
     var resetTrigger = BehaviorSubject<Bool>(value: false)
@@ -74,7 +74,8 @@ final class CategoryTableViewCell: UITableViewCell, ReuseCellType {
                 updateAllFilterTrigger()
                 collectionView.reloadData()
             }
-        }).disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
     }
 
     private func setTitleCategory(name: String) {
@@ -138,6 +139,8 @@ final class CategoryTableViewCell: UITableViewCell, ReuseCellType {
             break
         }
     }
+
+
 }
 
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout {

@@ -50,12 +50,12 @@ final class MovieDetailViewController: UIViewController {
     private var isLoading = false
     private var isAddMyList = false
     private let disposeBag = DisposeBag()
+    private let databaseManager = DatabaseManager.shared
     var viewModel: DetailViewModel!
 
     private let recommendCellSelectedTrigger = PublishSubject<String>()
     private let previousTimeWatchTrigger = BehaviorSubject<Double>(value: 0.0)
     private let addMyListTrigger = BehaviorSubject<Bool>(value: false)
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +64,7 @@ final class MovieDetailViewController: UIViewController {
         bindingData()
         configReleatedMovieCollectionView()
         configCastCollectionView()
+        configAddMyListButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +73,7 @@ final class MovieDetailViewController: UIViewController {
             let currentTime = Double(CMTimeGetSeconds(player.currentTime()))
             previousTimeWatch = currentTime
         }
+        addToMyListButton.tintColor = isAddMyList ? .red : .white
     }
 
     private func configPlayButton() {
@@ -89,11 +91,15 @@ final class MovieDetailViewController: UIViewController {
             self.present(playerController, animated: true)
         })
         .disposed(by: disposeBag)
+    }
 
+    private func configAddMyListButton() {
         addToMyListButton.rx.tap.subscribe(onNext: { [unowned self] in
             isAddMyList = !isAddMyList
             addMyListTrigger.onNext(isAddMyList)
-        }).disposed(by: disposeBag)
+            addToMyListButton.tintColor = isAddMyList ? .red : .white
+        })
+        .disposed(by: disposeBag)
     }
 
     private func configPlayVideo(movie: Movie?) {
@@ -137,7 +143,8 @@ final class MovieDetailViewController: UIViewController {
     }
 
     private func configCastCollectionView() {
-        castsCollecttionView.rx.setDelegate(self).disposed(by: disposeBag)
+        castsCollecttionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
         castsCollecttionView.register(nibName: CastCollectionViewCell.self)
     }
 
@@ -173,10 +180,20 @@ extension MovieDetailViewController {
             })
             .disposed(by: disposeBag)
 
+        viewModel.checkExistInMyList().drive(onNext: { [unowned self] result in
+            switch result {
+            case .success(let isExisted):
+                isAddMyList = isExisted
+            case .failure(let error):
+                viewModel.coordinator.toNoticeViewController(notice: "\(error)")
+            }
+        })
+        .disposed(by: disposeBag)
+
         let input = DetailViewModel.Input(loadTrigger: loadTrigger,
                                           slectedMovie: recommendCellSelectedTrigger.asDriver(onErrorDriveWith: .empty()),
                                           previousTimeWatch: previousTimeWatchTrigger.asDriver(onErrorDriveWith: .empty()),
-                                          addMyListTrigger: addMyListTrigger.asDriver(onErrorDriveWith: .empty()))
+                                          addMyList: addMyListTrigger.asDriver(onErrorDriveWith: .empty()))
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
         binder(output: output)
     }
@@ -228,7 +245,18 @@ extension MovieDetailViewController {
 
         output.media.drive(onNext: {[unowned self] media in
             configPlayVideo(movie: media)
-        }).disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
+
+        output.errorAddedOrDelete.drive(onNext: { [unowned self]  error in
+            viewModel.coordinator.toNoticeViewController(notice: "\(error)")
+        })
+        .disposed(by: disposeBag)
+
+        output.previousTimeWatch.drive(onNext: { [unowned self] time in
+            previousTimeWatch = time
+        })
+        .disposed(by: disposeBag)
     }
 
 }

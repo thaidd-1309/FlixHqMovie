@@ -19,12 +19,19 @@ final class MyListViewController: UIViewController {
     @IBOutlet private weak var iconSearchButton: UIButton!
     @IBOutlet private weak var mediaCollectionView: UICollectionView!
     @IBOutlet private weak var categoryCollectionView: UICollectionView!
-    // TODO: Fake data, update in \task60498
-    private let categories = ["All", "Action", "Comedy", "Romance", "Thriller", "Documentary"]
+
     private let disposeBag = DisposeBag()
+    private var categories = [String]()
+    var viewModel: MyListViewModel!
+
+    private let selectedMovieTrigger = PublishSubject<MyList>()
+    private let selectedGenreTrigger = BehaviorSubject<String>(value: "All")
+    private let updateMyListTrigger = BehaviorSubject<Bool>(value: false)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateMyListTrigger.onNext(true)
+        bindViewModel()
         configCategoryCollectionView()
         configMediaCollectionView()
         openSearchBar(isOpened: false)
@@ -46,48 +53,28 @@ final class MyListViewController: UIViewController {
     }
 
     private func configCategoryCollectionView() {
-        categoryCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        categoryCollectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
         categoryCollectionView.register(nibName: FilterCollectionViewCell.self)
         categoryCollectionView.allowsMultipleSelection = false
 
-        let dataSoureCategory = RxCollectionViewSectionedReloadDataSource<SectionModel<String, String>>(
-            configureCell: { [unowned self] dataSource, collectionView, indexPath, item in
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.defaultReuseIdentifier, for: indexPath) as? FilterCollectionViewCell else {
-                    return UICollectionViewCell()
-                }
-                cell.setTextInLabel(name: item)
-                return cell
-            }
-        )
-
-        // TODO: Fake data, update in /task60498
-        Driver.of(categories).map {
-            [SectionModel(model: "", items: $0)]
-        }
-        .drive(categoryCollectionView.rx.items(dataSource: dataSoureCategory))
-        .disposed(by: disposeBag)
+        categoryCollectionView.rx.modelSelected(String.self)
+            .subscribe(onNext: { [unowned self] genre in
+                selectedGenreTrigger.onNext(genre)
+            })
+            .disposed(by: disposeBag)
     }
 
     private func configMediaCollectionView() {
-        mediaCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        mediaCollectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
         mediaCollectionView.register(nibName: ImageFilmCollectionViewCell.self)
 
-        let dataSourceMedia = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Int>>(
-            configureCell: { _, collectionView, indexPath, item in
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageFilmCollectionViewCell.defaultReuseIdentifier, for: indexPath)
-                        as? ImageFilmCollectionViewCell else {
-                    return UICollectionViewCell()
-                }
-                return cell
-            }
-        )
-
-        // TODO: Fake data, update in /task60498
-        Driver.of([1, 2, 3, 4, 5, 6, 7, 8]).map {
-                [SectionModel(model: "", items: $0)]
-            }
-        .drive(mediaCollectionView.rx.items(dataSource: dataSourceMedia))
-        .disposed(by: disposeBag)
+        mediaCollectionView.rx.modelSelected(MyList.self)
+            .subscribe(onNext: { [unowned self] item in
+                selectedMovieTrigger.onNext(item)
+            })
+            .disposed(by: disposeBag)
     }
 
     private func openSearchBar(isOpened: Bool) {
@@ -106,6 +93,59 @@ final class MyListViewController: UIViewController {
 
     private func configSearchBar() {
         hideKeyboardWhenTappedAround()
+    }
+}
+
+extension MyListViewController {
+    private func bindViewModel() {
+        let input = MyListViewModel.Input(slectedMovie: selectedMovieTrigger.asDriver(onErrorDriveWith: .empty()),
+                                          updateMyList: updateMyListTrigger.asDriver(onErrorJustReturn: false),
+                                          selectedGenre: selectedGenreTrigger.asDriver(onErrorJustReturn: ""))
+        let output = viewModel.transform(input: input, disposeBag: disposeBag)
+
+        output.genres.drive(onNext: { [unowned self] values in
+            categories = values
+        })
+        .disposed(by: disposeBag)
+
+        let dataSourceMedia = RxCollectionViewSectionedReloadDataSource<SectionModel<String, MyList>>(
+            configureCell: { _, collectionView, indexPath, item in
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageFilmCollectionViewCell.defaultReuseIdentifier, for: indexPath)
+                        as? ImageFilmCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                cell.bind(imageUrl: item.image)
+                return cell
+            }
+        )
+
+        let dataSoureCategory = RxCollectionViewSectionedReloadDataSource<SectionModel<String, String>>(
+            configureCell: { _, collectionView, indexPath, item in
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.defaultReuseIdentifier, for: indexPath) as? FilterCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
+                cell.setTextInLabel(name: item)
+                return cell
+            }
+        )
+
+        output.genres.map {
+            [SectionModel(model: "", items: $0)]
+        }
+        .drive(categoryCollectionView.rx.items(dataSource: dataSoureCategory))
+        .disposed(by: disposeBag)
+
+        output.myListModels.map {
+                [SectionModel(model: "", items: $0)]
+            }
+        .drive(mediaCollectionView.rx.items(dataSource: dataSourceMedia))
+        .disposed(by: disposeBag)
+
+        output.myListModels.drive(onNext: {[unowned self] myListModels in
+            noticeEmptyListContainerView.isHidden = !myListModels.isEmpty
+        })
+        .disposed(by: disposeBag)
     }
 }
 

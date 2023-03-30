@@ -103,7 +103,8 @@ final class ExploreViewController: UIViewController {
                 collectionView.isHidden = false
                 notFoundContainerView.isHidden = true
             }
-        }).disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
 
         output.isLoading.drive(onNext: {[unowned self] isLoaded in
             configLoadingView(isHiddenView: !isLoaded)

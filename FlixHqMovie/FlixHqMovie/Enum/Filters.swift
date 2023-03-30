@@ -99,7 +99,7 @@ enum CategoryTriggerType {
     case sortOption(cellSelected: CellSelectedModel, type: CategoryType)
 
     var cellSelectedModel: [CellSelectedModel?] {
-        let shareTrigger = CommonTrigger.share
+        let shareTrigger = CommonTrigger.shared
         switch self {
         case .category(let cellSelected, let type):
             shareTrigger.filters[type.index] = cellSelected

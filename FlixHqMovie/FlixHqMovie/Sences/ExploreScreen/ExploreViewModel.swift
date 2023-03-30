@@ -12,7 +12,7 @@ import RxSwift
 struct ExploreViewModel {
     var coordinator: ExploreCoordinator
     var useCase: ExploreUseCaseType
-    let commonTrigger = CommonTrigger.share
+    let commonTrigger = CommonTrigger.shared
 }
 
 extension ExploreViewModel: ViewModelType {

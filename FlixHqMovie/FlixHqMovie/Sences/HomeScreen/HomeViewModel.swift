@@ -31,7 +31,8 @@ extension HomeViewModel: ViewModelType {
 
         input.slectedMovie.drive(onNext: { idMedia in
             coordinator.toDetailViewController(with: idMedia)
-        }).disposed(by: disposeBag)
+        })
+        .disposed(by: disposeBag)
 
         let mediaTrending = input.loadTrigger.flatMapLatest {  _ in
             isLoading.accept(true)

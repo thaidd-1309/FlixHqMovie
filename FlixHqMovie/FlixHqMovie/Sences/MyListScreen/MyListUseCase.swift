@@ -9,14 +9,14 @@ import Foundation
 import RxSwift
 
 protocol MyListUseCaseType {
-    func fetchAllInMyListEntiy() -> Observable<Result<[MyListModel], DatabaseError>>
+    func fetchAllInMyListEntiy() -> Observable<Result<ResultMyList, DatabaseError>>
 }
 
 struct MyListUseCase: MyListUseCaseType {
     let mediaRepository: MediaRepositoryType
-    let dataBaseManager = DatabaseManager.share
+    let dataBaseManager = DatabaseManager.shared
 
-    func fetchAllInMyListEntiy() -> Observable<Result<[MyListModel], DatabaseError>> {
+    func fetchAllInMyListEntiy() -> Observable<Result<ResultMyList, DatabaseError>> {
         return dataBaseManager.fetchAllInMyListEntiy()
     }
 }

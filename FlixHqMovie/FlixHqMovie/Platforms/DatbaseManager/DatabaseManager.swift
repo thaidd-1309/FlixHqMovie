@@ -10,51 +10,64 @@ import CoreData
 import RxSwift
 
 final class DatabaseManager {
-    static let share = DatabaseManager()
+    static let shared = DatabaseManager()
     private let presistentContainer: NSPersistentContainer
-
+    private let disposeBag = DisposeBag()
+    
     private init() {
         presistentContainer = NSPersistentContainer(name: "FlixHqMovie").with {
             $0.loadPersistentStores { _, _ in }
         }
     }
-
-    private func convertToMylistModel(entities: [MyListEntity]) -> [MyListModel] {
-        let myListModels = entities.map { item in
-            let myListModel = MyListModel(id: item.id ?? "",
+    
+    private func convertToMResultMyListModel(entities: [MyListEntity]) -> ResultMyList {
+        let firstElementInGenres = "All"
+        var genres = [String]()
+        var myLists = [MyList]()
+        entities.forEach { item in
+            let myList = MyList(id: item.id ?? "",
                                           image: item.image ?? "",
                                           genres: item.genres as? [String] ?? [],
                                           timeRecentWatch: item.timeRecentWatch)
-            return myListModel
+            myLists.append(myList)
+            genres.append(contentsOf: item.genres as? [String] ?? [])
         }
-        return myListModels
+        var filterGenres: [String] = [firstElementInGenres]
+        filterGenres.append(contentsOf: Array(Set(genres)))
+
+        let result = ResultMyList( myList: myLists, genres: filterGenres )
+        return result
     }
     
-    func addToMyListDatabase(myListEntity: MyListModel) -> Observable<Result<Bool, DatabaseError>> {
+    func addToMyListDatabase(myList: MyList) -> Observable<Result<ResultMyList, DatabaseError>> {
         let context = presistentContainer.viewContext
-
-        return Observable.create { observer in
+        let request = MyListEntity.fetchRequest() as NSFetchRequest<MyListEntity>
+        
+        return Observable.create { [unowned self] observer in
             do {
                 MyListEntity(context: context).do {
-                    $0.id = myListEntity.id
-                    $0.image = myListEntity.image
-                    $0.genres = myListEntity.genres as NSObject
-                    $0.timeRecentWatch = myListEntity.timeRecentWatch
+                    $0.id = myList.id
+                    $0.image = myList.image
+                    $0.genres = myList.genres as NSObject
+                    $0.timeRecentWatch = myList.timeRecentWatch
                 }
                 try context.save()
-                observer.onNext(.success(true))
-                observer.onCompleted()
+                if let myListEntityAfterAdd = try? context.fetch(request) {
+                    let result = convertToMResultMyListModel(entities: myListEntityAfterAdd)
+                    observer.onNext(.success(result))
+                    observer.onCompleted()
+                }
             } catch {
                 observer.onNext(.failure(.addFailed))
             }
             return Disposables.create()
         }
     }
-
+    
     func checkExistInMyListEntity(id: String) -> Observable<Result<Bool, DatabaseError>> {
         let context = presistentContainer.viewContext
         let request = MyListEntity.fetchRequest() as NSFetchRequest<MyListEntity>
-
+        
         return Observable.create { observer in
             do {
                 let medias = try context.fetch(request)
@@ -66,11 +79,11 @@ final class DatabaseManager {
             return Disposables.create()
         }
     }
-
-    func deleteItemInMyListEntity(mediaId: String) -> Observable<Result<[MyListModel], DatabaseError>> {
+    
+    func deleteItemInMyListEntity(mediaId: String) -> Observable<Result<ResultMyList, DatabaseError>> {
         let context = presistentContainer.viewContext
         let request = MyListEntity.fetchRequest() as NSFetchRequest<MyListEntity>
-
+        
         return Observable.create { [unowned self] observer in
             do {
                 if let myListEntity = try? context.fetch(request) {
@@ -79,7 +92,8 @@ final class DatabaseManager {
                         try context.save()
                     }
                     if let myListEntityAfterDelete = try? context.fetch(request) {
-                        observer.onNext(.success(convertToMylistModel(entities: myListEntityAfterDelete)))
+                        let result = convertToMResultMyListModel(entities: myListEntityAfterDelete)
+                        observer.onNext(.success(result))
                         observer.onCompleted()
                     }
                 }
@@ -89,15 +103,15 @@ final class DatabaseManager {
             return Disposables.create()
         }
     }
-
-    func fetchAllInMyListEntiy() -> Observable<Result<[MyListModel], DatabaseError>> {
+    
+    func fetchAllInMyListEntiy() -> Observable<Result<ResultMyList, DatabaseError>> {
         let context = presistentContainer.viewContext
         return Observable.create {[unowned self] observer in
             do {
                 let request = MyListEntity.fetchRequest() as NSFetchRequest<MyListEntity>
                 let myListsEntity = try context.fetch(request)
-
-                observer.onNext(.success(convertToMylistModel(entities: myListsEntity)))
+                let result = convertToMResultMyListModel(entities: myListsEntity)
+                observer.onNext(.success(result))
                 observer.onCompleted()
             } catch {
                 observer.onNext(.failure(.getAllMediaFailed))
@@ -106,37 +120,4 @@ final class DatabaseManager {
         }
     }
 
-    func addToGenreEntity(name: String) -> Observable<Result<Bool, DatabaseError>> {
-        let context = presistentContainer.viewContext
-
-        return Observable.create { observer in
-            do {
-                GenreEntity(context: context).do {
-                    $0.name = name
-                }
-                try context.save()
-                observer.onNext(.success(true))
-                observer.onCompleted()
-            } catch {
-                observer.onNext(.failure(.addFailed))
-            }
-            return Disposables.create()
-        }
-    }
-
-    func checkExistInGenreEntity(name: String) -> Observable<Result<Bool, DatabaseError>> {
-        let context = presistentContainer.viewContext
-        let request = GenreEntity.fetchRequest() as NSFetchRequest<GenreEntity>
-
-        return Observable.create { observer in
-            do {
-                let genres = try context.fetch(request)
-                observer.onNext(.success(genres.contains(where: { $0.name == name })))
-                observer.onCompleted()
-            } catch {
-                observer.onNext(.failure(.checkExistFailed))
-            }
-            return Disposables.create()
-        }
-    }
 }

@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct MyListModel {
+struct MyList {
     let id: String
     let image: String
     let genres: [String]
     let timeRecentWatch: Double
+}
+
+struct ResultMyList {
+    let myList: [MyList]
+    let genres: [String]
 }
