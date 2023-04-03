@@ -27,4 +27,9 @@ struct HomeCoordinator: CoordinatorType {
         let detailCoordinator = DetailCoordinator(navigationController: navigationController, mediaId: id)
         detailCoordinator.toMovieDetailViewController()
     }
+
+    func toSeeMoreScreen(type: TableHeaderRowType) {
+        let seeMoreCoordinator = SeeMoreCoordinator(navigationController: navigationController, type: type)
+        seeMoreCoordinator.toSeeMoreViewController()
+    }
 }

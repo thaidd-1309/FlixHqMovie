@@ -13,6 +13,8 @@ final class HeaderTableView: UITableViewCell, ReuseCellType {
     @IBOutlet private weak var headerTableImageView: UIImageView!
     @IBOutlet private weak var addMyListButton: UIButton!
     @IBOutlet private weak var playButton: UIButton!
+    @IBOutlet private weak var nameMovieLabel: UILabel!
+    @IBOutlet private weak var decriptionLabel: UILabel!
 
     var playButtonTapped: ((String) -> Void)?
     private let disposeBag = DisposeBag()
@@ -35,5 +37,11 @@ final class HeaderTableView: UITableViewCell, ReuseCellType {
         addMyListButton.layer.borderColor = UIColor.white.cgColor
         headerTableImageView.setGradientBackground(colorTop: UIColor.clear.cgColor, colorBottom: UIColor.black.cgColor)
     }
-    
+
+    func bind(media: MediaInformation?) {
+        let url = URL(string: media?.cover ?? "")
+        headerTableImageView.sd_setImage(with: url)
+        nameMovieLabel.text = media?.title
+        decriptionLabel.text = media?.description?.removeWhiteSpaceAndBreakLine()
+    }
 }

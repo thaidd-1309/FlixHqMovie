@@ -8,7 +8,7 @@
 import Foundation
 
 struct TableViewSectionModel {
-    let nameHeaderRow: String
+    let nameHeaderRow: TableHeaderRowType
     let filmsSectionModel: [MediaResult]
 }
 

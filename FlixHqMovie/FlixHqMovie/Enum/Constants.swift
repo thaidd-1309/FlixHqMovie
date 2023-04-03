@@ -111,7 +111,7 @@ enum MediaType {
     }
 }
 
-enum NameTableHeaderRow {
+enum TableHeaderRowType {
     case newMovie
     case newShow
     case trendingMovie

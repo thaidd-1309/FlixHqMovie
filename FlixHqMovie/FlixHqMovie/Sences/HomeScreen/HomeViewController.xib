@@ -22,15 +22,16 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FBM-ym-UOw">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                 </tableView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oVo-RB-54H">
-                    <rect key="frame" x="179" y="361" width="37" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oVo-RB-54H">
+                    <rect key="frame" x="169" y="387.66666666666669" width="37" height="37"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="0.094117648900000003" green="0.1019607931" blue="0.1215686351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="oVo-RB-54H" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3ND-gh-vVE"/>
+                <constraint firstItem="oVo-RB-54H" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="805-QX-2XP"/>
                 <constraint firstAttribute="trailing" secondItem="FBM-ym-UOw" secondAttribute="trailing" id="AZk-3A-1IG"/>
                 <constraint firstItem="FBM-ym-UOw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kqh-EN-gWK"/>
                 <constraint firstAttribute="bottom" secondItem="FBM-ym-UOw" secondAttribute="bottom" id="aOX-5g-PiO"/>

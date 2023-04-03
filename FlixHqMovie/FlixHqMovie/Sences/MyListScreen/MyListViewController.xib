@@ -45,7 +45,7 @@
                         </preferredSymbolConfiguration>
                     </buttonConfiguration>
                 </button>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5b5-Ms-9cH">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5b5-Ms-9cH">
                     <rect key="frame" x="12" y="89" width="366" height="50"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -145,7 +145,7 @@
         </view>
     </objects>
     <resources>
-        <image name="document" width="512" height="512"/>
+        <image name="document" width="384" height="384"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
     </resources>
 </document>
