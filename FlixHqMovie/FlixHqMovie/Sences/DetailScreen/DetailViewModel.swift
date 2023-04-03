@@ -36,7 +36,7 @@ extension DetailViewModel: ViewModelType {
         var previousTimeWatch: Driver<Double>
     }
 
-    func checkExistInMyList() -> Driver<Result<Bool, DatabaseError>> {
+    func checkExistInMyList(disposeBag: DisposeBag) -> Driver<Result<Bool, DatabaseError>> {
         return useCase.checkExistInMyListEntity(id: mediaId).asDriver(onErrorDriveWith: .empty())
     }
 

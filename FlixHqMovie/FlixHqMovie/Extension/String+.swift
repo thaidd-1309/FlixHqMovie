@@ -13,4 +13,9 @@ extension String {
         let stringNumber = numbers.filter { !$0.isEmpty }
         return stringNumber.joined(separator: "")
     }
+
+    func removeWhiteSpaceAndBreakLine() -> String {
+        return self.filter { !"\n".contains($0) }
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }

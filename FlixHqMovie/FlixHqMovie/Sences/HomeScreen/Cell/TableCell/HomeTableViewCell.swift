@@ -14,7 +14,9 @@ import SDWebImage
 final class HomeTableViewCell: UITableViewCell, ReuseCellType {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var categoryFilmLabel: UILabel!
-    
+    @IBOutlet private weak var seeAllButton: UIButton!
+
+    var seeMoreTapped: ((TableHeaderRowType) -> Void)?
     var movieTapped: ((String) -> Void)?
     private var disposeBag = DisposeBag()
 
@@ -33,8 +35,13 @@ final class HomeTableViewCell: UITableViewCell, ReuseCellType {
         collectionView.register(nibName: ImageFilmCollectionViewCell.self)
     }
 
-    func setcategoryFilmLabel(name: String) {
-        categoryFilmLabel.text = name
+    func setcategoryFilmLabel(headerRow: TableHeaderRowType) {
+        categoryFilmLabel.text = headerRow.name
+
+        seeAllButton.rx.tap.subscribe(onNext: { [unowned self] in
+            seeMoreTapped?(headerRow)
+        })
+        .disposed(by: disposeBag)
     }
 
     func updateCollectionView(data: [MediaResult]) {

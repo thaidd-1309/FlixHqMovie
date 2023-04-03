@@ -16,7 +16,6 @@ final class CommonTrigger {
     var filters = [CellSelectedModel?](repeating: nil, count: 5)
 
     let allFilterTrigger = ReplaySubject<[CellSelectedModel?]>.create(bufferSize: 1)
-
     var myListTrigger = ReplaySubject<Result<ResultMyList, DatabaseError>>.create(bufferSize: 1)
 
    private init() {

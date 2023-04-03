@@ -58,7 +58,6 @@ struct APIService {
                     observer.onError(error ?? NSError(domain: "Error", code: -1, userInfo: nil))
                     return
                 }
-
                 do {
                     let fileUrl = URL(fileURLWithPath: "/path/to/\(name).m3u8")
                     try data.write(to: fileUrl, options: .atomic)
@@ -68,7 +67,6 @@ struct APIService {
                     observer.onError(error)
                 }
             }.resume()
-
             return Disposables.create()
         }
     }
