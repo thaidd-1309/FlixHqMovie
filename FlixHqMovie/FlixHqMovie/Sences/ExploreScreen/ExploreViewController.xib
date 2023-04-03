@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -118,11 +117,11 @@
                 <constraint firstItem="gQe-bi-Toj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="gIe-BS-tIN"/>
                 <constraint firstAttribute="trailing" secondItem="rfc-7Q-A9K" secondAttribute="trailing" constant="12" id="hW5-Hr-c02"/>
             </constraints>
-            <point key="canvasLocation" x="-28.244274809160306" y="-174.64788732394368"/>
+            <point key="canvasLocation" x="-29.23076923076923" y="-174.88151658767771"/>
         </view>
     </objects>
     <resources>
         <image name="checklist" catalog="system" width="128" height="107"/>
-        <image name="no-results" width="256" height="256"/>
+        <image name="no-results" width="384" height="384"/>
     </resources>
 </document>

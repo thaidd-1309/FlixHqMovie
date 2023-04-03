@@ -12,6 +12,7 @@ protocol HomeUseCaseType {
     func getListTrending() -> Observable<[MediaResult]>
     func getListRecentShow() -> Observable<[MediaResult]>
     func getListRecentMovie() -> Observable<[MediaResult]>
+    func getMediaDetail(mediaId: String) -> Observable<MediaInformation>
 }
 
 struct HomeUseCase: HomeUseCaseType {
@@ -29,4 +30,7 @@ struct HomeUseCase: HomeUseCaseType {
         return mediaRepository.getListRecentMovie()
     }
 
+    func getMediaDetail(mediaId: String) -> Observable<MediaInformation> {
+        return mediaRepository.getMediaDetail(mediaId: mediaId)
+    }
 }

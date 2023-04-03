@@ -96,6 +96,10 @@
 		1AB0198429BF194600A690D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0198329BF194600A690D9 /* Constants.swift */; };
 		1AB0198629BF1AA700A690D9 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0198529BF1AA700A690D9 /* MovieModel.swift */; };
 		1AB0198D29BF207A00A690D9 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */; };
+		1ABD480F29DAA48200CCF23A /* SeeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD480D29DAA48200CCF23A /* SeeMoreViewController.swift */; };
+		1ABD481029DAA48200CCF23A /* SeeMoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD480E29DAA48200CCF23A /* SeeMoreViewController.xib */; };
+		1ABD481229DAA91800CCF23A /* SeeMoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD481129DAA91800CCF23A /* SeeMoreCoordinator.swift */; };
+		1ABD481429DAA98B00CCF23A /* SeeMoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD481329DAA98B00CCF23A /* SeeMoreViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -189,6 +193,10 @@
 		1AB0198329BF194600A690D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1AB0198529BF1AA700A690D9 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		1AB0198C29BF207A00A690D9 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		1ABD480D29DAA48200CCF23A /* SeeMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreViewController.swift; sourceTree = "<group>"; };
+		1ABD480E29DAA48200CCF23A /* SeeMoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeMoreViewController.xib; sourceTree = "<group>"; };
+		1ABD481129DAA91800CCF23A /* SeeMoreCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreCoordinator.swift; sourceTree = "<group>"; };
+		1ABD481329DAA98B00CCF23A /* SeeMoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreViewModel.swift; sourceTree = "<group>"; };
 		55BCFE2F210EBFE2F6B896ED /* Pods_FlixHqMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixHqMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		733F85A2F92A0D342C8120D9 /* Pods-FlixHqMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixHqMovie.release.xcconfig"; path = "Target Support Files/Pods-FlixHqMovie/Pods-FlixHqMovie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -432,6 +440,7 @@
 		1A780CAA29B848FD00239D70 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1ABD480C29DAA45E00CCF23A /* SeeMore */,
 				1A42BC5629C17622003F3EB0 /* Cell */,
 				1A42BC5329C17622003F3EB0 /* HeaderTableView */,
 				1A780CBF29B84BB400239D70 /* HomeViewController.swift */,
@@ -566,6 +575,17 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		1ABD480C29DAA45E00CCF23A /* SeeMore */ = {
+			isa = PBXGroup;
+			children = (
+				1ABD480D29DAA48200CCF23A /* SeeMoreViewController.swift */,
+				1ABD480E29DAA48200CCF23A /* SeeMoreViewController.xib */,
+				1ABD481129DAA91800CCF23A /* SeeMoreCoordinator.swift */,
+				1ABD481329DAA98B00CCF23A /* SeeMoreViewModel.swift */,
+			);
+			path = SeeMore;
+			sourceTree = "<group>";
+		};
 		47324A29C333EE300256E962 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +676,7 @@
 				1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */,
 				1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */,
 				1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */,
+				1ABD481029DAA48200CCF23A /* SeeMoreViewController.xib in Resources */,
 				1A780CCA29B84C4B00239D70 /* ExploreViewController.xib in Resources */,
 				1A780CC229B84BB400239D70 /* HomeViewController.xib in Resources */,
 				1A1051FE29C8191700196C2F /* FilterCollectionViewCell.xib in Resources */,
@@ -771,6 +792,7 @@
 				1A42543929D598CB0091CEFB /* MovieTableViewCell.swift in Sources */,
 				1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */,
 				1A42541629D41D6C0091CEFB /* MyListViewModel.swift in Sources */,
+				1ABD481429DAA98B00CCF23A /* SeeMoreViewModel.swift in Sources */,
 				1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */,
 				1A780CBB29B84A5300239D70 /* MainTabBarViewController.swift in Sources */,
 				1A780CFC29B84F7700239D70 /* MediaModel.swift in Sources */,
@@ -783,6 +805,7 @@
 				1A780CCE29B84C8000239D70 /* ExploreViewModel.swift in Sources */,
 				1A36415329C44E8D002A9B79 /* DetailCoordinator.swift in Sources */,
 				1A431F0229D0118C0093A5AC /* Filters.swift in Sources */,
+				1ABD480F29DAA48200CCF23A /* SeeMoreViewController.swift in Sources */,
 				1A937D2429D194E000442569 /* CommonTrigger.swift in Sources */,
 				1A36415129C44E3E002A9B79 /* DetailViewModel.swift in Sources */,
 				1A780CE529B84D9300239D70 /* DownloadViewController.swift in Sources */,
@@ -791,6 +814,7 @@
 				1A780CF429B84E5200239D70 /* ViewModelType.swift in Sources */,
 				1AB0196E29BE03EA00A690D9 /* UIColor+.swift in Sources */,
 				1A780CD029B84CBE00239D70 /* ExploreUseCase.swift in Sources */,
+				1ABD481229DAA91800CCF23A /* SeeMoreCoordinator.swift in Sources */,
 				1A780CC929B84C4B00239D70 /* ExploreViewController.swift in Sources */,
 				1A42BC6429C17FC9003F3EB0 /* SectionModel.swift in Sources */,
 				1A42BC6129C17622003F3EB0 /* HomeTableViewCell.swift in Sources */,
@@ -915,6 +939,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

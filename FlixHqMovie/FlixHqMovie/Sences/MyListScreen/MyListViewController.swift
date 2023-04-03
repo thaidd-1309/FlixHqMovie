@@ -63,6 +63,8 @@ final class MyListViewController: UIViewController {
                 selectedGenreTrigger.onNext(genre)
             })
             .disposed(by: disposeBag)
+
+        categoryCollectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
     }
 
     private func configMediaCollectionView() {
@@ -124,7 +126,6 @@ extension MyListViewController {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.defaultReuseIdentifier, for: indexPath) as? FilterCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
                 cell.setTextInLabel(name: item)
                 return cell
             }

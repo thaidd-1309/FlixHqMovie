@@ -49,6 +49,8 @@ final class MovieDetailViewController: UIViewController {
     private var durationMovie: Int = 0
     private var isLoading = false
     private var isAddMyList = false
+    private var nameMovie = ""
+    private var m3u8UrlVideo = ""
     private let disposeBag = DisposeBag()
     private let databaseManager = DatabaseManager.shared
     private var m3u8Url = ""
@@ -198,7 +200,7 @@ extension MovieDetailViewController {
             })
             .disposed(by: disposeBag)
 
-        viewModel.checkExistInMyList().drive(onNext: { [unowned self] result in
+        viewModel.checkExistInMyList(disposeBag: disposeBag).drive(onNext: { [unowned self] result in
             switch result {
             case .success(let isExisted):
                 isAddMyList = isExisted

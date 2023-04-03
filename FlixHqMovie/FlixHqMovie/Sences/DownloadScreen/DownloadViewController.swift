@@ -26,11 +26,12 @@ final class DownloadViewController: UIViewController {
         configTableView()
         bindViewModel()
         noticeEmptyListContainerView.isHidden = true
+        movieTableView.isHidden = true
         searchBar.isHidden = true
         emptyImageView.image = customImage(imageName: .emptyDownload)
         movieTableView.isHidden = false
     }
-    
+
     private func configTableView() {
         movieTableView.then {
             $0.register(nibName: MovieTableViewCell.self)
@@ -44,6 +45,7 @@ final class DownloadViewController: UIViewController {
         let whiteImage = image.withRenderingMode(.alwaysTemplate)
         return whiteImage
     }
+
     private func bindViewModel() {
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Int>>(
             configureCell: {  _, tableView, indexPath, item in
@@ -59,7 +61,6 @@ final class DownloadViewController: UIViewController {
             .drive(movieTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
-
 }
 
 extension DownloadViewController: UITableViewDelegate {

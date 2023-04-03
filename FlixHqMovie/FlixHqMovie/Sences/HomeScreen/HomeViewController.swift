@@ -17,20 +17,32 @@ final class HomeViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     private var isLoading = false
+    private let refreshControl = UIRefreshControl()
     var viewModel: HomeViewModel!
 
-    private let playButtonInHeaderTrigger = PublishSubject<String>()
     private let selectedMovieTrigger = PublishSubject<String>()
+    private let refreshTrigger = BehaviorSubject<Bool>(value: false)
+    private let seeMoreTrigger = PublishSubject<TableHeaderRowType>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
         configTableView()
+        configRefesh()
     }
 
     private func configHiddenView(isHiddenView: Bool) {
         tableview.isHidden = !isHiddenView
         loadingIndicator.isHidden = isHiddenView
+    }
+    private func configRefesh() {
+        tableview.refreshControl = refreshControl
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+    }
+
+    @objc func refreshData(_ sender: Any) {
+        refreshTrigger.onNext(true)
     }
 
     private func bindViewModel() {
@@ -41,7 +53,10 @@ final class HomeViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        let input = HomeViewModel.Input(loadTrigger: loadTrigger, slectedMovie: selectedMovieTrigger.asDriver(onErrorJustReturn: ""))
+        let input = HomeViewModel.Input(loadTrigger: loadTrigger,
+                                        slectedMovie: selectedMovieTrigger.asDriver(onErrorJustReturn: ""),
+                                        refreshTableView: refreshTrigger.asDriver(onErrorJustReturn: false),
+                                        seeMore: seeMoreTrigger.asDriver(onErrorDriveWith: .empty()))
 
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
 
@@ -51,10 +66,13 @@ final class HomeViewController: UIViewController {
                 else {
                     return UITableViewCell()
                 }
-                cell.setcategoryFilmLabel(name: item.nameHeaderRow)
+                cell.setcategoryFilmLabel(headerRow: item.nameHeaderRow)
                 cell.updateCollectionView(data: item.filmsSectionModel)
                 cell.movieTapped = { idMovie in
                     selectedMovieTrigger.onNext(idMovie)
+                }
+                cell.seeMoreTapped = { nameRowType in
+                    seeMoreTrigger.onNext(nameRowType)
                 }
                 return cell
             })
@@ -69,20 +87,38 @@ final class HomeViewController: UIViewController {
                 configHiddenView(isHiddenView: !isLoading)
             })
             .disposed(by: disposeBag)
+        output.refreshDone.drive(onNext: { [unowned self] done in
+            if done {
+                refreshControl.endRefreshing()
+            }
+        })
+        .disposed(by: disposeBag)
+
+        output.mediaInfor.drive(onNext: { [unowned self] media in
+            congfigHeaderView(mediaInfo: media)
+        })
+        .disposed(by: disposeBag)
     }
-    
+
+    private func congfigHeaderView(mediaInfo: MediaInformation?) {
+        if let headerView = Bundle.main.loadNibNamed(HeaderTableView.defaultReuseIdentifier, owner: nil, options: nil)?.first as? HeaderTableView {
+            let tableHeaderView = Observable<UIView?>.just(headerView)
+            headerView.bind(media: mediaInfo)
+            headerView.playButtonTapped = { [unowned self] idMedia in
+                selectedMovieTrigger.onNext(idMedia)
+            }
+            tableHeaderView
+                .bind(to: tableview.rx.tableHeaderView)
+                .disposed(by: disposeBag)
+        }
+    }
+
     private func configTableView() {
         tableview.then {
             $0.rx.setDelegate(self)
                 .disposed(by: disposeBag)
             $0.contentInset = UIEdgeInsets(top: -self.topbarHeight, left: 0, bottom: 0, right: 0)
             $0.register(nibName: HomeTableViewCell.self)
-        }
-        if let headerView = Bundle.main.loadNibNamed(HeaderTableView.defaultReuseIdentifier, owner: nil, options: nil)?.first as? HeaderTableView {
-            let tableHeaderView = Observable<UIView?>.just(headerView)
-            tableHeaderView
-                .bind(to: tableview.rx.tableHeaderView)
-                .disposed(by: disposeBag)
         }
     }
 }
