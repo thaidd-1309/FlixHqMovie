@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+import RxCocoa
+import RxSwift
+
+struct ProfileViewModel {
+    var coordinator: ProfileCoordinator
+}

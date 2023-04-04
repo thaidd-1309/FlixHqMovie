@@ -16,6 +16,8 @@
 		1A36415329C44E8D002A9B79 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */; };
 		1A36415529C451CD002A9B79 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415429C451CD002A9B79 /* DetailUseCase.swift */; };
 		1A36415729C45AC1002A9B79 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		1A3CB38129DBC55300CD1392 /* FunctionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3CB37F29DBC55300CD1392 /* FunctionTableViewCell.swift */; };
+		1A3CB38229DBC55300CD1392 /* FunctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CB38029DBC55300CD1392 /* FunctionTableViewCell.xib */; };
 		1A3D4E9129C1BC5E005CA142 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */; };
 		1A3D4E9929C1C400005CA142 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9529C1C400005CA142 /* CastCollectionViewCell.swift */; };
 		1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A3D4E9629C1C400005CA142 /* CastCollectionViewCell.xib */; };
@@ -111,6 +113,8 @@
 		1A36415029C44E3E002A9B79 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		1A36415429C451CD002A9B79 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
+		1A3CB37F29DBC55300CD1392 /* FunctionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionTableViewCell.swift; sourceTree = "<group>"; };
+		1A3CB38029DBC55300CD1392 /* FunctionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FunctionTableViewCell.xib; sourceTree = "<group>"; };
 		1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		1A3D4E9529C1C400005CA142 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A3D4E9629C1C400005CA142 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -229,6 +233,15 @@
 			children = (
 				1A7B69F429C8A2DC0021344C /* CategoryCollectionViewCell */,
 				1A7B69EF29C8A2A50021344C /* CategoryTableviewCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1A3CB37E29DBC55300CD1392 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1A3CB37F29DBC55300CD1392 /* FunctionTableViewCell.swift */,
+				1A3CB38029DBC55300CD1392 /* FunctionTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -482,6 +495,7 @@
 		1A780CAE29B8493D00239D70 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1A3CB37E29DBC55300CD1392 /* Cell */,
 				1A780CE729B84DA500239D70 /* ProfileViewModel.swift */,
 				1A780CE929B84DB700239D70 /* ProfileCoordinator.swift */,
 				1A780CEB29B84DCE00239D70 /* ProfileViewController.swift */,
@@ -675,6 +689,7 @@
 				1A1051FF29C8191700196C2F /* FilterScreenViewController.xib in Resources */,
 				1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */,
 				1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */,
+				1A3CB38229DBC55300CD1392 /* FunctionTableViewCell.xib in Resources */,
 				1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */,
 				1ABD481029DAA48200CCF23A /* SeeMoreViewController.xib in Resources */,
 				1A780CCA29B84C4B00239D70 /* ExploreViewController.xib in Resources */,
@@ -821,6 +836,7 @@
 				1A780CCC29B84C6400239D70 /* ExploreCoordinator.swift in Sources */,
 				1A780CDE29B84D4800239D70 /* DownloadViewModel.swift in Sources */,
 				1AB0198429BF194600A690D9 /* Constants.swift in Sources */,
+				1A3CB38129DBC55300CD1392 /* FunctionTableViewCell.swift in Sources */,
 				1A1051FD29C8191700196C2F /* FilterCollectionViewCell.swift in Sources */,
 				1A10520029C8191700196C2F /* FilterScreenViewController.swift in Sources */,
 				1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */,
@@ -969,6 +985,7 @@
 				DEVELOPMENT_TEAM = BZD66Y59V5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlixHqMovie/Info.plist;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "App wants to access your documents folder";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -998,6 +1015,7 @@
 				DEVELOPMENT_TEAM = BZD66Y59V5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlixHqMovie/Info.plist;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "App wants to access your documents folder";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
