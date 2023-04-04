@@ -17,6 +17,8 @@ struct ProfileCoordinator: CoordinatorType {
 
     func toProfileViewController() {
         let viewController = ProfileViewController()
+        let viewModel = ProfileViewModel(coordinator: self)
+        viewController.viewModel = viewModel
         navigationController.pushViewController(viewController, animated: true)
     }
 }

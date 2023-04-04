@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum BaseUrl: String {
     case main = "https://api.consumet.org/movies/flixhq/"
@@ -156,6 +157,7 @@ enum CustomImageName {
     case search
     case emptyList
     case emptyDownload
+    case crown
 
     var name: String {
         switch self {
@@ -167,6 +169,75 @@ enum CustomImageName {
             return "emptyList"
         case .emptyDownload:
             return "movieDownload"
+        case .crown:
+            return "crown"
+        }
+    }
+}
+
+enum FunctionProfileType {
+    case editProfile
+    case notification
+    case download
+    case security
+    case changeLanguage
+    case changeDarkMode
+    case privacy
+    case helpCenter
+
+   private func customImage(image: UIImage?) -> UIImage {
+       guard let image = image else { return UIImage() }
+       let whiteImage = image.withRenderingMode(.alwaysTemplate)
+       return whiteImage
+   }
+
+    var name: String {
+        switch self {
+        case .editProfile:
+            return "Edit profile"
+        case .notification:
+            return "Notification"
+        case .download:
+            return "Download"
+        case .security:
+            return "Security"
+        case .changeLanguage:
+            return "Language"
+        case .changeDarkMode:
+            return "Dark mode"
+        case .privacy:
+            return "Privacy"
+        case .helpCenter:
+            return "Help center"
+        }
+    }
+
+    var image: UIImage {
+        switch self {
+        case .editProfile:
+            let image = UIImage(systemName: "person")
+            return customImage(image: image)
+        case .notification:
+            let image = UIImage(named: "bell")
+            return customImage(image: image)
+        case .download:
+            let image = UIImage(systemName: "square.and.arrow.down")
+            return customImage(image: image)
+        case .security:
+            let image = UIImage(named: "security")
+            return customImage(image: image)
+        case .changeLanguage:
+            let image = UIImage(named: "language")
+            return customImage(image: image)
+        case .changeDarkMode:
+            let image = UIImage(systemName: "eye")
+            return customImage(image: image)
+        case .privacy:
+            let image = UIImage(systemName: "list.bullet.rectangle.portrait")
+            return customImage(image: image)
+        case .helpCenter:
+            let image = UIImage(named: "infor")
+            return customImage(image: image)
         }
     }
 }
