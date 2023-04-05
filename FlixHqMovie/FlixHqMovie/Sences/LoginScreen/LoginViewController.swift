@@ -122,6 +122,13 @@ final class LoginViewController: UIViewController {
             isRecentFacebookLogin = isLogin
         })
         .disposed(by: disposeBag)
+
+        output.connectionNetwork.drive(onNext: { [unowned self] isConnection in
+            if !isConnection {
+                viewModel.coordinator.toNetworkNoticeViewController()
+            }
+        })
+        .disposed(by: disposeBag)
     }
 
 }

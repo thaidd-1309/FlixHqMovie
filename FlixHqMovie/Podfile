@@ -22,5 +22,6 @@ target 'FlixHqMovie' do
   pod 'FirebaseAnalytics'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'	
+  pod 'ReachabilitySwift'
 
 end

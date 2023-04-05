@@ -11,6 +11,8 @@
 		1A1051FE29C8191700196C2F /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1051FA29C8191700196C2F /* FilterCollectionViewCell.xib */; };
 		1A1051FF29C8191700196C2F /* FilterScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1051FB29C8191700196C2F /* FilterScreenViewController.xib */; };
 		1A10520029C8191700196C2F /* FilterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1051FC29C8191700196C2F /* FilterScreenViewController.swift */; };
+		1A352D6429DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A352D6229DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift */; };
+		1A352D6529DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A352D6329DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib */; };
 		1A36415129C44E3E002A9B79 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415029C44E3E002A9B79 /* DetailViewModel.swift */; };
 		1A36415329C44E8D002A9B79 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */; };
 		1A36415529C451CD002A9B79 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415429C451CD002A9B79 /* DetailUseCase.swift */; };
@@ -110,6 +112,8 @@
 		1A1051FA29C8191700196C2F /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		1A1051FB29C8191700196C2F /* FilterScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterScreenViewController.xib; sourceTree = "<group>"; };
 		1A1051FC29C8191700196C2F /* FilterScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterScreenViewController.swift; sourceTree = "<group>"; };
+		1A352D6229DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkNoticeScreenViewController.swift; sourceTree = "<group>"; };
+		1A352D6329DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkNoticeScreenViewController.xib; sourceTree = "<group>"; };
 		1A36415029C44E3E002A9B79 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		1A36415429C451CD002A9B79 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
@@ -237,6 +241,15 @@
 				1A7B69EF29C8A2A50021344C /* CategoryTableviewCell */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		1A352D6129DD1EB500BBC23C /* NetworkNoticeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A352D6229DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift */,
+				1A352D6329DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib */,
+			);
+			path = NetworkNoticeScreen;
 			sourceTree = "<group>";
 		};
 		1A3CB37E29DBC55300CD1392 /* Cell */ = {
@@ -392,6 +405,7 @@
 		1A780CA429B8411E00239D70 /* Sences */ = {
 			isa = PBXGroup;
 			children = (
+				1A352D6129DD1EB500BBC23C /* NetworkNoticeScreen */,
 				1A42541A29D41DBC0091CEFB /* PopUpScreen */,
 				1A42540F29D41D6C0091CEFB /* MyListScreen */,
 				1A3D4E9229C1C3D0005CA142 /* DetailScreen */,
@@ -703,6 +717,7 @@
 				1A780CE629B84D9300239D70 /* DownloadViewController.xib in Resources */,
 				1AB0197E29BED74800A690D9 /* GoogleService-Info.plist in Resources */,
 				1A780D0029B860CF00239D70 /* LoginViewController.xib in Resources */,
+				1A352D6529DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +847,7 @@
 				1A780CD229B84CCD00239D70 /* HomeUseCase.swift in Sources */,
 				1A780CF429B84E5200239D70 /* ViewModelType.swift in Sources */,
 				1AB0196E29BE03EA00A690D9 /* UIColor+.swift in Sources */,
+				1A352D6429DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift in Sources */,
 				1A780CD029B84CBE00239D70 /* ExploreUseCase.swift in Sources */,
 				1ABD481229DAA91800CCF23A /* SeeMoreCoordinator.swift in Sources */,
 				1A780CC929B84C4B00239D70 /* ExploreViewController.swift in Sources */,

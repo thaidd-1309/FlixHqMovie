@@ -17,9 +17,8 @@ struct HomeViewModel {
 extension HomeViewModel: ViewModelType {
 
     struct Input {
-        let loadTrigger: Driver<Void>
+        let loadTrigger: BehaviorSubject<Void>
         let slectedMovie: Driver<String>
-        let refreshTableView: Driver<Bool>
         let seeMore: Driver<TableHeaderRowType>
 
     }
@@ -29,12 +28,14 @@ extension HomeViewModel: ViewModelType {
         var isLoading: Driver<Bool>
         let refreshDone: Driver<Bool>
         let mediaInfor: Driver<MediaInformation?>
+        let connectionNetwork: Driver<Bool>
     }
 
     func transform(input: Input, disposeBag: RxSwift.DisposeBag) -> Output {
         let isLoading = BehaviorRelay<Bool>(value: false)
-        let refreshDoneTrigger = BehaviorSubject<Bool>(value: false)
         let mediaInforTrigger = BehaviorSubject<MediaInformation?>(value: nil)
+        let connectionNetworkTrigger = BehaviorSubject<Bool>(value: false)
+        let refreshTableViewTrigger = BehaviorSubject<Bool>(value: true)
 
         input.slectedMovie.drive(onNext: { idMedia in
             coordinator.toDetailViewController(with: idMedia)
@@ -46,29 +47,24 @@ extension HomeViewModel: ViewModelType {
         })
         .disposed(by: disposeBag)
 
-        let mediaTrending = input.loadTrigger.flatMapLatest {  _ in
+        let mediaTrending = input.loadTrigger.asDriver(onErrorDriveWith: .empty()).flatMapLatest {  _ in
             isLoading.accept(true)
             return useCase.getListTrending().asDriver(onErrorJustReturn: [])
         }
-        let recentShow = input.loadTrigger.flatMapLatest { _ in
+
+        let recentShow = input.loadTrigger.asDriver(onErrorDriveWith: .empty()).flatMapLatest { _ in
             isLoading.accept(true)
             return useCase.getListRecentShow().asDriver(onErrorJustReturn: [])
         }
-        let recentMovie = input.loadTrigger.flatMapLatest { _ in
+
+        let recentMovie = input.loadTrigger.asDriver(onErrorDriveWith: .empty()).flatMapLatest { _ in
             isLoading.accept(true)
             return useCase.getListRecentMovie().asDriver(onErrorJustReturn: [])
         }
 
-        let output = Driver.combineLatest(mediaTrending, recentShow, recentMovie, input.refreshTableView,
-                                          resultSelector: { mediaTrending, recentShow, recentMovie, isRefresh -> [TableViewSectionModel] in
-            if isRefresh {
-                isLoading.accept(false)
-                refreshDoneTrigger.onNext(true)
-            }
-            else {
-                isLoading.accept(true)
-            }
-
+        let output = Driver.combineLatest(mediaTrending, recentShow, recentMovie,
+                                          resultSelector: { mediaTrending, recentShow, recentMovie -> [TableViewSectionModel] in
+            isLoading.accept(true)
             return [
                 TableViewSectionModel(nameHeaderRow: .newMovie, filmsSectionModel: recentMovie),
                 TableViewSectionModel(nameHeaderRow: .trendingMovie, filmsSectionModel: mediaTrending.filter { $0.type == MediaType.movie.name }),
@@ -77,6 +73,7 @@ extension HomeViewModel: ViewModelType {
             ]
         }).do { _ in
             isLoading.accept(false)
+            refreshTableViewTrigger.onNext(true)
         }
 
         mediaTrending.drive(onNext: { media in
@@ -87,9 +84,28 @@ extension HomeViewModel: ViewModelType {
         })
         .disposed(by: disposeBag)
 
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.connectionRelay
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { connection in
+                    switch connection {
+                    case .unavailable:
+                        connectionNetworkTrigger.onNext(false)
+                    case .wifi:
+                        connectionNetworkTrigger.onNext(true)
+                    case .cellular:
+                        connectionNetworkTrigger.onNext(true)
+                    case .none:
+                        connectionNetworkTrigger.onNext(false)
+                    }
+                })
+                .disposed(by: disposeBag)
+        }
+
         return Output(medias: output,
                       isLoading: isLoading.asDriver(),
-                      refreshDone: refreshDoneTrigger.asDriver(onErrorJustReturn: false),
-                      mediaInfor: mediaInforTrigger.asDriver(onErrorDriveWith: .empty()))
+                      refreshDone: refreshTableViewTrigger.asDriver(onErrorJustReturn: true),
+                      mediaInfor: mediaInforTrigger.asDriver(onErrorDriveWith: .empty()),
+                      connectionNetwork: connectionNetworkTrigger.asDriver(onErrorJustReturn: false))
     }
 }
