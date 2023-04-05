@@ -140,7 +140,6 @@ final class CategoryTableViewCell: UITableViewCell, ReuseCellType {
         }
     }
 
-
 }
 
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout {

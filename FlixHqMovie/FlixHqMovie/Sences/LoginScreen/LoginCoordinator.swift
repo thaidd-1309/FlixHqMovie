@@ -10,7 +10,7 @@ import UIKit
 import GoogleSignIn
 import FBSDKCoreKit
 import FirebaseAuth
-
+import Reachability
 
 struct LoginCoordinator {
     var navigationController: BaseNavigationController
@@ -47,6 +47,12 @@ struct LoginCoordinator {
             commonTrigger.userLoginFacebookTrigger.onNext(user)
             commonTrigger.loginFacebookStatusTrigger.onNext(true)
         }
+    }
+
+    func toNetworkNoticeViewController() {
+        let networkNoticteVIewController = NetworkNoticeScreenViewController()
+        networkNoticteVIewController.modalPresentationStyle = .overFullScreen
+        navigationController.present(networkNoticteVIewController, animated: false)
     }
 
 }

@@ -26,9 +26,30 @@ extension LoginViewModel: ViewModelType {
     struct Output {
         let googleLogined: Driver<Bool>
         let facebookLogined: Driver<Bool>
+        let connectionNetwork: Driver<Bool>
     }
 
     func transform(input: Input, disposeBag: DisposeBag) -> Output {
+        let connectionNetworkTrigger = PublishSubject<Bool>()
+
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.connectionRelay
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { connection in
+                    switch connection {
+                    case .unavailable:
+                        connectionNetworkTrigger.onNext(false)
+                    case .wifi:
+                        connectionNetworkTrigger.onNext(true)
+                    case .cellular:
+                        connectionNetworkTrigger.onNext(true)
+                        break
+                    case .none:
+                        connectionNetworkTrigger.onNext(false)
+                    }
+                })
+                .disposed(by: disposeBag)
+        }
 
         input.loginTapped.drive(onNext: { login in
             if login {
@@ -38,6 +59,7 @@ extension LoginViewModel: ViewModelType {
         .disposed(by: disposeBag)
 
         return Output(googleLogined: commonTrigger.loginGoogleStatusTrigger.asDriver(onErrorJustReturn: false),
-                      facebookLogined: commonTrigger.loginFacebookStatusTrigger.asDriver(onErrorJustReturn: false))
+                      facebookLogined: commonTrigger.loginFacebookStatusTrigger.asDriver(onErrorJustReturn: false),
+                      connectionNetwork: connectionNetworkTrigger.asDriver(onErrorJustReturn: false))
     }
 }

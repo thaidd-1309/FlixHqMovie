@@ -11,6 +11,8 @@
 		1A1051FE29C8191700196C2F /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1051FA29C8191700196C2F /* FilterCollectionViewCell.xib */; };
 		1A1051FF29C8191700196C2F /* FilterScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1051FB29C8191700196C2F /* FilterScreenViewController.xib */; };
 		1A10520029C8191700196C2F /* FilterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1051FC29C8191700196C2F /* FilterScreenViewController.swift */; };
+		1A352D6429DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A352D6229DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift */; };
+		1A352D6529DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A352D6329DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib */; };
 		1A36415129C44E3E002A9B79 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415029C44E3E002A9B79 /* DetailViewModel.swift */; };
 		1A36415329C44E8D002A9B79 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */; };
 		1A36415529C451CD002A9B79 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A36415429C451CD002A9B79 /* DetailUseCase.swift */; };
@@ -49,6 +51,8 @@
 		1A4DA5AB29C991A300314CB2 /* FilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AA29C991A300314CB2 /* FilterCoordinator.swift */; };
 		1A4DA5AD29C9926D00314CB2 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AC29C9926D00314CB2 /* FilterViewModel.swift */; };
 		1A55BEAF29C7EE8000E5C426 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55BEAE29C7EE8000E5C426 /* String+.swift */; };
+		1A73B22629DD7BD400AC503A /* DeleteMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A73B22429DD7BD400AC503A /* DeleteMovieViewController.swift */; };
+		1A73B22729DD7BD400AC503A /* DeleteMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B22529DD7BD400AC503A /* DeleteMovieViewController.xib */; };
 		1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C8D29B83F7C00239D70 /* AppDelegate.swift */; };
 		1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */; };
 		1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A780C9929B83F7D00239D70 /* Assets.xcassets */; };
@@ -110,6 +114,8 @@
 		1A1051FA29C8191700196C2F /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		1A1051FB29C8191700196C2F /* FilterScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterScreenViewController.xib; sourceTree = "<group>"; };
 		1A1051FC29C8191700196C2F /* FilterScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterScreenViewController.swift; sourceTree = "<group>"; };
+		1A352D6229DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkNoticeScreenViewController.swift; sourceTree = "<group>"; };
+		1A352D6329DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkNoticeScreenViewController.xib; sourceTree = "<group>"; };
 		1A36415029C44E3E002A9B79 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		1A36415229C44E8D002A9B79 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		1A36415429C451CD002A9B79 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 		1A4DA5AA29C991A300314CB2 /* FilterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCoordinator.swift; sourceTree = "<group>"; };
 		1A4DA5AC29C9926D00314CB2 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		1A55BEAE29C7EE8000E5C426 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		1A73B22429DD7BD400AC503A /* DeleteMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMovieViewController.swift; sourceTree = "<group>"; };
+		1A73B22529DD7BD400AC503A /* DeleteMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteMovieViewController.xib; sourceTree = "<group>"; };
 		1A780C8A29B83F7C00239D70 /* FlixHqMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlixHqMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A780C8D29B83F7C00239D70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A780C9729B83F7C00239D70 /* FlixHqMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlixHqMovie.xcdatamodel; sourceTree = "<group>"; };
@@ -237,6 +245,15 @@
 				1A7B69EF29C8A2A50021344C /* CategoryTableviewCell */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		1A352D6129DD1EB500BBC23C /* NetworkNoticeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A352D6229DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift */,
+				1A352D6329DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib */,
+			);
+			path = NetworkNoticeScreen;
 			sourceTree = "<group>";
 		};
 		1A3CB37E29DBC55300CD1392 /* Cell */ = {
@@ -352,6 +369,15 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		1A73B22329DD7BB100AC503A /* DeleteMovieScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A73B22429DD7BD400AC503A /* DeleteMovieViewController.swift */,
+				1A73B22529DD7BD400AC503A /* DeleteMovieViewController.xib */,
+			);
+			path = DeleteMovieScreen;
+			sourceTree = "<group>";
+		};
 		1A780C8129B83F7C00239D70 = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +418,7 @@
 		1A780CA429B8411E00239D70 /* Sences */ = {
 			isa = PBXGroup;
 			children = (
+				1A352D6129DD1EB500BBC23C /* NetworkNoticeScreen */,
 				1A42541A29D41DBC0091CEFB /* PopUpScreen */,
 				1A42540F29D41D6C0091CEFB /* MyListScreen */,
 				1A3D4E9229C1C3D0005CA142 /* DetailScreen */,
@@ -484,6 +511,7 @@
 		1A780CAD29B8492D00239D70 /* DownloadScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1A73B22329DD7BB100AC503A /* DeleteMovieScreen */,
 				1A42543629D595CB0091CEFB /* Cell */,
 				1A780CDD29B84D4800239D70 /* DownloadViewModel.swift */,
 				1A780CDF29B84D6400239D70 /* DownloadCoordinator.swift */,
@@ -689,6 +717,7 @@
 				1A42541929D41D6C0091CEFB /* MyListViewController.xib in Resources */,
 				1A42543A29D598CB0091CEFB /* MovieTableViewCell.xib in Resources */,
 				1A42BC6029C17622003F3EB0 /* ImageFilmCollectionViewCell.xib in Resources */,
+				1A73B22729DD7BD400AC503A /* DeleteMovieViewController.xib in Resources */,
 				1A1051FF29C8191700196C2F /* FilterScreenViewController.xib in Resources */,
 				1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */,
 				1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */,
@@ -703,6 +732,7 @@
 				1A780CE629B84D9300239D70 /* DownloadViewController.xib in Resources */,
 				1AB0197E29BED74800A690D9 /* GoogleService-Info.plist in Resources */,
 				1A780D0029B860CF00239D70 /* LoginViewController.xib in Resources */,
+				1A352D6529DD1EED00BBC23C /* NetworkNoticeScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +862,7 @@
 				1A780CD229B84CCD00239D70 /* HomeUseCase.swift in Sources */,
 				1A780CF429B84E5200239D70 /* ViewModelType.swift in Sources */,
 				1AB0196E29BE03EA00A690D9 /* UIColor+.swift in Sources */,
+				1A352D6429DD1EED00BBC23C /* NetworkNoticeScreenViewController.swift in Sources */,
 				1A780CD029B84CBE00239D70 /* ExploreUseCase.swift in Sources */,
 				1ABD481229DAA91800CCF23A /* SeeMoreCoordinator.swift in Sources */,
 				1A780CC929B84C4B00239D70 /* ExploreViewController.swift in Sources */,
@@ -839,6 +870,7 @@
 				1A42BC6129C17622003F3EB0 /* HomeTableViewCell.swift in Sources */,
 				1A780CCC29B84C6400239D70 /* ExploreCoordinator.swift in Sources */,
 				1A780CDE29B84D4800239D70 /* DownloadViewModel.swift in Sources */,
+				1A73B22629DD7BD400AC503A /* DeleteMovieViewController.swift in Sources */,
 				1AB0198429BF194600A690D9 /* Constants.swift in Sources */,
 				1A3CB38129DBC55300CD1392 /* FunctionTableViewCell.swift in Sources */,
 				1A1051FD29C8191700196C2F /* FilterCollectionViewCell.swift in Sources */,

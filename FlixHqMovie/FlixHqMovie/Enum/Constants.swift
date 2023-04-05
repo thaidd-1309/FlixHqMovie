@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Reachability
 
 enum BaseUrl: String {
     case main = "https://api.consumet.org/movies/flixhq/"
@@ -50,6 +51,7 @@ enum LayoutOptions {
     case buttonInFilterScreen
     case filterButtton
     case containerView
+    case screen
     
     var cornerRadious: CGFloat {
         switch self {
@@ -65,6 +67,8 @@ enum LayoutOptions {
             return 12
         case .containerView:
             return 16
+        case .screen:
+            return 32
         }
     }
     
@@ -72,7 +76,7 @@ enum LayoutOptions {
         switch self {
         case .itemPoster:
             return 1.2
-        case  .filterButtton, .tagLabel, .buttonInFilterScreen:
+        case  .filterButtton, .tagLabel, .buttonInFilterScreen, .screen:
             return 0
         case .addToMylistButton:
             return 2
@@ -305,4 +309,55 @@ enum CellMode {
 enum LoginType {
     case google
     case facebook
+}
+
+extension Reachability.Connection {
+    var title: String {
+        switch self {
+        case .none:
+            return "Not found network"
+        case .unavailable:
+            return "Not found network"
+        case .wifi:
+            return "Connect successfully"
+        case .cellular:
+            return "Connect successfully"
+        }
+    }
+
+    var message: String {
+        switch self {
+        case .none:
+            return "Please check your internet connection and retry"
+        case .unavailable:
+            return "Please check your internet connection and retry"
+        case .wifi:
+            return "Connect wifi successfully"
+        case .cellular:
+            return "Connect 3g/4g successfully"
+        }
+    }
+
+    private func customImage(image: UIImage?) -> UIImage {
+        guard let image = image else { return UIImage() }
+        let whiteImage = image.withRenderingMode(.alwaysTemplate)
+        return whiteImage
+    }
+
+    var image: UIImage {
+        switch self {
+        case .none:
+            let image = UIImage(named: "lostConnection") ?? UIImage()
+            return image
+        case .unavailable:
+            let image = UIImage(named: "lostConnection") ?? UIImage()
+            return image
+        case .wifi:
+            let image = UIImage(named: "connectionSuccess")
+            return customImage(image: image)
+        case .cellular:
+            let image = UIImage(named: "mobileNetWork")
+            return customImage(image: image)
+        }
+    }
 }

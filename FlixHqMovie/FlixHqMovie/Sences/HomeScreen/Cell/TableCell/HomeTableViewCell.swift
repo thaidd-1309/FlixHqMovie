@@ -51,8 +51,7 @@ final class HomeTableViewCell: UITableViewCell, ReuseCellType {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageFilmCollectionViewCell.defaultReuseIdentifier, for: indexPath) as? ImageFilmCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                let url = item.image ?? "" 
-                cell.bind(imageUrl: url)
+                cell.bind(imageUrl: item.image ?? "")
                 return cell
             }
         )

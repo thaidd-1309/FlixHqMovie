@@ -21,13 +21,13 @@ final class HomeViewController: UIViewController {
     var viewModel: HomeViewModel!
 
     private let selectedMovieTrigger = PublishSubject<String>()
-    private let refreshTrigger = BehaviorSubject<Bool>(value: false)
     private let seeMoreTrigger = PublishSubject<TableHeaderRowType>()
+    private let loadTrigger = BehaviorSubject<Void>(value: ())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindViewModel()
         configTableView()
+        bindViewModel()
         configRefesh()
     }
 
@@ -42,20 +42,18 @@ final class HomeViewController: UIViewController {
     }
 
     @objc func refreshData(_ sender: Any) {
-        refreshTrigger.onNext(true)
+        loadTrigger.onNext(())
     }
 
     private func bindViewModel() {
-        let loadTrigger = Driver.just(())
         loadTrigger
-            .drive(onNext: { [unowned self]_ in
+            .subscribe(onNext: { [unowned self]_ in
                 isLoading = true
             })
             .disposed(by: disposeBag)
 
         let input = HomeViewModel.Input(loadTrigger: loadTrigger,
                                         slectedMovie: selectedMovieTrigger.asDriver(onErrorJustReturn: ""),
-                                        refreshTableView: refreshTrigger.asDriver(onErrorJustReturn: false),
                                         seeMore: seeMoreTrigger.asDriver(onErrorDriveWith: .empty()))
 
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
@@ -87,6 +85,7 @@ final class HomeViewController: UIViewController {
                 configHiddenView(isHiddenView: !isLoading)
             })
             .disposed(by: disposeBag)
+
         output.refreshDone.drive(onNext: { [unowned self] done in
             if done {
                 refreshControl.endRefreshing()
@@ -96,6 +95,14 @@ final class HomeViewController: UIViewController {
 
         output.mediaInfor.drive(onNext: { [unowned self] media in
             congfigHeaderView(mediaInfo: media)
+        })
+        .disposed(by: disposeBag)
+
+        output.connectionNetwork.drive(onNext: { [unowned self] isConnected in
+            if isConnected {
+                refreshControl.beginRefreshing()
+                loadTrigger.onNext(())
+            }
         })
         .disposed(by: disposeBag)
     }
