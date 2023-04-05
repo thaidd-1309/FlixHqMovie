@@ -176,6 +176,7 @@ enum CustomImageName {
 }
 
 enum FunctionProfileType {
+
     case editProfile
     case notification
     case download
@@ -184,6 +185,7 @@ enum FunctionProfileType {
     case changeDarkMode
     case privacy
     case helpCenter
+    case logOut
 
    private func customImage(image: UIImage?) -> UIImage {
        guard let image = image else { return UIImage() }
@@ -209,6 +211,31 @@ enum FunctionProfileType {
             return "Privacy"
         case .helpCenter:
             return "Help center"
+        case .logOut:
+            return "Log out"
+        }
+    }
+
+    var cellMode: CellMode {
+        switch self {
+        case .editProfile:
+            return CellMode.info
+        case .notification:
+            return CellMode.info
+        case .download:
+            return CellMode.info
+        case .security:
+            return CellMode.info
+        case .changeLanguage:
+            return CellMode.info
+        case .changeDarkMode:
+            return CellMode.switch
+        case .privacy:
+            return CellMode.info
+        case .helpCenter:
+            return CellMode.info
+        case .logOut:
+            return CellMode.logOut
         }
     }
 
@@ -238,6 +265,44 @@ enum FunctionProfileType {
         case .helpCenter:
             let image = UIImage(named: "infor")
             return customImage(image: image)
+        case .logOut:
+            let image = UIImage(systemName: "rectangle.portrait.and.arrow.right")
+            return customImage(image: image)
         }
     }
+
+    var subTitle: String {
+        switch self {
+        case .editProfile:
+            return ""
+        case .notification:
+            return ""
+        case .download:
+            return ""
+        case .security:
+            return ""
+        case .changeLanguage:
+            return "Englis - US"
+        case .changeDarkMode:
+            return ""
+        case .privacy:
+            return ""
+        case .helpCenter:
+            return ""
+        case .logOut:
+            return ""
+        }
+    }
+}
+
+enum CellMode {
+    case `switch`
+    case info
+    case normal
+    case logOut
+}
+
+enum LoginType {
+    case google
+    case facebook
 }

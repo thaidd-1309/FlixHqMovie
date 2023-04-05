@@ -35,6 +35,7 @@ timeline.xctimeline
 playground.xcworkspace
 
 *GoogleService-Info.plist
+*Info.plist
 
 # Swift Package Manager
 #

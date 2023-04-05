@@ -18,5 +18,9 @@ target 'FlixHqMovie' do
   pod 'ObjectMapper'
   pod 'FBSDKLoginKit'
   pod 'Then'
-  
+  pod 'FirebaseAuth'
+  pod 'FirebaseAnalytics'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'	
+
 end
