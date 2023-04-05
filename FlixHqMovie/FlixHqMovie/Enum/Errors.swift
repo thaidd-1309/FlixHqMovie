@@ -17,3 +17,7 @@ enum DatabaseError: Error {
 enum MovieStreamError: Error {
     case notFoundUrl
 }
+
+enum LoginError: Error {
+    case logOutFailed
+}

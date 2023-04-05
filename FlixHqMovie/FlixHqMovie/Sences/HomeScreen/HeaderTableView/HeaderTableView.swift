@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Then
 
 final class HeaderTableView: UITableViewCell, ReuseCellType {
     @IBOutlet private weak var headerTableImageView: UIImageView!
@@ -32,9 +33,11 @@ final class HeaderTableView: UITableViewCell, ReuseCellType {
 
     private func configView() {
         playButton.layer.cornerRadius = playButton.frame.size.height / 2
-        addMyListButton.layer.cornerRadius = addMyListButton.frame.size.height / 2
-        addMyListButton.layer.borderWidth = LayoutOptions.addToMylistButton.borderWidth
-        addMyListButton.layer.borderColor = UIColor.white.cgColor
+        addMyListButton.then {
+            $0.layer.cornerRadius = addMyListButton.frame.size.height / 2
+            $0.layer.borderWidth = LayoutOptions.addToMylistButton.borderWidth
+            $0.layer.borderColor = UIColor.white.cgColor
+        }
         headerTableImageView.setGradientBackground(colorTop: UIColor.clear.cgColor, colorBottom: UIColor.black.cgColor)
     }
 
@@ -43,5 +46,6 @@ final class HeaderTableView: UITableViewCell, ReuseCellType {
         headerTableImageView.sd_setImage(with: url)
         nameMovieLabel.text = media?.title
         decriptionLabel.text = media?.description?.removeWhiteSpaceAndBreakLine()
+        id = media?.id ?? ""
     }
 }

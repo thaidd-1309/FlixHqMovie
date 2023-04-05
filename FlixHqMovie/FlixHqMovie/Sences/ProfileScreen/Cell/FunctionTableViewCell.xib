@@ -84,12 +84,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="darkModeSwitch" destination="MUX-Nz-31k" id="kmi-Li-hJY"/>
+                <outlet property="buttonSwitch" destination="MUX-Nz-31k" id="FZ9-cw-aUJ"/>
                 <outlet property="iconImageView" destination="7mq-o5-DeN" id="K2k-ia-8pk"/>
-                <outlet property="languageLabel" destination="z0t-uP-UJk" id="J10-qv-v7y"/>
                 <outlet property="nameLabel" destination="3wx-Ww-eDd" id="cku-85-fla"/>
                 <outlet property="otherInformationContainerView" destination="UAL-5c-pHX" id="6nS-al-Ucg"/>
                 <outlet property="rightChevronImageView" destination="RRE-bC-f0Y" id="Jw3-bA-DCT"/>
+                <outlet property="subTitleLabel" destination="z0t-uP-UJk" id="hhE-15-Uyc"/>
             </connections>
             <point key="canvasLocation" x="306.87022900763355" y="28.87323943661972"/>
         </tableViewCell>

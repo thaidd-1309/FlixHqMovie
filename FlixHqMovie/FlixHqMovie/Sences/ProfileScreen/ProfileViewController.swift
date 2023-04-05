@@ -10,6 +10,11 @@ import RxSwift
 import RxDataSources
 import RxCocoa
 import Then
+import GoogleSignIn
+import SDWebImage
+import FirebaseAuth
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 final class ProfileViewController: UIViewController {
 
@@ -23,6 +28,8 @@ final class ProfileViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     var viewModel: ProfileViewModel!
+
+    private let logOutTrigger = PublishSubject<Bool>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +65,10 @@ final class ProfileViewController: UIViewController {
     }
 
     private func bindViewModel() {
+        let input = ProfileViewModel.Input(logOut: logOutTrigger.asDriver(onErrorJustReturn: false))
+        let outout = viewModel.transform(input: input, disposeBag: disposeBag)
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, FunctionProfileType>>(
-            configureCell: { [unowned self] _, tableView, indexPath, item in
+            configureCell: { _, tableView, indexPath, item in
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: FunctionTableViewCell.defaultReuseIdentifier, for: indexPath) as? FunctionTableViewCell
                 else {
                     return UITableViewCell()
@@ -68,23 +77,52 @@ final class ProfileViewController: UIViewController {
                 return cell
             })
 
-        let functionTypes = [FunctionProfileType.editProfile,
-                             FunctionProfileType.notification,
-                             FunctionProfileType.download,
-                             FunctionProfileType.security,
-                             FunctionProfileType.changeLanguage,
-                             FunctionProfileType.changeDarkMode,
-                             FunctionProfileType.privacy,
-                             FunctionProfileType.helpCenter]
-        Driver.of(functionTypes)
+        outout.functionTypes
             .map { [SectionModel(model: "", items: $0)] }
             .drive(functionTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+
+        outout.informationGoogleUser.drive(onNext: { [unowned self] user in
+            if let user = user {
+                updateGoogleUser(user: user)
+            }
+        })
+        .disposed(by: disposeBag)
+        outout.informationFaceBookUser.drive(onNext: { [unowned self] user in
+            if let user = user {
+                updateFacebookUser(user: user)
+            }
+        })
+        .disposed(by: disposeBag)
+        configCellSelected()
+    }
+
+    private func configCellSelected() {
+        functionTableView.rx.modelSelected(FunctionProfileType.self).subscribe(onNext: { [unowned self] item in
+            if item == FunctionProfileType.logOut {
+                logOutTrigger.onNext(true)
+            }
+        })
+        .disposed(by: disposeBag)
+    }
+
+    private func updateGoogleUser(user: GIDGoogleUser?) {
+        let avatarUrl = user?.profile?.imageURL(withDimension: 320)
+        avatarImageView.sd_setImage(with: avatarUrl)
+        userNameLabel.text = user?.profile?.name
+        userMailLabel.text = user?.profile?.email
+    }
+
+    private func updateFacebookUser(user: User?) {
+        let avatarUrl = user?.photoURL
+        avatarImageView.sd_setImage(with: avatarUrl)
+        userNameLabel.text = user?.displayName
+        userMailLabel.text = user?.email
     }
 }
 
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 6.5
+        return tableView.frame.height / 7
     }
 }
