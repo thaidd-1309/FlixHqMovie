@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NetworkNoticeScreenViewController" customModule="FlixHqMovie" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="Lcn-1G-C8g" id="OBe-Wy-G8v"/>
+                <outlet property="messageLabel" destination="bFr-5j-98g" id="lin-rh-s95"/>
+                <outlet property="noticeImageView" destination="d5k-1A-qQc" id="oYz-Dg-Lcp"/>
+                <outlet property="titleLabel" destination="yTf-I4-3V0" id="ErK-eI-pdA"/>
+                <outlet property="tryAgainButton" destination="ApE-fA-BDw" id="6p4-bU-RCg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lcn-1G-C8g">
+                    <rect key="frame" x="30" y="296" width="333" height="260"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lostConnection" translatesAutoresizingMaskIntoConstraints="NO" id="d5k-1A-qQc">
+                            <rect key="frame" x="136.66666666666666" y="8" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="B9D-g3-Ctn"/>
+                                <constraint firstAttribute="width" constant="60" id="G4Y-BY-py8"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your connection are lost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTf-I4-3V0">
+                            <rect key="frame" x="0.0" y="76" width="333" height="21.666666666666671"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please check connection and try again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFr-5j-98g">
+                            <rect key="frame" x="12" y="104" width="309" height="51"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="51" id="swN-Jc-fRu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-fA-BDw">
+                            <rect key="frame" x="119.66666666666666" y="195" width="94" height="35"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Try again"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="d5k-1A-qQc" firstAttribute="centerX" secondItem="Lcn-1G-C8g" secondAttribute="centerX" id="1j9-Pc-riV"/>
+                        <constraint firstAttribute="bottom" secondItem="ApE-fA-BDw" secondAttribute="bottom" constant="30" id="5tA-OL-WL7"/>
+                        <constraint firstItem="bFr-5j-98g" firstAttribute="leading" secondItem="Lcn-1G-C8g" secondAttribute="leading" constant="12" id="A8d-ap-5Xj"/>
+                        <constraint firstItem="bFr-5j-98g" firstAttribute="top" secondItem="yTf-I4-3V0" secondAttribute="bottom" constant="6.3333333333333286" id="Hch-3O-jZr"/>
+                        <constraint firstItem="d5k-1A-qQc" firstAttribute="top" secondItem="Lcn-1G-C8g" secondAttribute="top" constant="8" id="Mzr-bt-FlL"/>
+                        <constraint firstItem="yTf-I4-3V0" firstAttribute="leading" secondItem="Lcn-1G-C8g" secondAttribute="leading" id="dlg-I6-76J"/>
+                        <constraint firstItem="bFr-5j-98g" firstAttribute="centerX" secondItem="yTf-I4-3V0" secondAttribute="centerX" id="gui-Gy-ylM"/>
+                        <constraint firstAttribute="height" constant="260" id="hek-yF-vf5"/>
+                        <constraint firstItem="yTf-I4-3V0" firstAttribute="top" secondItem="d5k-1A-qQc" secondAttribute="bottom" constant="8" symbolic="YES" id="i3n-V1-A73"/>
+                        <constraint firstAttribute="trailing" secondItem="yTf-I4-3V0" secondAttribute="trailing" id="k01-po-jZf"/>
+                        <constraint firstItem="ApE-fA-BDw" firstAttribute="centerX" secondItem="Lcn-1G-C8g" secondAttribute="centerX" id="tQp-7L-TyZ"/>
+                        <constraint firstAttribute="trailing" secondItem="bFr-5j-98g" secondAttribute="trailing" constant="12" id="udM-xh-8Bi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Lcn-1G-C8g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="R2e-eV-cHb"/>
+                <constraint firstAttribute="trailing" secondItem="Lcn-1G-C8g" secondAttribute="trailing" constant="30" id="TEP-4w-bhh"/>
+                <constraint firstItem="Lcn-1G-C8g" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="e7V-OL-ON6"/>
+                <constraint firstItem="Lcn-1G-C8g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pjr-wb-fbb"/>
+                <constraint firstItem="Lcn-1G-C8g" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="vfM-0L-Bxt"/>
+            </constraints>
+            <point key="canvasLocation" x="-54.198473282442748" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="lostConnection" width="384" height="384"/>
+    </resources>
+</document>
