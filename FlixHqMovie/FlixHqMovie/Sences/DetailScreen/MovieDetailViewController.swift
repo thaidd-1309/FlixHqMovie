@@ -118,7 +118,6 @@ final class MovieDetailViewController: UIViewController {
             showNoticeTrigger.onNext(MovieStreamError.notFoundUrl)
             return
         }
-        m3u8Url = urlVideo
         guard let urlForVideo = URL(string: urlVideo),
               let urlForSub = URL(string: urlSub)
         else { return }
@@ -137,7 +136,7 @@ final class MovieDetailViewController: UIViewController {
 
     private func configDownloadMovieButton() {
         downloadMovieButton.rx.tap.subscribe(onNext: { [unowned self] in
-            downloadMovieTrigger.onNext((movieName, m3u8Url))
+            downloadMovieTrigger.onNext((m3u8Url, movieName))
         }).disposed(by: disposeBag)
     }
 
@@ -267,6 +266,7 @@ extension MovieDetailViewController {
 
         output.media.drive(onNext: {[unowned self] media in
             streamMovie = media
+            m3u8Url = media.sources?[0].url ?? ""
         })
         .disposed(by: disposeBag)
 

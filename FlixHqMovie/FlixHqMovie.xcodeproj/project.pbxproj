@@ -51,6 +51,8 @@
 		1A4DA5AB29C991A300314CB2 /* FilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AA29C991A300314CB2 /* FilterCoordinator.swift */; };
 		1A4DA5AD29C9926D00314CB2 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DA5AC29C9926D00314CB2 /* FilterViewModel.swift */; };
 		1A55BEAF29C7EE8000E5C426 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55BEAE29C7EE8000E5C426 /* String+.swift */; };
+		1A73B22629DD7BD400AC503A /* DeleteMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A73B22429DD7BD400AC503A /* DeleteMovieViewController.swift */; };
+		1A73B22729DD7BD400AC503A /* DeleteMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A73B22529DD7BD400AC503A /* DeleteMovieViewController.xib */; };
 		1A780C8E29B83F7C00239D70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C8D29B83F7C00239D70 /* AppDelegate.swift */; };
 		1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A780C9629B83F7C00239D70 /* FlixHqMovie.xcdatamodeld */; };
 		1A780C9A29B83F7D00239D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A780C9929B83F7D00239D70 /* Assets.xcassets */; };
@@ -151,6 +153,8 @@
 		1A4DA5AA29C991A300314CB2 /* FilterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCoordinator.swift; sourceTree = "<group>"; };
 		1A4DA5AC29C9926D00314CB2 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		1A55BEAE29C7EE8000E5C426 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		1A73B22429DD7BD400AC503A /* DeleteMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMovieViewController.swift; sourceTree = "<group>"; };
+		1A73B22529DD7BD400AC503A /* DeleteMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteMovieViewController.xib; sourceTree = "<group>"; };
 		1A780C8A29B83F7C00239D70 /* FlixHqMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlixHqMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A780C8D29B83F7C00239D70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A780C9729B83F7C00239D70 /* FlixHqMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlixHqMovie.xcdatamodel; sourceTree = "<group>"; };
@@ -365,6 +369,15 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		1A73B22329DD7BB100AC503A /* DeleteMovieScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A73B22429DD7BD400AC503A /* DeleteMovieViewController.swift */,
+				1A73B22529DD7BD400AC503A /* DeleteMovieViewController.xib */,
+			);
+			path = DeleteMovieScreen;
+			sourceTree = "<group>";
+		};
 		1A780C8129B83F7C00239D70 = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +511,7 @@
 		1A780CAD29B8492D00239D70 /* DownloadScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1A73B22329DD7BB100AC503A /* DeleteMovieScreen */,
 				1A42543629D595CB0091CEFB /* Cell */,
 				1A780CDD29B84D4800239D70 /* DownloadViewModel.swift */,
 				1A780CDF29B84D6400239D70 /* DownloadCoordinator.swift */,
@@ -703,6 +717,7 @@
 				1A42541929D41D6C0091CEFB /* MyListViewController.xib in Resources */,
 				1A42543A29D598CB0091CEFB /* MovieTableViewCell.xib in Resources */,
 				1A42BC6029C17622003F3EB0 /* ImageFilmCollectionViewCell.xib in Resources */,
+				1A73B22729DD7BD400AC503A /* DeleteMovieViewController.xib in Resources */,
 				1A1051FF29C8191700196C2F /* FilterScreenViewController.xib in Resources */,
 				1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */,
 				1A3D4E9A29C1C400005CA142 /* CastCollectionViewCell.xib in Resources */,
@@ -855,6 +870,7 @@
 				1A42BC6129C17622003F3EB0 /* HomeTableViewCell.swift in Sources */,
 				1A780CCC29B84C6400239D70 /* ExploreCoordinator.swift in Sources */,
 				1A780CDE29B84D4800239D70 /* DownloadViewModel.swift in Sources */,
+				1A73B22629DD7BD400AC503A /* DeleteMovieViewController.swift in Sources */,
 				1AB0198429BF194600A690D9 /* Constants.swift in Sources */,
 				1A3CB38129DBC55300CD1392 /* FunctionTableViewCell.swift in Sources */,
 				1A1051FD29C8191700196C2F /* FilterCollectionViewCell.swift in Sources */,

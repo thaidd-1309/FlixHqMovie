@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class MovieTableViewCell: UITableViewCell, ReuseCellType {
 
@@ -14,10 +16,20 @@ final class MovieTableViewCell: UITableViewCell, ReuseCellType {
     @IBOutlet private weak var movieCapacityLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var movieNameLabel: UILabel!
+    @IBOutlet private  weak var deleteButton: UIButton!
+
+    var deleteButtonTapped: ((String) -> Void)?
+
+
+    private let disposeBag = DisposeBag()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         configView()
+        deleteButton.rx.tap.subscribe(onNext: { [unowned self] in
+            deleteButtonTapped?("ss")
+        })
+        .disposed(by: disposeBag)
     }
 
     private func configView() {

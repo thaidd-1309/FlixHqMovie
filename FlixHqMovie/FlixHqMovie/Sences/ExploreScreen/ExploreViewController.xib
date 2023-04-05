@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,18 +26,46 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="gQe-bi-Toj">
-                    <rect key="frame" x="12" y="62" width="327" height="56"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <scopeButtonTitles>
-                        <string>Title</string>
-                        <string>Title</string>
-                    </scopeButtonTitles>
-                </searchBar>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="7lN-6C-8Ci">
+                    <rect key="frame" x="12" y="62" width="366" height="42"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="gQe-bi-Toj">
+                            <rect key="frame" x="0.0" y="0.0" width="324" height="42"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                        </searchBar>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLz-Ie-yCd">
+                            <rect key="frame" x="324" y="0.0" width="42" height="42"/>
+                            <subviews>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7qG-JN-ZoS">
+                                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.14901961389999999" green="0.1019607931" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="tintColor" red="1" green="0.28745943060000001" blue="0.22786689490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="checklist" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="YP9-ss-3UO"/>
+                                <constraint firstAttribute="width" constant="42" id="uSk-mb-x3e"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="LLz-Ie-yCd" firstAttribute="leading" secondItem="gQe-bi-Toj" secondAttribute="trailing" id="eEj-r1-JXc"/>
+                    </constraints>
+                </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rfc-7Q-A9K">
-                    <rect key="frame" x="12" y="125" width="366" height="719"/>
+                    <rect key="frame" x="12" y="117" width="366" height="727"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z6e-1f-JvV">
                         <size key="itemSize" width="128" height="128"/>
@@ -93,28 +122,18 @@
                     </constraints>
                     <color key="color" red="1" green="0.28745943060000001" blue="0.22786689490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </activityIndicatorView>
-                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7qG-JN-ZoS">
-                    <rect key="frame" x="339" y="69" width="42" height="42"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.14901961389999999" green="0.1019607931" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <color key="tintColor" red="1" green="0.28745943060000001" blue="0.22786689490000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="checklist" catalog="system">
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18"/>
-                    </state>
-                </button>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="qQp-iP-yv2"/>
             <color key="backgroundColor" red="0.094117648900000003" green="0.1019607931" blue="0.1215686351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="7qG-JN-ZoS" firstAttribute="centerY" secondItem="gQe-bi-Toj" secondAttribute="centerY" id="34K-3A-3R7"/>
                 <constraint firstAttribute="bottom" secondItem="rfc-7Q-A9K" secondAttribute="bottom" id="7BK-85-UhH"/>
+                <constraint firstItem="rfc-7Q-A9K" firstAttribute="top" secondItem="gQe-bi-Toj" secondAttribute="bottom" constant="13" id="ClE-SB-k2a"/>
+                <constraint firstItem="7lN-6C-8Ci" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="IAZ-TN-Aqt"/>
+                <constraint firstAttribute="trailing" secondItem="7lN-6C-8Ci" secondAttribute="trailing" constant="12" id="NQF-TD-xGH"/>
                 <constraint firstItem="rfc-7Q-A9K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="OtG-mW-BnS"/>
-                <constraint firstItem="rfc-7Q-A9K" firstAttribute="top" secondItem="gQe-bi-Toj" secondAttribute="bottom" constant="7" id="S1o-AL-MLU"/>
-                <constraint firstItem="7qG-JN-ZoS" firstAttribute="leading" secondItem="gQe-bi-Toj" secondAttribute="trailing" id="Yq1-ev-bKi"/>
-                <constraint firstItem="gQe-bi-Toj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="cZL-Id-kLX"/>
+                <constraint firstItem="7lN-6C-8Ci" firstAttribute="top" secondItem="qQp-iP-yv2" secondAttribute="top" constant="15" id="be9-SB-Ooa"/>
                 <constraint firstItem="zwu-fj-jOg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eHh-q1-iqS"/>
                 <constraint firstItem="uRQ-np-X8j" firstAttribute="top" secondItem="zwu-fj-jOg" secondAttribute="bottom" id="fbR-oa-1uP"/>
-                <constraint firstItem="gQe-bi-Toj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="gIe-BS-tIN"/>
                 <constraint firstAttribute="trailing" secondItem="rfc-7Q-A9K" secondAttribute="trailing" constant="12" id="hW5-Hr-c02"/>
             </constraints>
             <point key="canvasLocation" x="-29.23076923076923" y="-174.88151658767771"/>

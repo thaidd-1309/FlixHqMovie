@@ -20,6 +20,7 @@ final class DownloadViewController: UIViewController {
     @IBOutlet private weak var movieTableView: UITableView!
     
     private let disposeBag = DisposeBag()
+    private let deleteMovieTrigger = PublishSubject<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,15 @@ final class DownloadViewController: UIViewController {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.defaultReuseIdentifier, for: indexPath) as? MovieTableViewCell
                 else {
                     return UITableViewCell()
+            }
+                cell.deleteButtonTapped = { [unowned self] id in
+                    deleteMovieTrigger.onNext(id)
+                    let vc = DeleteMovieViewController()
+                    vc.modalPresentationStyle = .pageSheet
+                    if let sheet = vc.sheetPresentationController {
+                        sheet.detents = [.medium(), .medium()]
+                      }
+                    self.present(vc, animated: true)
                 }
                 return cell
             })
@@ -65,6 +75,6 @@ final class DownloadViewController: UIViewController {
 
 extension DownloadViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 7
+        return tableView.frame.height / 6
     }
 }

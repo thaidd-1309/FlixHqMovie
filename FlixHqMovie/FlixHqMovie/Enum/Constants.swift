@@ -51,6 +51,7 @@ enum LayoutOptions {
     case buttonInFilterScreen
     case filterButtton
     case containerView
+    case screen
     
     var cornerRadious: CGFloat {
         switch self {
@@ -66,6 +67,8 @@ enum LayoutOptions {
             return 12
         case .containerView:
             return 16
+        case .screen:
+            return 32
         }
     }
     
@@ -73,7 +76,7 @@ enum LayoutOptions {
         switch self {
         case .itemPoster:
             return 1.2
-        case  .filterButtton, .tagLabel, .buttonInFilterScreen:
+        case  .filterButtton, .tagLabel, .buttonInFilterScreen, .screen:
             return 0
         case .addToMylistButton:
             return 2

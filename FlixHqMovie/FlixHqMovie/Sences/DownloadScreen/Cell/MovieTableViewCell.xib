@@ -33,7 +33,7 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WHB-cP-ZuF">
-                                                <rect key="frame" x="46" y="35" width="28" height="28"/>
+                                                <rect key="frame" x="46" y="34.333333333333336" width="28" height="28"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -121,6 +121,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="deleteButton" destination="YdU-YA-bac" id="jLJ-CD-d5W"/>
                 <outlet property="durationLabel" destination="3l3-uB-FfM" id="ddO-Ut-BQ7"/>
                 <outlet property="movieCapacityLabel" destination="KxU-Mz-2rD" id="f1H-Rr-OXF"/>
                 <outlet property="movieImageView" destination="C7M-wW-NaI" id="G9Q-mq-owv"/>
