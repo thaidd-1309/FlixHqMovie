@@ -30,9 +30,12 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="zuP-3L-jup">
-                    <rect key="frame" x="185" y="412" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="zuP-3L-jup">
+                    <rect key="frame" x="182" y="421.66666666666669" width="26" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="CR8-77-nxb"/>
+                        <constraint firstAttribute="width" constant="26" id="ad2-R3-b4M"/>
+                    </constraints>
                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </activityIndicatorView>
             </subviews>
@@ -40,8 +43,10 @@
             <color key="backgroundColor" red="0.094117648900000003" green="0.1019607931" blue="0.12549020350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="UOk-3N-jSX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="EhJ-ZI-X4l"/>
+                <constraint firstItem="zuP-3L-jup" firstAttribute="centerY" secondItem="UOk-3N-jSX" secondAttribute="centerY" id="HED-Lp-RF4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UOk-3N-jSX" secondAttribute="trailing" constant="12" id="HUW-uP-lHZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UOk-3N-jSX" secondAttribute="bottom" id="Pfv-IS-nSa"/>
+                <constraint firstItem="zuP-3L-jup" firstAttribute="centerX" secondItem="UOk-3N-jSX" secondAttribute="centerX" id="S3j-6g-cH7"/>
                 <constraint firstItem="UOk-3N-jSX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="o5b-10-yhS"/>
             </constraints>
             <point key="canvasLocation" x="-112.30769230769231" y="19.90521327014218"/>

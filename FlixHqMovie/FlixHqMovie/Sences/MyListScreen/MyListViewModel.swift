@@ -48,7 +48,10 @@ extension MyListViewModel: ViewModelType {
       let myListFilter = Driver.combineLatest(input.selectedGenre, myListTrigger.asDriver(onErrorJustReturn: []), resultSelector: {genreSelected, myList -> [MyList] in
             let myListAfterFilter = myList.filter { $0.genres.contains(genreSelected) }
             return genreSelected == "All" ? myList : myListAfterFilter
-      }).asDriver(onErrorJustReturn: [])
+      }).map { array in
+          return Array(array.reversed())
+      }
+        .asDriver(onErrorJustReturn: [])
 
         return Output(myListModels: myListFilter, genres: genresTrigger.asDriver(onErrorJustReturn: []))
     }

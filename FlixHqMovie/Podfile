@@ -23,5 +23,5 @@ target 'FlixHqMovie' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'	
   pod 'ReachabilitySwift'
-
+  pod 'SwiftyComments', :git => 'https://github.com/tsucres/SwiftyComments.git'
 end

@@ -91,6 +91,13 @@
 		1A937D1E29D1421400442569 /* MyListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A937D1D29D1421400442569 /* MyListEntity.swift */; };
 		1A937D2029D14EB700442569 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A937D1F29D14EB700442569 /* Errors.swift */; };
 		1A937D2429D194E000442569 /* CommonTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A937D2329D194E000442569 /* CommonTrigger.swift */; };
+		1A9A503429F761F7003D6572 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A503329F761F7003D6572 /* CommentTableViewCell.swift */; };
+		1A9A503629F76BF8003D6572 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A503529F76BF8003D6572 /* CommentModel.swift */; };
+		1A9A503829F76C4D003D6572 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A503729F76C4D003D6572 /* Int+.swift */; };
+		1A9A503A29F76C7B003D6572 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A503929F76C7B003D6572 /* Array+.swift */; };
+		1A9A503D29F76FFE003D6572 /* FoldableRedditCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A503C29F76FFE003D6572 /* FoldableRedditCommentsViewController.swift */; };
+		1A9A504429F7B8FB003D6572 /* TrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A504229F7B8FB003D6572 /* TrailerTableViewCell.swift */; };
+		1A9A504529F7B8FB003D6572 /* TrailerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A504329F7B8FB003D6572 /* TrailerTableViewCell.xib */; };
 		1AA016D929B87CA2003DB29A /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA016D829B87CA2003DB29A /* UIView+.swift */; };
 		1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0196B29BE037000A690D9 /* UIButton+.swift */; };
 		1AB0196E29BE03EA00A690D9 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0196D29BE03EA00A690D9 /* UIColor+.swift */; };
@@ -194,6 +201,13 @@
 		1A937D1D29D1421400442569 /* MyListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListEntity.swift; sourceTree = "<group>"; };
 		1A937D1F29D14EB700442569 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		1A937D2329D194E000442569 /* CommonTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTrigger.swift; sourceTree = "<group>"; };
+		1A9A503329F761F7003D6572 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		1A9A503529F76BF8003D6572 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		1A9A503729F76C4D003D6572 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		1A9A503929F76C7B003D6572 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		1A9A503C29F76FFE003D6572 /* FoldableRedditCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldableRedditCommentsViewController.swift; sourceTree = "<group>"; };
+		1A9A504229F7B8FB003D6572 /* TrailerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerTableViewCell.swift; sourceTree = "<group>"; };
+		1A9A504329F7B8FB003D6572 /* TrailerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerTableViewCell.xib; sourceTree = "<group>"; };
 		1AA016D829B87CA2003DB29A /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		1AB0196B29BE037000A690D9 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		1AB0196D29BE03EA00A690D9 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -268,6 +282,7 @@
 		1A3D4E9229C1C3D0005CA142 /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1A9A503B29F76FE2003D6572 /* CommentTableViewController */,
 				1A3D4E9329C1C400005CA142 /* Cell */,
 				1A36415029C44E3E002A9B79 /* DetailViewModel.swift */,
 				1A3D4E9729C1C400005CA142 /* MovieDetailViewController.swift */,
@@ -281,6 +296,8 @@
 		1A3D4E9329C1C400005CA142 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1A9A504129F7B8E2003D6572 /* TrailerCell */,
+				1A9A504029F7B882003D6572 /* CommentCell */,
 				1A3D4E9429C1C400005CA142 /* CastCell */,
 			);
 			path = Cell;
@@ -571,6 +588,7 @@
 				1A780CFB29B84F7700239D70 /* MediaModel.swift */,
 				1AB0198529BF1AA700A690D9 /* MovieModel.swift */,
 				1A42BC6329C17FC9003F3EB0 /* SectionModel.swift */,
+				1A9A503529F76BF8003D6572 /* CommentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -593,6 +611,31 @@
 			path = CategoryCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		1A9A503B29F76FE2003D6572 /* CommentTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A503C29F76FFE003D6572 /* FoldableRedditCommentsViewController.swift */,
+			);
+			path = CommentTableViewController;
+			sourceTree = "<group>";
+		};
+		1A9A504029F7B882003D6572 /* CommentCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A503329F761F7003D6572 /* CommentTableViewCell.swift */,
+			);
+			path = CommentCell;
+			sourceTree = "<group>";
+		};
+		1A9A504129F7B8E2003D6572 /* TrailerCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A504229F7B8FB003D6572 /* TrailerTableViewCell.swift */,
+				1A9A504329F7B8FB003D6572 /* TrailerTableViewCell.xib */,
+			);
+			path = TrailerCell;
+			sourceTree = "<group>";
+		};
 		1AA016D729B87C86003DB29A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +648,8 @@
 				1A42BC6929C19F13003F3EB0 /* UIViewController+.swift */,
 				1A3D4E9029C1BC5E005CA142 /* UILabel+.swift */,
 				1A55BEAE29C7EE8000E5C426 /* String+.swift */,
+				1A9A503729F76C4D003D6572 /* Int+.swift */,
+				1A9A503929F76C7B003D6572 /* Array+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -717,6 +762,7 @@
 				1A42541929D41D6C0091CEFB /* MyListViewController.xib in Resources */,
 				1A42543A29D598CB0091CEFB /* MovieTableViewCell.xib in Resources */,
 				1A42BC6029C17622003F3EB0 /* ImageFilmCollectionViewCell.xib in Resources */,
+				1A9A504529F7B8FB003D6572 /* TrailerTableViewCell.xib in Resources */,
 				1A73B22729DD7BD400AC503A /* DeleteMovieViewController.xib in Resources */,
 				1A1051FF29C8191700196C2F /* FilterScreenViewController.xib in Resources */,
 				1A780CBC29B84A5300239D70 /* MainViewController.xib in Resources */,
@@ -818,9 +864,11 @@
 				1A42BC5F29C17622003F3EB0 /* ImageFilmCollectionViewCell.swift in Sources */,
 				1A780CEA29B84DB700239D70 /* ProfileCoordinator.swift in Sources */,
 				1A42BC5029C17179003F3EB0 /* ReuseCellType.swift in Sources */,
+				1A9A503D29F76FFE003D6572 /* FoldableRedditCommentsViewController.swift in Sources */,
 				1A42541729D41D6C0091CEFB /* MyListUseCase.swift in Sources */,
 				1A780CB129B8498D00239D70 /* LoginViewController.swift in Sources */,
 				1A780CBE29B84AA700239D70 /* MainTabBarCoordinator.swift in Sources */,
+				1A9A503629F76BF8003D6572 /* CommentModel.swift in Sources */,
 				1A780CF129B84E1100239D70 /* MediaRepository.swift in Sources */,
 				1AB0198629BF1AA700A690D9 /* MovieModel.swift in Sources */,
 				1A4DA5AB29C991A300314CB2 /* FilterCoordinator.swift in Sources */,
@@ -829,6 +877,7 @@
 				1A42543529D546460091CEFB /* DatabaseManager.swift in Sources */,
 				1A42541529D41D6C0091CEFB /* MyListViewController.swift in Sources */,
 				1A7B69F229C8A2CF0021344C /* CategoryTableViewCell.swift in Sources */,
+				1A9A504429F7B8FB003D6572 /* TrailerTableViewCell.swift in Sources */,
 				1A4DA5AD29C9926D00314CB2 /* FilterViewModel.swift in Sources */,
 				1A780CC129B84BB400239D70 /* HomeViewController.swift in Sources */,
 				1A3D4E9929C1C400005CA142 /* CastCollectionViewCell.swift in Sources */,
@@ -838,10 +887,12 @@
 				1A780CED29B84DCE00239D70 /* ProfileViewController.swift in Sources */,
 				1AB0198229BF0A9400A690D9 /* CoordinatorProtocol.swift in Sources */,
 				1A42543929D598CB0091CEFB /* MovieTableViewCell.swift in Sources */,
+				1A9A503429F761F7003D6572 /* CommentTableViewCell.swift in Sources */,
 				1AB0196C29BE037000A690D9 /* UIButton+.swift in Sources */,
 				1A42541629D41D6C0091CEFB /* MyListViewModel.swift in Sources */,
 				1ABD481429DAA98B00CCF23A /* SeeMoreViewModel.swift in Sources */,
 				1A780C9829B83F7C00239D70 /* FlixHqMovie.xcdatamodeld in Sources */,
+				1A9A503829F76C4D003D6572 /* Int+.swift in Sources */,
 				1A780CBB29B84A5300239D70 /* MainTabBarViewController.swift in Sources */,
 				1A780CFC29B84F7700239D70 /* MediaModel.swift in Sources */,
 				1A780CF929B84EF300239D70 /* APIService.swift in Sources */,
@@ -857,6 +908,7 @@
 				1ABD480F29DAA48200CCF23A /* SeeMoreViewController.swift in Sources */,
 				1A937D2429D194E000442569 /* CommonTrigger.swift in Sources */,
 				1A36415129C44E3E002A9B79 /* DetailViewModel.swift in Sources */,
+				1A9A503A29F76C7B003D6572 /* Array+.swift in Sources */,
 				1A780CE529B84D9300239D70 /* DownloadViewController.swift in Sources */,
 				1AB0197229BEC51B00A690D9 /* Tabar.swift in Sources */,
 				1A780CD229B84CCD00239D70 /* HomeUseCase.swift in Sources */,

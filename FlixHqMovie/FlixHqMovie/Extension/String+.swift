@@ -18,4 +18,9 @@ extension String {
         return self.filter { !"\n".contains($0) }
             .trimmingCharacters(in: .whitespacesAndNewlines)
     }
+
+    var stringWithCapitalizedFirstLetter: String {
+        let capitalizedFirstLetter = prefix(1).capitalized
+        return replacingCharacters(in: ..<index(startIndex, offsetBy: 1), with: capitalizedFirstLetter)
+    }
 }

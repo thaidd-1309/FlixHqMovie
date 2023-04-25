@@ -13,6 +13,7 @@ import SDWebImage
 import AVFoundation
 import AVKit
 import Then
+import SwiftyComments
 
 final class MovieDetailViewController: UIViewController {
 
@@ -39,6 +40,9 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var moviePosterImageView: UIImageView!
     @IBOutlet private weak var castsCollecttionView: UICollectionView!
     @IBOutlet private weak var loadingActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var commentContainer: UIView!
+    @IBOutlet private weak var trailerTableView: UITableView!
+    @IBOutlet private weak var commentTableView: UITableView!
 
     private var playerItem: AVPlayerItem?
     private var player: AVPlayer?
@@ -69,10 +73,16 @@ final class MovieDetailViewController: UIViewController {
         configView()
         configPlayButton()
         bindingData()
+        configTrailerTableView()
         configReleatedMovieCollectionView()
         configCastCollectionView()
         configAddMyListButton()
         configDownloadMovieButton()
+        configBottomButton()
+        relatedMovieCollectionView.isHidden = false
+        commentContainer.isHidden = true
+        trailerTableView.isHidden = true
+        addCommentView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -82,6 +92,14 @@ final class MovieDetailViewController: UIViewController {
             previousTimeWatch = currentTime
         }
         addToMyListButton.tintColor = isAddMyList ? .red : .white
+    }
+
+    private func addCommentView() {
+        let childViewController = RedditCommentsViewController()
+        addChild(childViewController)
+        commentContainer.addSubview(childViewController.view)
+        childViewController.view.frame = commentContainer.bounds
+        childViewController.didMove(toParent: self)
     }
 
     private func configPlayButton() {
@@ -158,6 +176,28 @@ final class MovieDetailViewController: UIViewController {
 
     private func getYear(str: String) -> String {
         return String(str.prefix(4))
+    }
+
+    private func configTrailerTableView() {
+        trailerTableView.then {
+            $0.register(nibName: TrailerTableViewCell.self)
+            $0.rx.setDelegate(self)
+                .disposed(by: disposeBag)
+        }
+
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Int>>(
+            configureCell: {  _, tableView, indexPath, item in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: TrailerTableViewCell.defaultReuseIdentifier, for: indexPath) as? TrailerTableViewCell
+                else {
+                    return UITableViewCell()
+            }
+                return cell
+            })
+        // TODO: Fake data, because api is Error, so will update when api is fixed
+        Driver.of([1, 2, 3, 4, 5, 6, 7, 8, 9])
+            .map { [SectionModel(model: "", items: $0)] }
+            .drive(trailerTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
 
     private func configCastCollectionView() {
@@ -296,4 +336,69 @@ extension MovieDetailViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 
+}
+
+extension MovieDetailViewController {
+    private func selectButtonBottom(selection: BottomSelection) {
+        switch selection {
+        case .trailer:
+            trailerButton.setTitleColor(.red, for: .normal)
+            lineTrailersButtonView.backgroundColor = .red
+            moreLikeThisButton.setTitleColor(.lineColor, for: .normal)
+            lineMoreLikeThisButton.backgroundColor = .lineColor
+            commentButton.setTitleColor(.lineColor, for: .normal)
+            lineCommentButton.backgroundColor = .lineColor
+            relatedMovieCollectionView.isHidden = true
+            commentContainer.isHidden = true
+            trailerTableView.isHidden = false
+        case .moreLikeThis:
+            trailerButton.setTitleColor(.lineColor, for: .normal)
+            lineTrailersButtonView.backgroundColor = .lineColor
+            moreLikeThisButton.setTitleColor(.red, for: .normal)
+            lineMoreLikeThisButton.backgroundColor = .red
+            commentButton.setTitleColor(.lineColor, for: .normal)
+            lineCommentButton.backgroundColor = .lineColor
+            relatedMovieCollectionView.isHidden = false
+            commentContainer.isHidden = true
+            trailerTableView.isHidden = true
+        case .comment:
+            trailerButton.setTitleColor(.lineColor, for: .normal)
+            lineTrailersButtonView.backgroundColor = .lineColor
+            moreLikeThisButton.setTitleColor(.lineColor, for: .normal)
+            lineMoreLikeThisButton.backgroundColor = .lineColor
+            commentButton.setTitleColor(.red, for: .normal)
+            lineCommentButton.backgroundColor = .red
+            relatedMovieCollectionView.isHidden = true
+            commentContainer.isHidden = false
+            trailerTableView.isHidden = true
+        }
+    }
+
+    private func configBottomButton() {
+        print("call configBottomButton")
+        trailerButton.rx.tap.subscribe(onNext: { [unowned self] _ in
+            print("trailerButton")
+            selectButtonBottom(selection: .trailer)
+        })
+        .disposed(by: disposeBag)
+
+        moreLikeThisButton.rx.tap.subscribe(onNext: { [unowned self] _ in
+            print("moreLikeThisButton")
+            selectButtonBottom(selection: .moreLikeThis)
+        })
+        .disposed(by: disposeBag)
+
+        commentButton.rx.tap.subscribe(onNext: { [unowned self] _ in
+            print("commentButton")
+            selectButtonBottom(selection: .comment)
+        })
+        .disposed(by: disposeBag)
+        
+    }
+}
+
+extension MovieDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.size.height / 5
+    }
 }

@@ -43,6 +43,12 @@ enum EndPoint {
     }
 }
 
+enum BottomSelection {
+    case trailer
+    case moreLikeThis
+    case comment
+}
+
 enum LayoutOptions {
     case itemPoster
     case addToMylistButton
